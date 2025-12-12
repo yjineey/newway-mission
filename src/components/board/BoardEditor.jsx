@@ -46,7 +46,7 @@ function BoardEditor({
             htmlFor="category"
             className="block text-sm font-semibold text-gray-900 dark:text-white mb-2"
           >
-            카테고리
+            카테고리 <span className="text-red-500">*</span>
           </label>
           <select
             id="category"
@@ -73,7 +73,7 @@ function BoardEditor({
           htmlFor="title"
           className="block text-sm font-semibold text-gray-900 dark:text-white mb-2"
         >
-          제목
+          제목 <span className="text-red-500">*</span>
         </label>
         <input
           type="text"
@@ -172,7 +172,7 @@ function BoardEditor({
           disabled={isSubmitting}
         >
           <Save className="w-4 h-4" />
-          <span>{isSubmitting ? '저장 중...' : '저장'}</span>
+          <span>저장</span>
         </button>
       </div>
     </form>
