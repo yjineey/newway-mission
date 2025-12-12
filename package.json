@@ -9,8 +9,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "deploy": "npm run build && gh-pages -d dist",
     "preview": "vite preview",
-    "deploy": "npm run build && gh-pages -d dist"
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "format": "prettier --write \"src/**/*.{js,jsx,css}\"",
+    "ci": "npm run lint && npm run build"
   },
   "repository": {
     "type": "git",
@@ -24,6 +27,10 @@
     "url": "https://github.com/yjineey/newway-mission/issues"
   },
   "homepage": "https://github.com/yjineey/newway-mission#readme",
+  "engines": {
+    "node": ">=18.18.0",
+    "npm": ">=9.0.0"
+  },
   "dependencies": {
     "classnames": "^2.5.1",
     "date-fns": "^2.30.0",
