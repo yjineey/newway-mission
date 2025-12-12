@@ -48,9 +48,9 @@ export default {
         'lg': '1rem',      // 16px
       },
       boxShadow: {
-        'soft': '0 2px 8px rgba(0, 0, 0, 0.08)',
-        'medium': '0 4px 12px rgba(0, 0, 0, 0.12)',
-        'strong': '0 8px 24px rgba(0, 0, 0, 0.16)',
+        'soft': '0 1px 3px rgba(0, 0, 0, 0.06)',
+        'medium': '0 2px 8px rgba(0, 0, 0, 0.08)',
+        'strong': '0 4px 16px rgba(0, 0, 0, 0.12)',
       },
       animation: {
         'fade-in': 'fadeIn 0.3s ease-in-out',

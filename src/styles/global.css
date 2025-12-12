@@ -2,35 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
-/* CSS Variables for Theme */
+/* CSS Variables for Theme - Cursor Style */
 :root {
-  /* Light Mode */
+  /* Light Mode - Cursor Style */
   --bg-primary: #ffffff;
-  --bg-secondary: #f8f9fa;
-  --bg-tertiary: #f1f3f5;
-  --text-primary: #212529;
-  --text-secondary: #6c757d;
-  --text-tertiary: #adb5bd;
-  --border: #dee2e6;
-  --border-light: #e9ecef;
+  --bg-secondary: #fafafa;
+  --bg-tertiary: #f5f5f5;
+  --text-primary: #1e1e1e;
+  --text-secondary: #6e6e6e;
+  --text-tertiary: #a0a0a0;
+  --border: #e5e5e5;
+  --border-light: #f0f0f0;
   --accent: #0ea5e9;
   --accent-hover: #0284c7;
-  --shadow: rgba(0, 0, 0, 0.08);
+  --shadow: rgba(0, 0, 0, 0.04);
   --overlay: rgba(0, 0, 0, 0.5);
 }
 
 .dark {
-  /* Dark Mode */
-  --bg-primary: #1a1a1a;
-  --bg-secondary: #2d2d2d;
-  --bg-tertiary: #3a3a3a;
-  --text-primary: #f8f9fa;
-  --text-secondary: #adb5bd;
-  --text-tertiary: #6c757d;
-  --border: #495057;
-  --border-light: #3a3a3a;
-  --accent: #38bdf8;
-  --accent-hover: #7dd3fc;
+  /* Dark Mode - Cursor/VSCode Style */
+  --bg-primary: #252525;
+  --bg-secondary: #1e1e1e;
+  --bg-tertiary: #2d2d2d;
+  --text-primary: #d4d4d4;
+  --text-secondary: #9d9d9d;
+  --text-tertiary: #6e6e6e;
+  --border: #333333;
+  --border-light: #2a2a2a;
+  --accent: #3b82f6;
+  --accent-hover: #60a5fa;
   --shadow: rgba(0, 0, 0, 0.3);
   --overlay: rgba(0, 0, 0, 0.7);
 }
@@ -81,7 +81,6 @@ a:hover {
 button {
   font-family: inherit;
   cursor: pointer;
-  border: none;
   background: none;
   outline: none;
 }
@@ -128,14 +127,14 @@ input, textarea {
 .card {
   background: var(--bg-primary);
   border-radius: 12px;
-  box-shadow: 0 2px 8px var(--shadow);
+  box-shadow: 0 1px 3px var(--shadow);
+  border: 1px solid var(--border);
   padding: 1.5rem;
   transition: all 0.2s ease;
 }
 
 .card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px var(--shadow);
+  box-shadow: 0 2px 8px var(--shadow);
 }
 
 /* Button Component */
@@ -192,6 +191,20 @@ input, textarea {
 
 .input::placeholder {
   color: var(--text-tertiary);
+}
+
+/* Select Component */
+select.input {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236e6e6e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 16px;
+  padding-right: 2.5rem;
+}
+
+.dark select.input {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23a8a8a8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
 }
 
 /* Animation Classes */
