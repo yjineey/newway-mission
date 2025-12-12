@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ChevronRight } from 'lucide-react'
-import { format } from 'date-fns'
-import { ko } from 'date-fns/locale'
+import { formatDate } from '../../utils/dateFormat'
 
 function ListItem({ id, title, content, date, basePath }) {
   return (
@@ -26,7 +25,7 @@ function ListItem({ id, title, content, date, basePath }) {
           {/* 날짜 */}
           {date && (
             <p className="text-xs text-gray-500 dark:text-gray-500">
-              {format(date, 'yyyy.MM.dd', { locale: ko })}
+              {formatDate(date)}
             </p>
           )}
         </div>
