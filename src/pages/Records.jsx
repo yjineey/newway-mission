@@ -1,15 +1,30 @@
 import PageLayout from '../components/layout/PageLayout'
+import WriteButton from '../components/board/WriteButton'
+import ListItem from '../components/board/ListItem'
+import EmptyState from '../components/board/EmptyState'
 
 function Records() {
+  // TODO: Firebase에서 데이터 불러오기
+  const records = []
+
   return (
-    <PageLayout title="회의록">
-      <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-soft p-6 md:p-8">
-        <div className="text-center py-12">
-          <p className="text-gray-600 dark:text-gray-400">
-            회의록 컨텐츠가 여기에 표시됩니다.
-          </p>
+    <PageLayout title="회의록" showTeamTabs={true} actions={<WriteButton category="records" />}>
+      {records.length > 0 ? (
+        <div className="space-y-3">
+          {records.map((record) => (
+            <ListItem
+              key={record.id}
+              id={record.id}
+              title={record.title}
+              content={record.content}
+              date={record.date}
+              basePath="/records"
+            />
+          ))}
         </div>
-      </div>
+      ) : (
+        <EmptyState message="작성된 회의록이 없습니다." />
+      )}
     </PageLayout>
   )
 }
