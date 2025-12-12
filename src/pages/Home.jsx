@@ -1,8 +1,11 @@
+import { useTeam } from '../context/TeamContext'
 import TeamSelector from '../components/team/TeamSelector'
 import CategoryGrid from '../components/category/CategoryGrid'
 import { categoryGroups } from '../data/categories'
 
-function Home({ selectedTeam, onTeamChange }) {
+function Home() {
+  const { selectedTeam, changeTeam } = useTeam()
+
   return (
     <div className="min-h-screen py-8">
       <div className="container mx-auto px-4 max-w-6xl">
@@ -10,7 +13,7 @@ function Home({ selectedTeam, onTeamChange }) {
         <div className="mb-12 animate-fade-in">
           <TeamSelector 
             selectedTeam={selectedTeam} 
-            onTeamChange={onTeamChange} 
+            onTeamChange={changeTeam} 
           />
         </div>
 
@@ -19,10 +22,10 @@ function Home({ selectedTeam, onTeamChange }) {
           <CategoryGrid groups={categoryGroups} />
         </div>
 
-        {/* 하단 저작권 */}
-        <div className="mt-16 py-8 border-t border-gray-200 dark:border-gray-800">
+        {/* 하단 저작권 (모바일만) */}
+        <div className="md:hidden mt-12 pt-8 border-t border-gray-400 dark:border-[#333333]">
           <p className="text-center text-sm text-gray-600 dark:text-gray-400">
-            © 2025 뉴웨이교회. All rights reserved.
+            © 2025 뉴웨이교회
           </p>
         </div>
       </div>

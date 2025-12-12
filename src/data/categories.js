@@ -1,17 +1,16 @@
 import { 
-  Calendar, 
-  Bell, 
-  GraduationCap, 
+  CalendarDays, 
+  Megaphone, 
+  School, 
   Heart, 
   BookOpen, 
-  Users, 
-  Target, 
+  UsersRound, 
+  Flag, 
   Music,
-  Phone,
-  UserSquare2,
-  Package,
-  ShoppingBag,
-  FileText
+  PhoneCall,
+  ClipboardList,
+  Backpack,
+  Gift
 } from 'lucide-react'
 
 export const categoryGroups = [
@@ -22,28 +21,28 @@ export const categoryGroups = [
       {
         id: 'schedule',
         name: '선교일정',
-        icon: Calendar,
+        icon: CalendarDays,
         path: '/schedule',
         color: 'from-blue-500 to-cyan-500'
       },
       {
         id: 'notices',
         name: '공지사항',
-        icon: Bell,
+        icon: Megaphone,
         path: '/notices',
         color: 'from-orange-500 to-amber-500'
       },
       {
         id: 'records',
         name: '회의록',
-        icon: FileText,
+        icon: ClipboardList,
         path: '/records',
         color: 'from-purple-500 to-violet-500'
       },
       {
         id: 'contact',
         name: '비상연락망',
-        icon: Phone,
+        icon: PhoneCall,
         path: '/contact',
         color: 'from-red-500 to-rose-500'
       }
@@ -56,7 +55,7 @@ export const categoryGroups = [
       {
         id: 'school',
         name: '선교스쿨',
-        icon: GraduationCap,
+        icon: School,
         path: '/school',
         color: 'from-indigo-500 to-blue-500'
       },
@@ -83,14 +82,14 @@ export const categoryGroups = [
       {
         id: 'building',
         name: '팀빌딩',
-        icon: UserSquare2,
+        icon: UsersRound,
         path: '/building',
         color: 'from-green-500 to-lime-500'
       },
       {
         id: 'missions',
         name: '팀미션',
-        icon: Target,
+        icon: Flag,
         path: '/missions',
         color: 'from-sky-500 to-blue-500'
       },
@@ -110,18 +109,17 @@ export const categoryGroups = [
       {
         id: 'preparation',
         name: '준비물',
-        icon: Package,
+        icon: Backpack,
         path: '/preparation',
         color: 'from-cyan-500 to-teal-500'
       },
       {
         id: 'items',
         name: '선교물품',
-        icon: ShoppingBag,
+        icon: Gift,
         path: '/items',
         color: 'from-amber-500 to-yellow-500'
       }
     ]
   }
 ]
-

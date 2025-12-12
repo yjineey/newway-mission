@@ -8,7 +8,7 @@ function Header({ theme, toggleTheme }) {
 
   return (
     <>
-      <header className="sticky top-0 z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+      <header className="sticky top-0 z-40 bg-[#f5f5f5]/95 dark:bg-[#1a1a1a]/95 backdrop-blur-md">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             {/* 로고 */}
@@ -20,14 +20,14 @@ function Header({ theme, toggleTheme }) {
                 <span className="text-white font-bold text-sm">NW</span>
               </div>
               <h1 className="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                뉴웨이 선교스쿨
+                뉴웨이교회 선교스쿨
               </h1>
             </Link>
 
             {/* 더보기 버튼 */}
             <button
               onClick={() => setIsMenuOpen(true)}
-              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-[#2d2d2d] transition-colors"
               aria-label="메뉴 열기"
             >
               <MenuIcon className="w-6 h-6 text-gray-700 dark:text-gray-300" />

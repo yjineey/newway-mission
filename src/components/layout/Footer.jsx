@@ -11,16 +11,17 @@ function Footer() {
   const location = useLocation()
 
   const navItems = [
-    { path: '/schedule', label: '선교일정', icon: Calendar },
     { path: '/school', label: '선교스쿨', icon: GraduationCap },
+    { path: '/schedule', label: '선교일정', icon: Calendar },
     { path: '/', label: '홈', icon: Home },
     { path: '/prayer', label: '기도훈련', icon: Heart },
     { path: '/word', label: '말씀훈련', icon: BookOpen },
   ]
 
   return (
-    <footer className="md:hidden fixed bottom-0 left-0 right-0 z-30 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-t border-gray-200 dark:border-gray-800 shadow-lg">
-      <nav className="flex items-center justify-around h-20 px-2">
+    <footer>
+      {/* 모바일 네비게이션 */}
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 z-30 bg-[#f5f5f5]/95 dark:bg-[#1a1a1a]/95 backdrop-blur-md shadow-lg flex items-center justify-around h-20 px-2">
         {navItems.map((item) => {
           const Icon = item.icon
           const isActive = location.pathname === item.path
@@ -50,6 +51,13 @@ function Footer() {
           )
         })}
       </nav>
+
+      {/* 웹 저작권 */}
+      <div className="hidden md:block py-6 bg-[#f5f5f5] dark:bg-[#1a1a1a] border-t border-gray-400 dark:border-[#333333]">
+        <p className="text-center text-sm text-gray-600 dark:text-gray-400">
+          © 2025 뉴웨이교회
+        </p>
+      </div>
     </footer>
   )
 }
