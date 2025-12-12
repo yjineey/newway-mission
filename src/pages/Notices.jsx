@@ -1,24 +1,39 @@
+import { useState, useEffect } from 'react'
+import { useTeam } from '../context/TeamContext'
 import PageLayout from '../components/layout/PageLayout'
 import WriteButton from '../components/board/WriteButton'
 import ListItem from '../components/board/ListItem'
 import EmptyState from '../components/board/EmptyState'
+import { getPosts } from '../services/postService'
 
 function Notices() {
-  // TODO: Firebase에서 데이터 불러오기
-  const notices = [
-    {
-      id: '1',
-      title: '첫 번째 공지사항입니다',
-      content: '공지사항 내용 미리보기입니다. 자세한 내용은 클릭해서 확인하세요.',
-      date: new Date('2025-01-10')
-    },
-    {
-      id: '2',
-      title: '두 번째 공지사항',
-      content: '중요한 공지사항입니다.',
-      date: new Date('2025-01-09')
-    },
-  ]
+  const { selectedTeam } = useTeam()
+  const [notices, setNotices] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    loadNotices()
+  }, [selectedTeam])
+
+  const loadNotices = async () => {
+    try {
+      setLoading(true)
+      const data = await getPosts('notices', selectedTeam)
+      setNotices(data)
+    } catch (error) {
+      console.error('공지사항 로드 실패:', error)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  if (loading) {
+    return (
+      <PageLayout title="공지사항" showTeamTabs={true} actions={<WriteButton category="notices" />}>
+        <EmptyState message="데이터를 불러오고 있습니다" />
+      </PageLayout>
+    )
+  }
 
   return (
     <PageLayout title="공지사항" showTeamTabs={true} actions={<WriteButton category="notices" />}>
@@ -30,7 +45,7 @@ function Notices() {
               id={notice.id}
               title={notice.title}
               content={notice.content}
-              date={notice.date}
+              date={notice.createdAt}
               basePath="/notices"
             />
           ))}

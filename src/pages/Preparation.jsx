@@ -1,11 +1,39 @@
+import { useState, useEffect } from 'react'
+import { useTeam } from '../context/TeamContext'
 import PageLayout from '../components/layout/PageLayout'
 import WriteButton from '../components/board/WriteButton'
 import ListItem from '../components/board/ListItem'
 import EmptyState from '../components/board/EmptyState'
+import { getPosts } from '../services/postService'
 
 function Preparation() {
-  // TODO: Firebase에서 데이터 불러오기
-  const items = []
+  const { selectedTeam } = useTeam()
+  const [items, setItems] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    loadItems()
+  }, [selectedTeam])
+
+  const loadItems = async () => {
+    try {
+      setLoading(true)
+      const data = await getPosts('preparation', selectedTeam)
+      setItems(data)
+    } catch (error) {
+      console.error('준비물 로드 실패:', error)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  if (loading) {
+    return (
+      <PageLayout title="준비물" showTeamTabs={true} actions={<WriteButton category="preparation" />}>
+        <EmptyState message="데이터를 불러오고 있습니다" />
+      </PageLayout>
+    )
+  }
 
   return (
     <PageLayout title="준비물" showTeamTabs={true} actions={<WriteButton category="preparation" />}>
@@ -17,7 +45,7 @@ function Preparation() {
               id={item.id}
               title={item.title}
               content={item.content}
-              date={item.date}
+              date={item.createdAt}
               basePath="/preparation"
             />
           ))}

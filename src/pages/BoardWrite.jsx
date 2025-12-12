@@ -1,10 +1,15 @@
+import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import { useTeam } from '../context/TeamContext'
 import PageLayout from '../components/layout/PageLayout'
 import BoardEditor from '../components/board/BoardEditor'
+import { createPost, uploadFile } from '../services/postService'
 
 function BoardWrite() {
   const navigate = useNavigate()
   const { category } = useParams()
+  const { selectedTeam } = useTeam()
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   // 카테고리별 설정 (리스트 5개만)
   const categoryConfig = {
@@ -47,11 +52,38 @@ function BoardWrite() {
   ]
 
   const handleSubmit = async (formData) => {
-    console.log(`${config.title} 저장:`, formData)
-    // TODO: Firebase에 저장
-    setTimeout(() => {
+    if (isSubmitting) return
+    
+    try {
+      setIsSubmitting(true)
+
+      // 1. 게시글 생성
+      const postData = {
+        category: formData.category || category,
+        team: selectedTeam,
+        title: formData.title,
+        content: formData.content,
+        author: '관리자', // AuthContext에서 가져올 수 있음
+      }
+
+      const postId = await createPost(postData)
+
+      // 2. 파일 업로드 (있는 경우)
+      if (formData.files && formData.files.length > 0) {
+        const uploadPromises = formData.files.map(file => 
+          uploadFile(file, postId)
+        )
+        await Promise.all(uploadPromises)
+      }
+
+      // 3. 성공 후 목록으로 이동
       navigate(config.returnPath)
-    }, 500)
+    } catch (error) {
+      console.error('게시글 작성 실패:', error)
+      alert('게시글 작성에 실패했습니다.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -66,6 +98,7 @@ function BoardWrite() {
           initialData={{ title: '', content: '', category }}
           showCategorySelect={true}
           categories={categoryOptions}
+          isSubmitting={isSubmitting}
         />
       </div>
     </PageLayout>

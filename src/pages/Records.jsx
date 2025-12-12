@@ -1,11 +1,39 @@
+import { useState, useEffect } from 'react'
+import { useTeam } from '../context/TeamContext'
 import PageLayout from '../components/layout/PageLayout'
 import WriteButton from '../components/board/WriteButton'
 import ListItem from '../components/board/ListItem'
 import EmptyState from '../components/board/EmptyState'
+import { getPosts } from '../services/postService'
 
 function Records() {
-  // TODO: Firebase에서 데이터 불러오기
-  const records = []
+  const { selectedTeam } = useTeam()
+  const [records, setRecords] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    loadRecords()
+  }, [selectedTeam])
+
+  const loadRecords = async () => {
+    try {
+      setLoading(true)
+      const data = await getPosts('records', selectedTeam)
+      setRecords(data)
+    } catch (error) {
+      console.error('회의록 로드 실패:', error)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  if (loading) {
+    return (
+      <PageLayout title="회의록" showTeamTabs={true} actions={<WriteButton category="records" />}>
+        <EmptyState message="데이터를 불러오고 있습니다" />
+      </PageLayout>
+    )
+  }
 
   return (
     <PageLayout title="회의록" showTeamTabs={true} actions={<WriteButton category="records" />}>
@@ -17,7 +45,7 @@ function Records() {
               id={record.id}
               title={record.title}
               content={record.content}
-              date={record.date}
+              date={record.createdAt}
               basePath="/records"
             />
           ))}
