@@ -1,0 +1,27 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // 게시글 (posts)
+    match /posts/{postId} {
+      // 읽기: 모두 가능
+      allow read: if true;
+      
+      // 쓰기: 관리자만 가능 (localStorage의 isAdmin 체크는 클라이언트에서)
+      allow create, update, delete: if request.auth != null;
+    }
+    
+    // 댓글 (comments)
+    match /comments/{commentId} {
+      // 읽기: 모두 가능
+      allow read: if true;
+      
+      // 쓰기: 인증된 사용자 (익명 포함)
+      allow create: if request.auth != null;
+      allow update, delete: if request.auth != null 
+        && request.auth.uid == resource.data.authorId;
+    }
+  }
+}
+
