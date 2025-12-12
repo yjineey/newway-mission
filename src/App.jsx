@@ -1,5 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import { TeamProvider } from './context/TeamContext'
+import { AuthProvider } from './context/AuthContext'
 import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
 import Home from './pages/Home'
@@ -16,22 +18,18 @@ import Preparation from './pages/Preparation'
 import Items from './pages/Items'
 import Praise from './pages/Praise'
 import ChurchInfo from './pages/ChurchInfo'
+import BoardWrite from './pages/BoardWrite'
+import BoardDetail from './pages/BoardDetail'
+import BoardEdit from './pages/BoardEdit'
 
 function App() {
   const [theme, setTheme] = useState('light')
-  const [selectedTeam, setSelectedTeam] = useState('egypt')
 
   // 다크모드 초기화
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme') || 'light'
     setTheme(savedTheme)
     document.documentElement.classList.toggle('dark', savedTheme === 'dark')
-  }, [])
-
-  // 팀 선택 초기화
-  useEffect(() => {
-    const savedTeam = localStorage.getItem('selectedTeam') || 'egypt'
-    setSelectedTeam(savedTeam)
   }, [])
 
   const toggleTheme = () => {
@@ -41,45 +39,41 @@ function App() {
     document.documentElement.classList.toggle('dark', newTheme === 'dark')
   }
 
-  const handleTeamChange = (team) => {
-    setSelectedTeam(team)
-    localStorage.setItem('selectedTeam', team)
-  }
-
   return (
     <Router basename="/newway-mission">
-      <div className="min-h-screen flex flex-col">
-        <Header theme={theme} toggleTheme={toggleTheme} />
-        
-        <main className="flex-1 mobile-content">
-          <Routes>
-            <Route 
-              path="/" 
-              element={
-                <Home 
-                  selectedTeam={selectedTeam} 
-                  onTeamChange={handleTeamChange} 
-                />
-              } 
-            />
-            <Route path="/schedule" element={<Schedule />} />
-            <Route path="/notices" element={<Notices />} />
-            <Route path="/school" element={<School />} />
-            <Route path="/prayer" element={<Prayer />} />
-            <Route path="/word" element={<Word />} />
-            <Route path="/records" element={<Records />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/building" element={<Building />} />
-            <Route path="/missions" element={<Missions />} />
-            <Route path="/preparation" element={<Preparation />} />
-            <Route path="/items" element={<Items />} />
-            <Route path="/praise" element={<Praise />} />
-            <Route path="/church-info" element={<ChurchInfo />} />
-          </Routes>
-        </main>
+      <AuthProvider>
+        <TeamProvider>
+          <div className="min-h-screen flex flex-col">
+            <Header theme={theme} toggleTheme={toggleTheme} />
+            
+            <main className="flex-1 mobile-content">
+              <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/schedule" element={<Schedule />} />
+              <Route path="/notices" element={<Notices />} />
+              <Route path="/school" element={<School />} />
+              <Route path="/prayer" element={<Prayer />} />
+              <Route path="/word" element={<Word />} />
+              <Route path="/records" element={<Records />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/building" element={<Building />} />
+              <Route path="/missions" element={<Missions />} />
+              <Route path="/preparation" element={<Preparation />} />
+              <Route path="/items" element={<Items />} />
+              <Route path="/praise" element={<Praise />} />
+              <Route path="/church-info" element={<ChurchInfo />} />
+              
+              {/* 공통 게시판 페이지 */}
+              <Route path="/write/:category" element={<BoardWrite />} />
+              <Route path="/:category/:id" element={<BoardDetail />} />
+              <Route path="/edit/:category/:id" element={<BoardEdit />} />
+              </Routes>
+            </main>
 
-        <Footer />
-      </div>
+            <Footer />
+          </div>
+        </TeamProvider>
+      </AuthProvider>
     </Router>
   )
 }
