@@ -30,9 +30,9 @@ function Footer() {
             <Link
               key={item.path}
               to={item.path}
-              className={`flex flex-col items-center justify-center gap-1 px-3 py-2 rounded-lg transition-all ${
+              className={`flex flex-col items-center justify-center gap-1 px-3 py-2 rounded-lg ${
                 isActive
-                  ? 'text-primary-600 dark:text-primary-400'
+                  ? 'text-gray-900 dark:text-white'
                   : 'text-gray-600 dark:text-gray-400'
               }`}
             >

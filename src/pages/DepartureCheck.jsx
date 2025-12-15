@@ -2,7 +2,7 @@ import PageLayout from '../components/layout/PageLayout'
 
 function DepartureCheck() {
   return (
-    <PageLayout title="출발체크" showTeamTabs={true}>
+    <PageLayout title="출발체크" showTeamTabs={false}>
       <div className="bg-white dark:bg-[#252525] rounded-2xl shadow-soft border border-gray-200 dark:border-[#333333] p-6 md:p-8">
         <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6">
           출발 전 준비사항

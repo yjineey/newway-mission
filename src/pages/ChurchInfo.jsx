@@ -44,7 +44,7 @@ function ChurchInfo() {
           <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-6">
             뉴웨이 핵심 가치
           </h2>
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* LOVING GOD */}
             <div className="p-6 bg-gray-50 dark:bg-[#2d2d2d] rounded-xl">
               <div className="text-center mb-4">
@@ -131,7 +131,7 @@ function ChurchInfo() {
             <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-3 px-1">
               주일
             </h3>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="p-4 bg-gray-50 dark:bg-[#2d2d2d] rounded-lg">
                 <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
                   주일예배
@@ -164,7 +164,7 @@ function ChurchInfo() {
             <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-3 px-1">
               주중
             </h3>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="p-4 bg-gray-50 dark:bg-[#2d2d2d] rounded-lg">
                 <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
                   기도의 집
@@ -180,9 +180,6 @@ function ChurchInfo() {
                 <p className="text-sm text-gray-600 dark:text-gray-400">
                   금요일 오후 8시
                 </p>
-              </div>
-              <div className="p-4 bg-gray-50 dark:bg-[#2d2d2d] rounded-lg opacity-0 pointer-events-none">
-                {/* 빈칸 */}
               </div>
             </div>
           </div>

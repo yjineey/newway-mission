@@ -2,7 +2,7 @@ import PageLayout from '../components/layout/PageLayout'
 
 function FieldCheck() {
   return (
-    <PageLayout title="현지체크" showTeamTabs={true}>
+    <PageLayout title="현지체크" showTeamTabs={false}>
       <div className="space-y-6">
         {/* 출발 후 - 입/출국 주의사항 */}
         <div className="bg-white dark:bg-[#252525] rounded-2xl shadow-soft border border-gray-200 dark:border-[#333333] p-6 md:p-8">

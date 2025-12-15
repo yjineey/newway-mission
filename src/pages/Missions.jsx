@@ -112,7 +112,7 @@ function Missions() {
   ]
 
   return (
-    <PageLayout title="팀미션" showTeamTabs={true}>
+    <PageLayout title="팀미션" showTeamTabs={false}>
       <div className="bg-white dark:bg-[#252525] rounded-2xl shadow-soft border border-gray-200 dark:border-[#333333] p-6 md:p-8">
         <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6">
           팀 미션 (WEEK 1-6)
