@@ -9,10 +9,10 @@ function TeamTraining() {
           {/* 피드백 내용 */}
           <div className="p-5 bg-gray-50 dark:bg-[#2d2d2d] rounded-xl">
             <h3 className="font-semibold text-gray-900 dark:text-white mb-3">
-              강의 피드백 내용
+              훈련 내용
             </h3>
             <div className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
-              <p>1) 내용요약</p>
+              <p>1) 강의 피드백 내용 요약</p>
               <p>2) 느낀점</p>
               <p>3) 적용</p>
             </div>
