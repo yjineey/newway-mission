@@ -8,6 +8,7 @@ import Home from './pages/Home'
 import Schedule from './pages/Schedule'
 import Notices from './pages/Notices'
 import School from './pages/School'
+import TeamTraining from './pages/TeamTraining'
 import Prayer from './pages/Prayer'
 import Word from './pages/Word'
 import Records from './pages/Records'
@@ -16,6 +17,8 @@ import Building from './pages/Building'
 import Missions from './pages/Missions'
 import Preparation from './pages/Preparation'
 import Items from './pages/Items'
+import DepartureCheck from './pages/DepartureCheck'
+import FieldCheck from './pages/FieldCheck'
 import Praise from './pages/Praise'
 import ChurchInfo from './pages/ChurchInfo'
 import BoardWrite from './pages/BoardWrite'
@@ -52,6 +55,7 @@ function App() {
               <Route path="/schedule" element={<Schedule />} />
               <Route path="/notices" element={<Notices />} />
               <Route path="/school" element={<School />} />
+              <Route path="/teamtraining" element={<TeamTraining />} />
               <Route path="/prayer" element={<Prayer />} />
               <Route path="/word" element={<Word />} />
               <Route path="/records" element={<Records />} />
@@ -60,6 +64,8 @@ function App() {
               <Route path="/missions" element={<Missions />} />
               <Route path="/preparation" element={<Preparation />} />
               <Route path="/items" element={<Items />} />
+              <Route path="/departure-check" element={<DepartureCheck />} />
+              <Route path="/field-check" element={<FieldCheck />} />
               <Route path="/praise" element={<Praise />} />
               <Route path="/church-info" element={<ChurchInfo />} />
               

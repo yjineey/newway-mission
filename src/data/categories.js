@@ -10,14 +10,24 @@ import {
   PhoneCall,
   ClipboardList,
   Backpack,
-  Gift
-} from 'lucide-react'
+  Gift,
+  Users,
+  CheckSquare,
+  MapPin
+} from 'lucide-react';
 
 export const categoryGroups = [
   {
     id: 'essential',
-    label: '📋 필수 정보',
+    label: '필수',
     categories: [
+      {
+        id: 'school',
+        name: '선교스쿨',
+        icon: School,
+        path: '/school',
+        color: 'from-indigo-500 to-blue-500'
+      },
       {
         id: 'schedule',
         name: '선교일정',
@@ -33,13 +43,6 @@ export const categoryGroups = [
         color: 'from-orange-500 to-amber-500'
       },
       {
-        id: 'records',
-        name: '회의록',
-        icon: ClipboardList,
-        path: '/records',
-        color: 'from-purple-500 to-violet-500'
-      },
-      {
         id: 'contact',
         name: '비상연락망',
         icon: PhoneCall,
@@ -50,21 +53,14 @@ export const categoryGroups = [
   },
   {
     id: 'education',
-    label: '📚 교육/훈련',
+    label: '훈련',
     categories: [
       {
-        id: 'school',
-        name: '선교스쿨',
-        icon: School,
-        path: '/school',
-        color: 'from-indigo-500 to-blue-500'
-      },
-      {
-        id: 'prayer',
-        name: '기도훈련',
-        icon: Heart,
-        path: '/prayer',
-        color: 'from-pink-500 to-rose-500'
+        id: 'teamtraining',
+        name: '팀훈련',
+        icon: Users,
+        path: '/teamtraining',
+        color: 'from-blue-500 to-indigo-500'
       },
       {
         id: 'word',
@@ -72,12 +68,19 @@ export const categoryGroups = [
         icon: BookOpen,
         path: '/word',
         color: 'from-teal-500 to-emerald-500'
+      },
+      {
+        id: 'prayer',
+        name: '기도훈련',
+        icon: Heart,
+        path: '/prayer',
+        color: 'from-pink-500 to-rose-500'
       }
     ]
   },
   {
     id: 'team',
-    label: '👥 팀',
+    label: '공동체',
     categories: [
       {
         id: 'building',
@@ -94,6 +97,13 @@ export const categoryGroups = [
         color: 'from-sky-500 to-blue-500'
       },
       {
+        id: 'records',
+        name: '회의록',
+        icon: ClipboardList,
+        path: '/records',
+        color: 'from-purple-500 to-violet-500'
+      },
+      {
         id: 'praise',
         name: '찬양',
         icon: Music,
@@ -104,7 +114,7 @@ export const categoryGroups = [
   },
   {
     id: 'preparation',
-    label: '📦 준비/물품',
+    label: '준비사항',
     categories: [
       {
         id: 'preparation',
@@ -119,7 +129,21 @@ export const categoryGroups = [
         icon: Gift,
         path: '/items',
         color: 'from-amber-500 to-yellow-500'
+      },
+      {
+        id: 'departure-check',
+        name: '출발체크',
+        icon: CheckSquare,
+        path: '/departure-check',
+        color: 'from-blue-500 to-cyan-500'
+      },
+      {
+        id: 'field-check',
+        name: '현지체크',
+        icon: MapPin,
+        path: '/field-check',
+        color: 'from-green-500 to-emerald-500'
       }
     ]
   }
-]
+];
