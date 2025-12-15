@@ -75,28 +75,31 @@ function Word() {
                 <h3 className="font-bold text-gray-900 dark:text-white mb-3">
                   12월
                 </h3>
-                <table className="w-full border-collapse">
+                <table
+                  className="w-full border-collapse"
+                  style={{ wordBreak: 'keep-all' }}
+                >
                   <thead>
                     <tr className="bg-gray-200 dark:bg-[#2d2d2d]">
-                      <th className="border border-gray-300 dark:border-gray-600 px-3 py-2 text-sm font-bold text-red-600 dark:text-red-400">
+                      <th className="border border-gray-300 dark:border-gray-600 px-2 py-2 text-xs font-bold text-red-600 dark:text-red-400">
                         일
                       </th>
-                      <th className="border border-gray-300 dark:border-gray-600 px-3 py-2 text-sm font-bold text-gray-900 dark:text-white">
+                      <th className="border border-gray-300 dark:border-gray-600 px-2 py-2 text-xs font-bold text-gray-900 dark:text-white">
                         월
                       </th>
-                      <th className="border border-gray-300 dark:border-gray-600 px-3 py-2 text-sm font-bold text-gray-900 dark:text-white">
+                      <th className="border border-gray-300 dark:border-gray-600 px-2 py-2 text-xs font-bold text-gray-900 dark:text-white">
                         화
                       </th>
-                      <th className="border border-gray-300 dark:border-gray-600 px-3 py-2 text-sm font-bold text-gray-900 dark:text-white">
+                      <th className="border border-gray-300 dark:border-gray-600 px-2 py-2 text-xs font-bold text-gray-900 dark:text-white">
                         수
                       </th>
-                      <th className="border border-gray-300 dark:border-gray-600 px-3 py-2 text-sm font-bold text-gray-900 dark:text-white">
+                      <th className="border border-gray-300 dark:border-gray-600 px-2 py-2 text-xs font-bold text-gray-900 dark:text-white">
                         목
                       </th>
-                      <th className="border border-gray-300 dark:border-gray-600 px-3 py-2 text-sm font-bold text-gray-900 dark:text-white">
+                      <th className="border border-gray-300 dark:border-gray-600 px-2 py-2 text-xs font-bold text-gray-900 dark:text-white">
                         금
                       </th>
-                      <th className="border border-gray-300 dark:border-gray-600 px-3 py-2 text-sm font-bold text-gray-900 dark:text-white">
+                      <th className="border border-gray-300 dark:border-gray-600 px-2 py-2 text-xs font-bold text-gray-900 dark:text-white">
                         토
                       </th>
                     </tr>
@@ -105,188 +108,188 @@ function Word() {
                     {/* 1주차 */}
                     <tr>
                       <td className="border border-gray-300 dark:border-gray-600 px-3 py-3 text-center" />
-                      <td className="border border-gray-300 dark:border-gray-600 px-3 py-3 text-center">
-                        <div className="font-bold text-gray-900 dark:text-white">
+                      <td className="border border-gray-300 dark:border-gray-600 px-2 py-2 text-center">
+                        <div className="font-bold text-gray-900 dark:text-white whitespace-nowrap">
                           1
                         </div>
-                        <div className="text-sm text-gray-700 dark:text-gray-300">
+                        <div className="text-xs text-gray-700 dark:text-gray-300 whitespace-nowrap">
                           수1:1-9
                         </div>
                       </td>
-                      <td className="border border-gray-300 dark:border-gray-600 px-3 py-3 text-center">
-                        <div className="font-bold text-gray-900 dark:text-white">
+                      <td className="border border-gray-300 dark:border-gray-600 px-2 py-2 text-center">
+                        <div className="font-bold text-gray-900 dark:text-white whitespace-nowrap">
                           2
                         </div>
-                        <div className="text-sm text-gray-700 dark:text-gray-300">
+                        <div className="text-xs text-gray-700 dark:text-gray-300 whitespace-nowrap">
                           수1:10-18
                         </div>
                       </td>
-                      <td className="border border-gray-300 dark:border-gray-600 px-3 py-3 text-center">
-                        <div className="font-bold text-gray-900 dark:text-white">
+                      <td className="border border-gray-300 dark:border-gray-600 px-2 py-2 text-center">
+                        <div className="font-bold text-gray-900 dark:text-white whitespace-nowrap">
                           3
                         </div>
-                        <div className="text-sm text-gray-700 dark:text-gray-300">
+                        <div className="text-xs text-gray-700 dark:text-gray-300 whitespace-nowrap">
                           수2:1-7
                         </div>
                       </td>
-                      <td className="border border-gray-300 dark:border-gray-600 px-3 py-3 text-center">
-                        <div className="font-bold text-gray-900 dark:text-white">
+                      <td className="border border-gray-300 dark:border-gray-600 px-2 py-2 text-center">
+                        <div className="font-bold text-gray-900 dark:text-white whitespace-nowrap">
                           4
                         </div>
-                        <div className="text-sm text-gray-700 dark:text-gray-300">
+                        <div className="text-xs text-gray-700 dark:text-gray-300 whitespace-nowrap">
                           수2:8-14
                         </div>
                       </td>
-                      <td className="border border-gray-300 dark:border-gray-600 px-3 py-3 text-center">
-                        <div className="font-bold text-gray-900 dark:text-white">
+                      <td className="border border-gray-300 dark:border-gray-600 px-2 py-2 text-center">
+                        <div className="font-bold text-gray-900 dark:text-white whitespace-nowrap">
                           5
                         </div>
-                        <div className="text-sm text-gray-700 dark:text-gray-300">
+                        <div className="text-xs text-gray-700 dark:text-gray-300 whitespace-nowrap">
                           수2:15-24
                         </div>
                       </td>
-                      <td className="border border-gray-300 dark:border-gray-600 px-3 py-3 text-center">
-                        <div className="font-bold text-gray-900 dark:text-white">
+                      <td className="border border-gray-300 dark:border-gray-600 px-2 py-2 text-center">
+                        <div className="font-bold text-gray-900 dark:text-white whitespace-nowrap">
                           6
                         </div>
-                        <div className="text-sm text-gray-700 dark:text-gray-300">
+                        <div className="text-xs text-gray-700 dark:text-gray-300 whitespace-nowrap">
                           수3:1-8
                         </div>
                       </td>
                     </tr>
                     {/* 2주차 */}
                     <tr>
-                      <td className="border border-gray-300 dark:border-gray-600 px-3 py-3 text-center">
+                      <td className="border border-gray-300 dark:border-gray-600 px-2 py-2 text-center">
                         <div className="font-bold text-red-600 dark:text-red-400">
                           7
                         </div>
-                        <div className="text-sm text-gray-700 dark:text-gray-300">
+                        <div className="text-xs text-gray-700 dark:text-gray-300 whitespace-nowrap">
                           수3:9-17
                         </div>
                       </td>
-                      <td className="border border-gray-300 dark:border-gray-600 px-3 py-3 text-center">
-                        <div className="font-bold text-gray-900 dark:text-white">
+                      <td className="border border-gray-300 dark:border-gray-600 px-2 py-2 text-center">
+                        <div className="font-bold text-gray-900 dark:text-white whitespace-nowrap">
                           8
                         </div>
-                        <div className="text-sm text-gray-700 dark:text-gray-300">
+                        <div className="text-xs text-gray-700 dark:text-gray-300 whitespace-nowrap">
                           수4:1-14
                         </div>
                       </td>
-                      <td className="border border-gray-300 dark:border-gray-600 px-3 py-3 text-center">
-                        <div className="font-bold text-gray-900 dark:text-white">
+                      <td className="border border-gray-300 dark:border-gray-600 px-2 py-2 text-center">
+                        <div className="font-bold text-gray-900 dark:text-white whitespace-nowrap">
                           9
                         </div>
-                        <div className="text-sm text-gray-700 dark:text-gray-300">
+                        <div className="text-xs text-gray-700 dark:text-gray-300 whitespace-nowrap">
                           수4:15-5:1
                         </div>
                       </td>
-                      <td className="border border-gray-300 dark:border-gray-600 px-3 py-3 text-center">
-                        <div className="font-bold text-gray-900 dark:text-white">
+                      <td className="border border-gray-300 dark:border-gray-600 px-2 py-2 text-center">
+                        <div className="font-bold text-gray-900 dark:text-white whitespace-nowrap">
                           10
                         </div>
-                        <div className="text-sm text-gray-700 dark:text-gray-300">
+                        <div className="text-xs text-gray-700 dark:text-gray-300 whitespace-nowrap">
                           수5:2-15
                         </div>
                       </td>
-                      <td className="border border-gray-300 dark:border-gray-600 px-3 py-3 text-center">
-                        <div className="font-bold text-gray-900 dark:text-white">
+                      <td className="border border-gray-300 dark:border-gray-600 px-2 py-2 text-center">
+                        <div className="font-bold text-gray-900 dark:text-white whitespace-nowrap">
                           11
                         </div>
-                        <div className="text-sm text-gray-700 dark:text-gray-300">
+                        <div className="text-xs text-gray-700 dark:text-gray-300 whitespace-nowrap">
                           수6:1-14
                         </div>
                       </td>
-                      <td className="border border-gray-300 dark:border-gray-600 px-3 py-3 text-center">
-                        <div className="font-bold text-gray-900 dark:text-white">
+                      <td className="border border-gray-300 dark:border-gray-600 px-2 py-2 text-center">
+                        <div className="font-bold text-gray-900 dark:text-white whitespace-nowrap">
                           12
                         </div>
-                        <div className="text-sm text-gray-700 dark:text-gray-300">
+                        <div className="text-xs text-gray-700 dark:text-gray-300 whitespace-nowrap">
                           수6:15-27
                         </div>
                       </td>
-                      <td className="border border-gray-300 dark:border-gray-600 px-3 py-3 text-center">
-                        <div className="font-bold text-gray-900 dark:text-white">
+                      <td className="border border-gray-300 dark:border-gray-600 px-2 py-2 text-center">
+                        <div className="font-bold text-gray-900 dark:text-white whitespace-nowrap">
                           13
                         </div>
-                        <div className="text-sm text-gray-700 dark:text-gray-300">
+                        <div className="text-xs text-gray-700 dark:text-gray-300 whitespace-nowrap">
                           수7:1-15
                         </div>
                       </td>
                     </tr>
                     {/* 3주차 */}
                     <tr>
-                      <td className="border border-gray-300 dark:border-gray-600 px-3 py-3 text-center">
+                      <td className="border border-gray-300 dark:border-gray-600 px-2 py-2 text-center">
                         <div className="font-bold text-red-600 dark:text-red-400">
                           14
                         </div>
-                        <div className="text-sm text-gray-700 dark:text-gray-300">
+                        <div className="text-xs text-gray-700 dark:text-gray-300 whitespace-nowrap">
                           수7:16-26
                         </div>
                       </td>
-                      <td className="border border-gray-300 dark:border-gray-600 px-3 py-3 text-center">
-                        <div className="font-bold text-gray-900 dark:text-white">
+                      <td className="border border-gray-300 dark:border-gray-600 px-2 py-2 text-center">
+                        <div className="font-bold text-gray-900 dark:text-white whitespace-nowrap">
                           15
                         </div>
-                        <div className="text-sm text-gray-700 dark:text-gray-300">
+                        <div className="text-xs text-gray-700 dark:text-gray-300 whitespace-nowrap">
                           수8:1-9
                         </div>
                       </td>
-                      <td className="border border-gray-300 dark:border-gray-600 px-3 py-3 text-center">
-                        <div className="font-bold text-gray-900 dark:text-white">
+                      <td className="border border-gray-300 dark:border-gray-600 px-2 py-2 text-center">
+                        <div className="font-bold text-gray-900 dark:text-white whitespace-nowrap">
                           16
                         </div>
-                        <div className="text-sm text-gray-700 dark:text-gray-300">
+                        <div className="text-xs text-gray-700 dark:text-gray-300 whitespace-nowrap">
                           수8:10-23
                         </div>
                       </td>
-                      <td className="border border-gray-300 dark:border-gray-600 px-3 py-3 text-center">
-                        <div className="font-bold text-gray-900 dark:text-white">
+                      <td className="border border-gray-300 dark:border-gray-600 px-2 py-2 text-center">
+                        <div className="font-bold text-gray-900 dark:text-white whitespace-nowrap">
                           17
                         </div>
-                        <div className="text-sm text-gray-700 dark:text-gray-300">
+                        <div className="text-xs text-gray-700 dark:text-gray-300 whitespace-nowrap">
                           수8:24-35
                         </div>
                       </td>
-                      <td className="border border-gray-300 dark:border-gray-600 px-3 py-3 text-center">
-                        <div className="font-bold text-gray-900 dark:text-white">
+                      <td className="border border-gray-300 dark:border-gray-600 px-2 py-2 text-center">
+                        <div className="font-bold text-gray-900 dark:text-white whitespace-nowrap">
                           18
                         </div>
-                        <div className="text-sm text-gray-700 dark:text-gray-300">
+                        <div className="text-xs text-gray-700 dark:text-gray-300 whitespace-nowrap">
                           수9:1-15
                         </div>
                       </td>
-                      <td className="border border-gray-300 dark:border-gray-600 px-3 py-3 text-center">
-                        <div className="font-bold text-gray-900 dark:text-white">
+                      <td className="border border-gray-300 dark:border-gray-600 px-2 py-2 text-center">
+                        <div className="font-bold text-gray-900 dark:text-white whitespace-nowrap">
                           19
                         </div>
-                        <div className="text-sm text-gray-700 dark:text-gray-300">
+                        <div className="text-xs text-gray-700 dark:text-gray-300 whitespace-nowrap">
                           수9:16-27
                         </div>
                       </td>
-                      <td className="border border-gray-300 dark:border-gray-600 px-3 py-3 text-center">
-                        <div className="font-bold text-gray-900 dark:text-white">
+                      <td className="border border-gray-300 dark:border-gray-600 px-2 py-2 text-center">
+                        <div className="font-bold text-gray-900 dark:text-white whitespace-nowrap">
                           20
                         </div>
-                        <div className="text-sm text-gray-700 dark:text-gray-300">
+                        <div className="text-xs text-gray-700 dark:text-gray-300 whitespace-nowrap">
                           수10:1-14
                         </div>
                       </td>
                     </tr>
                     {/* 4주차 */}
                     <tr>
-                      <td className="border border-gray-300 dark:border-gray-600 px-3 py-3 text-center">
+                      <td className="border border-gray-300 dark:border-gray-600 px-2 py-2 text-center">
                         <div className="font-bold text-red-600 dark:text-red-400">
                           21
                         </div>
-                        <div className="text-sm text-gray-700 dark:text-gray-300">
+                        <div className="text-xs text-gray-700 dark:text-gray-300 whitespace-nowrap">
                           수10:15-28
                         </div>
                       </td>
-                      <td className="border border-gray-300 dark:border-gray-600 px-3 py-3 text-center">
-                        <div className="font-bold text-gray-900 dark:text-white">
+                      <td className="border border-gray-300 dark:border-gray-600 px-2 py-2 text-center">
+                        <div className="font-bold text-gray-900 dark:text-white whitespace-nowrap">
                           22
                         </div>
-                        <div className="text-sm text-gray-700 dark:text-gray-300">
+                        <div className="text-xs text-gray-700 dark:text-gray-300 whitespace-nowrap">
                           수10:29-43
                         </div>
                       </td>
@@ -294,10 +297,10 @@ function Word() {
                         className="border border-gray-300 dark:border-gray-600 px-3 py-3 text-center"
                         colSpan={5}
                       >
-                        <div className="font-bold text-gray-900 dark:text-white">
+                        <div className="font-bold text-gray-900 dark:text-white whitespace-nowrap">
                           23
                         </div>
-                        <div className="text-sm text-gray-700 dark:text-gray-300">
+                        <div className="text-xs text-gray-700 dark:text-gray-300 whitespace-nowrap">
                           12월 1주차 시작
                         </div>
                       </td>
@@ -320,7 +323,10 @@ function Word() {
                     12월
                   </h3>
                   <div className="overflow-x-auto">
-                    <table className="w-full border-collapse text-xs">
+                    <table
+                      className="w-full border-collapse text-xs"
+                      style={{ wordBreak: 'keep-all' }}
+                    >
                       <thead>
                         <tr className="bg-gray-200 dark:bg-[#2d2d2d]">
                           <th className="border border-gray-300 dark:border-gray-600 px-2 py-2 text-red-600 dark:text-red-400">
@@ -346,7 +352,7 @@ function Word() {
                           </th>
                         </tr>
                       </thead>
-                      <tbody className="text-gray-700 dark:text-gray-300">
+                      <tbody className="text-gray-700 dark:text-gray-300 whitespace-nowrap">
                         <tr>
                           <td className="border border-gray-300 dark:border-gray-600 px-2 py-2 text-center" />
                           <td className="border border-gray-300 dark:border-gray-600 px-2 py-2 text-center">
@@ -534,7 +540,10 @@ function Word() {
                     1월
                   </h3>
                   <div className="overflow-x-auto">
-                    <table className="w-full border-collapse text-xs">
+                    <table
+                      className="w-full border-collapse text-xs"
+                      style={{ wordBreak: 'keep-all' }}
+                    >
                       <thead>
                         <tr className="bg-gray-200 dark:bg-[#2d2d2d]">
                           <th className="border border-gray-300 dark:border-gray-600 px-2 py-2 text-red-600 dark:text-red-400">
@@ -560,7 +569,7 @@ function Word() {
                           </th>
                         </tr>
                       </thead>
-                      <tbody className="text-gray-700 dark:text-gray-300">
+                      <tbody className="text-gray-700 dark:text-gray-300 whitespace-nowrap">
                         <tr>
                           <td className="border border-gray-300 dark:border-gray-600 px-2 py-2 text-center" />
                           <td className="border border-gray-300 dark:border-gray-600 px-2 py-2 text-center" />
@@ -756,7 +765,10 @@ function Word() {
                     2월
                   </h3>
                   <div className="overflow-x-auto">
-                    <table className="w-full border-collapse text-xs">
+                    <table
+                      className="w-full border-collapse text-xs"
+                      style={{ wordBreak: 'keep-all' }}
+                    >
                       <thead>
                         <tr className="bg-gray-200 dark:bg-[#2d2d2d]">
                           <th className="border border-gray-300 dark:border-gray-600 px-2 py-2 text-red-600 dark:text-red-400">
@@ -782,7 +794,7 @@ function Word() {
                           </th>
                         </tr>
                       </thead>
-                      <tbody className="text-gray-700 dark:text-gray-300">
+                      <tbody className="text-gray-700 dark:text-gray-300 whitespace-nowrap">
                         <tr>
                           <td className="border border-gray-300 dark:border-gray-600 px-2 py-2 text-center text-red-600 dark:text-red-400">
                             1<br />

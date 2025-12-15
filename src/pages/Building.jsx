@@ -161,7 +161,7 @@ function Building() {
       <div className="bg-white dark:bg-[#252525] rounded-2xl shadow-soft border border-gray-200 dark:border-[#333333] p-6 md:p-8">
         {/* 역할 테이블 */}
         <div className="overflow-x-auto">
-          <table className="w-full">
+          <table className="w-full" style={{ wordBreak: 'keep-all' }}>
             <thead>
               <tr className="border-b border-gray-300 dark:border-gray-600">
                 <th
@@ -218,7 +218,7 @@ function Building() {
                       </td>
                     </>
                   )}
-                  <td className="px-4 py-4 text-sm text-gray-700 dark:text-gray-300 text-left whitespace-pre-line">
+                  <td className="px-4 py-4 text-sm text-gray-700 dark:text-gray-300 text-left" style={{ whiteSpace: 'pre' }}>
                     {item.detail ? (
                       <>
                         {item.detail.split('\n')[0] && (

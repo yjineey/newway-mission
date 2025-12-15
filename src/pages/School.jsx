@@ -85,25 +85,28 @@ function School() {
 
         {/* 일정 테이블 */}
         <div className="overflow-x-auto">
-          <table className="w-full">
+          <table
+            className="w-full min-w-[700px]"
+            style={{ wordBreak: 'keep-all' }}
+          >
             <thead>
               <tr className="border-b-2 border-gray-300 dark:border-gray-600">
-                <th className="px-4 py-3 text-center text-sm font-bold text-gray-900 dark:text-white">
+                <th className="px-2 py-3 text-center text-xs font-bold text-gray-900 dark:text-white">
                   연도
                 </th>
-                <th className="px-4 py-3 text-center text-sm font-bold text-gray-900 dark:text-white">
+                <th className="px-2 py-3 text-center text-xs font-bold text-gray-900 dark:text-white">
                   날짜
                 </th>
-                <th className="px-4 py-3 text-center text-sm font-bold text-gray-900 dark:text-white">
+                <th className="px-2 py-3 text-center text-xs font-bold text-gray-900 dark:text-white">
                   시간
                 </th>
-                <th className="px-4 py-3 text-center text-sm font-bold text-gray-900 dark:text-white">
+                <th className="px-2 py-3 text-center text-xs font-bold text-gray-900 dark:text-white">
                   내용
                 </th>
-                <th className="px-4 py-3 text-center text-sm font-bold text-gray-900 dark:text-white">
+                <th className="px-2 py-3 text-center text-xs font-bold text-gray-900 dark:text-white">
                   세부내용
                 </th>
-                <th className="px-4 py-3 text-center text-sm font-bold text-gray-900 dark:text-white">
+                <th className="px-2 py-3 text-center text-xs font-bold text-gray-900 dark:text-white">
                   비고
                 </th>
               </tr>
@@ -126,24 +129,30 @@ function School() {
                     {isFirstYear && (
                       <td
                         rowSpan={yearRowCount}
-                        className="px-4 py-4 text-sm font-bold text-gray-900 dark:text-white whitespace-nowrap align-top border-r border-gray-300 dark:border-gray-600 text-center"
+                        className="px-2 py-3 text-xs font-bold text-gray-900 dark:text-white whitespace-nowrap align-top border-r border-gray-300 dark:border-gray-600 text-center"
                       >
                         {item.year}
                       </td>
                     )}
-                    <td className="px-4 py-4 text-sm text-gray-700 dark:text-gray-300 whitespace-nowrap text-center">
+                    <td className="px-2 py-3 text-xs text-gray-700 dark:text-gray-300 whitespace-nowrap text-center">
                       {item.date}
                     </td>
-                    <td className="px-4 py-4 text-sm text-gray-700 dark:text-gray-300 whitespace-nowrap text-center">
+                    <td className="px-2 py-3 text-xs text-gray-700 dark:text-gray-300 whitespace-nowrap text-center">
                       {item.time}
                     </td>
-                    <td className="px-4 py-4 text-sm font-semibold text-gray-900 dark:text-white whitespace-nowrap text-center">
+                    <td className="px-2 py-3 text-xs font-semibold text-gray-900 dark:text-white whitespace-nowrap text-center">
                       {item.division}
                     </td>
-                    <td className="px-4 py-4 text-sm text-gray-700 dark:text-gray-300 whitespace-pre-line text-left">
+                    <td
+                      className="px-3 py-3 text-xs text-gray-700 dark:text-gray-300 text-left"
+                      style={{ whiteSpace: 'pre' }}
+                    >
                       {item.content}
                     </td>
-                    <td className="px-4 py-4 text-sm text-gray-600 dark:text-gray-400 text-center">
+                    <td
+                      className="px-3 py-3 text-xs text-gray-600 dark:text-gray-400 text-center"
+                      style={{ minWidth: '70px', wordBreak: 'keep-all' }}
+                    >
                       {item.note}
                     </td>
                   </tr>
