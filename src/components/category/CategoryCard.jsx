@@ -9,15 +9,15 @@ function CategoryCard({ category }) {
       className="group flex flex-col items-center gap-3 p-5 rounded-xl transition-all duration-200 active:scale-95"
     >
       {/* Lucide 아이콘 */}
-      <div className="w-16 h-16 bg-gray-200 dark:bg-gray-700/50 rounded-2xl flex items-center justify-center transition-all duration-200">
+      <div className="w-16 h-16 bg-gray-200 dark:bg-gray-800 rounded-2xl flex items-center justify-center transition-all duration-200">
         <Icon
           className="w-8 h-8 text-gray-600 dark:text-gray-400"
-          strokeWidth={2}
+          strokeWidth={1.5}
         />
       </div>
 
       {/* 카테고리명 */}
-      <h3 className="text-sm md:text-base font-semibold text-gray-700 dark:text-gray-200 text-center transition-colors leading-tight">
+      <h3 className="text-xs md:text-sm font-semibold text-gray-700 dark:text-gray-200 text-center transition-colors leading-tight whitespace-nowrap">
         {category.name}
       </h3>
     </Link>
