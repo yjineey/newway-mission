@@ -1,82 +1,98 @@
-import { 
-  CalendarDays, 
-  Megaphone, 
-  School, 
-  Heart, 
-  BookOpen, 
-  UsersRound, 
-  Flag, 
+import {
+  CalendarDays,
+  Megaphone,
+  GraduationCap,
+  Heart,
+  BookOpen,
+  UsersRound,
+  Flag,
   Music,
   PhoneCall,
   ClipboardList,
   Backpack,
   Gift,
-  Users,
+  Target,
   CheckSquare,
-  MapPin
+  ListChecks,
+  Flame,
+  Cross,
 } from 'lucide-react';
 
 export const categoryGroups = [
   {
     id: 'essential',
-    label: '필수',
+    label: '기본정보',
     categories: [
       {
         id: 'school',
         name: '선교스쿨',
-        icon: School,
+        icon: GraduationCap,
         path: '/school',
-        color: 'from-indigo-500 to-blue-500'
+        color: 'from-indigo-500 to-blue-500',
       },
       {
         id: 'schedule',
         name: '선교일정',
         icon: CalendarDays,
         path: '/schedule',
-        color: 'from-blue-500 to-cyan-500'
+        color: 'from-blue-500 to-cyan-500',
+      },
+      {
+        id: 'prayer-request',
+        name: '중보기도',
+        icon: Heart,
+        path: '/prayer-request',
+        color: 'from-rose-500 to-pink-500',
       },
       {
         id: 'notices',
         name: '공지사항',
         icon: Megaphone,
         path: '/notices',
-        color: 'from-orange-500 to-amber-500'
+        color: 'from-orange-500 to-amber-500',
       },
       {
         id: 'contact',
         name: '비상연락망',
         icon: PhoneCall,
         path: '/contact',
-        color: 'from-red-500 to-rose-500'
-      }
-    ]
+        color: 'from-red-500 to-rose-500',
+      },
+    ],
   },
   {
     id: 'education',
     label: '훈련',
     categories: [
       {
-        id: 'teamtraining',
-        name: '팀훈련',
-        icon: Users,
-        path: '/teamtraining',
-        color: 'from-blue-500 to-indigo-500'
+        id: 'worship',
+        name: '예배훈련',
+        icon: Cross,
+        path: '/worship',
+        color: 'from-purple-500 to-pink-500',
       },
       {
         id: 'word',
         name: '말씀훈련',
         icon: BookOpen,
         path: '/word',
-        color: 'from-teal-500 to-emerald-500'
+        color: 'from-teal-500 to-emerald-500',
       },
       {
         id: 'prayer',
         name: '기도훈련',
-        icon: Heart,
+        icon: Flame,
         path: '/prayer',
-        color: 'from-pink-500 to-rose-500'
-      }
-    ]
+        color: 'from-pink-500 to-rose-500',
+      },
+      {
+        id: 'teamtraining',
+        name: '팀훈련',
+        icon: Target,
+        path: '/teamtraining',
+        color: 'from-blue-500 to-indigo-500',
+      },
+    ],
   },
   {
     id: 'team',
@@ -87,30 +103,30 @@ export const categoryGroups = [
         name: '팀빌딩',
         icon: UsersRound,
         path: '/building',
-        color: 'from-green-500 to-lime-500'
+        color: 'from-green-500 to-lime-500',
       },
       {
         id: 'missions',
         name: '팀미션',
         icon: Flag,
         path: '/missions',
-        color: 'from-sky-500 to-blue-500'
+        color: 'from-sky-500 to-blue-500',
       },
       {
         id: 'records',
         name: '회의록',
         icon: ClipboardList,
         path: '/records',
-        color: 'from-purple-500 to-violet-500'
+        color: 'from-purple-500 to-violet-500',
       },
       {
         id: 'praise',
         name: '찬양',
         icon: Music,
         path: '/praise',
-        color: 'from-violet-500 to-purple-500'
-      }
-    ]
+        color: 'from-violet-500 to-purple-500',
+      },
+    ],
   },
   {
     id: 'preparation',
@@ -121,29 +137,29 @@ export const categoryGroups = [
         name: '준비물',
         icon: Backpack,
         path: '/preparation',
-        color: 'from-cyan-500 to-teal-500'
+        color: 'from-cyan-500 to-teal-500',
       },
       {
         id: 'items',
         name: '선교물품',
         icon: Gift,
         path: '/items',
-        color: 'from-amber-500 to-yellow-500'
+        color: 'from-amber-500 to-yellow-500',
       },
       {
         id: 'departure-check',
         name: '출발체크',
-        icon: CheckSquare,
+        icon: ListChecks,
         path: '/departure-check',
-        color: 'from-blue-500 to-cyan-500'
+        color: 'from-blue-500 to-cyan-500',
       },
       {
         id: 'field-check',
         name: '현지체크',
-        icon: MapPin,
+        icon: CheckSquare,
         path: '/field-check',
-        color: 'from-green-500 to-emerald-500'
-      }
-    ]
-  }
+        color: 'from-green-500 to-emerald-500',
+      },
+    ],
+  },
 ];

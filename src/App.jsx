@@ -10,7 +10,9 @@ import Notices from './pages/Notices'
 import School from './pages/School'
 import TeamTraining from './pages/TeamTraining'
 import Prayer from './pages/Prayer'
+import PrayerRequest from './pages/PrayerRequest'
 import Word from './pages/Word'
+import Worship from './pages/Worship'
 import Records from './pages/Records'
 import Contact from './pages/Contact'
 import Building from './pages/Building'
@@ -57,7 +59,9 @@ function App() {
               <Route path="/school" element={<School />} />
               <Route path="/teamtraining" element={<TeamTraining />} />
               <Route path="/prayer" element={<Prayer />} />
+              <Route path="/prayer-request" element={<PrayerRequest />} />
               <Route path="/word" element={<Word />} />
+              <Route path="/worship" element={<Worship />} />
               <Route path="/records" element={<Records />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/building" element={<Building />} />
