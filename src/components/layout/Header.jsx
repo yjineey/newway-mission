@@ -17,9 +17,9 @@ function Header({ theme, toggleTheme }) {
               className="flex items-center gap-3 group"
             >
               <img 
-                src={`${import.meta.env.BASE_URL}logo/newway-logo.png`}
+                src={`${import.meta.env.BASE_URL}logo/nw-logo.png`}
                 alt="뉴웨이교회 로고" 
-                className="w-12 h-12 object-contain invert dark:invert-0"
+                className="w-8 h-8 object-contain rounded-lg invert dark:invert-0"
               />
               <h1 className="text-lg font-semibold text-gray-900 dark:text-white transition-colors">
                 뉴웨이교회 선교스쿨

@@ -2,7 +2,7 @@ import CategoryCard from './CategoryCard';
 
 function CategoryGrid({ groups }) {
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       {groups.map((group) => (
         <div key={group.id} className="animate-slide-up">
           {/* 그룹 라벨 (배민 스타일) */}

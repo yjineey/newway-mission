@@ -1,10 +1,10 @@
 import { Link, useLocation } from 'react-router-dom'
 import { 
   Home, 
-  Calendar, 
   GraduationCap, 
   Heart, 
-  BookOpen 
+  BookOpen,
+  UsersRound
 } from 'lucide-react'
 
 function Footer() {
@@ -12,10 +12,10 @@ function Footer() {
 
   const navItems = [
     { path: '/school', label: '선교스쿨', icon: GraduationCap },
-    { path: '/schedule', label: '선교일정', icon: Calendar },
+    { path: '/building', label: '팀빌딩', icon: UsersRound },
     { path: '/', label: '홈', icon: Home },
-    { path: '/prayer', label: '기도훈련', icon: Heart },
     { path: '/word', label: '말씀훈련', icon: BookOpen },
+    { path: '/prayer-request', label: '중보기도', icon: Heart },
   ]
 
   return (

@@ -10,7 +10,7 @@ function Home() {
     <div className="min-h-screen py-8">
       <div className="container mx-auto px-4 max-w-6xl">
         {/* 팀 선택 */}
-        <div className="mb-12 animate-fade-in">
+        <div className="mb-8 animate-fade-in">
           <TeamSelector 
             selectedTeam={selectedTeam} 
             onTeamChange={changeTeam} 
