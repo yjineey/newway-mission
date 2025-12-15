@@ -16,10 +16,12 @@ function Header({ theme, toggleTheme }) {
               to="/" 
               className="flex items-center gap-3 group"
             >
-              <div className="w-8 h-8 bg-gradient-to-br from-primary-500 to-primary-600 rounded-lg flex items-center justify-center shadow-md">
-                <span className="text-white font-bold text-sm">NW</span>
-              </div>
-              <h1 className="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+              <img 
+                src={`${import.meta.env.BASE_URL}logo/newway-logo.png`}
+                alt="뉴웨이교회 로고" 
+                className="w-12 h-12 object-contain invert dark:invert-0"
+              />
+              <h1 className="text-lg font-semibold text-gray-900 dark:text-white transition-colors">
                 뉴웨이교회 선교스쿨
               </h1>
             </Link>
@@ -27,7 +29,7 @@ function Header({ theme, toggleTheme }) {
             {/* 더보기 버튼 */}
             <button
               onClick={() => setIsMenuOpen(true)}
-              className="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-[#2d2d2d] transition-colors"
+              className="p-2 rounded-lg transition-colors"
               aria-label="메뉴 열기"
             >
               <MenuIcon className="w-6 h-6 text-gray-700 dark:text-gray-300" />
