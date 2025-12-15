@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { Edit, Trash2, Download, Calendar } from 'lucide-react'
 import { formatDateKorean } from '../utils/dateFormat'
 import PageLayout from '../components/layout/PageLayout'
+import EmptyState from '../components/board/EmptyState'
 import { useAuth } from '../context/AuthContext'
 import { getPost, deletePost } from '../services/postService'
 
@@ -11,7 +12,7 @@ function BoardDetail() {
   const { category, id } = useParams()
   const { isAdmin } = useAuth()
   const [post, setPost] = useState(null)
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
 
   // 카테고리별 설정
   const categoryConfig = {
@@ -30,15 +31,12 @@ function BoardDetail() {
 
   const loadPost = async () => {
     try {
-      setLoading(true)
       const data = await getPost(id)
       setPost(data)
     } catch (error) {
       console.error('게시글 로드 실패:', error)
-      alert('게시글을 불러올 수 없습니다.')
+      alert('게시글을 불러올 수 없습니다')
       navigate(config.listPath)
-    } finally {
-      setLoading(false)
     }
   }
 
@@ -56,17 +54,6 @@ function BoardDetail() {
       console.error('게시글 삭제 실패:', error)
       alert('게시글 삭제에 실패했습니다.')
     }
-  }
-
-  if (loading) {
-    return (
-      <PageLayout 
-        title={config.title}
-        showTeamTabs={config.showTeamTabs}
-      >
-        <EmptyState message="데이터를 불러오고 있습니다" />
-      </PageLayout>
-    )
   }
 
   if (!post) {
@@ -145,10 +132,10 @@ function BoardDetail() {
                   href={file.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between p-3 bg-gray-50 dark:bg-[#2d2d2d] rounded-lg border border-gray-200 dark:border-[#333333] hover:border-gray-300 dark:hover:border-gray-600 transition-colors group"
+                  className="flex items-center justify-between p-3 bg-gray-50 dark:bg-[#2d2d2d] rounded-lg border border-gray-200 dark:border-[#333333] transition-colors group"
                 >
                   <div className="flex items-center gap-2 min-w-0">
-                    <Download className="w-4 h-4 text-gray-500 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors flex-shrink-0" />
+                    <Download className="w-4 h-4 text-gray-500 transition-colors flex-shrink-0" />
                     <span className="text-sm text-gray-900 dark:text-white truncate">
                       {file.name}
                     </span>

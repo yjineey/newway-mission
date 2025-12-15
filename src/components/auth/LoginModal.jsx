@@ -43,9 +43,7 @@ function LoginModal({ isOpen, onClose }) {
           {/* Header */}
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-primary-100 dark:bg-primary-900/30 rounded-xl flex items-center justify-center">
-                <Lock className="w-5 h-5 text-primary-600 dark:text-primary-400" />
-              </div>
+              <Lock className="w-6 h-6 text-gray-600 dark:text-gray-400" />
               <h2 className="text-xl font-bold text-gray-900 dark:text-white">
                 관리자 로그인
               </h2>
@@ -81,7 +79,7 @@ function LoginModal({ isOpen, onClose }) {
 
             <button
               type="submit"
-              className="w-full px-4 py-3 bg-primary-600 border border-gray-400 dark:border-gray-600 text-white font-medium text-sm rounded-lg transition-all duration-200 cursor-pointer active:scale-95"
+              className="w-full px-4 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-medium text-sm rounded-lg transition-all duration-200 cursor-pointer active:scale-95"
             >
               로그인
             </button>

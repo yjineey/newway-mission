@@ -6,12 +6,12 @@ function ListItem({ id, title, content, date, basePath }) {
   return (
     <Link
       to={`${basePath}/${id}`}
-      className="block bg-white dark:bg-[#252525] rounded-xl border border-gray-200 dark:border-[#333333] p-5 hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-200 group"
+      className="block bg-white dark:bg-[#252525] rounded-xl border border-gray-200 dark:border-[#333333] p-5 transition-all duration-200 group"
     >
       <div className="flex items-start justify-between gap-4">
         <div className="flex-1 min-w-0">
           {/* 제목 */}
-          <h3 className="text-base font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors truncate">
+          <h3 className="text-base font-semibold text-gray-900 dark:text-white mb-2 transition-colors truncate">
             {title}
           </h3>
           
@@ -31,7 +31,7 @@ function ListItem({ id, title, content, date, basePath }) {
         </div>
 
         {/* 화살표 아이콘 */}
-        <ChevronRight className="w-5 h-5 text-gray-400 dark:text-gray-600 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors flex-shrink-0 mt-1" />
+        <ChevronRight className="w-5 h-5 text-gray-400 dark:text-gray-600 transition-colors flex-shrink-0 mt-1" />
       </div>
     </Link>
   )

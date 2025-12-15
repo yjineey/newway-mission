@@ -51,7 +51,7 @@ function Menu({ isOpen, onClose, theme, toggleTheme }) {
                   onClick={onClose}
                   className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-[#2d2d2d] transition-colors group"
                 >
-                  <Info className="w-5 h-5 text-gray-600 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400" />
+                  <Info className="w-5 h-5 text-gray-600 dark:text-gray-400" />
                   <span className="text-gray-900 dark:text-white font-medium">
                     교회 소개
                   </span>
@@ -65,7 +65,7 @@ function Menu({ isOpen, onClose, theme, toggleTheme }) {
                     onClick={handleLogout}
                     className="w-full flex items-center gap-3 p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-[#2d2d2d] transition-colors group"
                   >
-                    <LogOut className="w-5 h-5 text-gray-600 dark:text-gray-400 group-hover:text-red-600 dark:group-hover:text-red-400" />
+                    <LogOut className="w-5 h-5 text-gray-600 dark:text-gray-400" />
                     <span className="text-gray-900 dark:text-white font-medium">
                       로그아웃
                     </span>
@@ -75,7 +75,7 @@ function Menu({ isOpen, onClose, theme, toggleTheme }) {
                     onClick={handleLoginClick}
                     className="w-full flex items-center gap-3 p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-[#2d2d2d] transition-colors group"
                   >
-                    <LogIn className="w-5 h-5 text-gray-600 dark:text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400" />
+                    <LogIn className="w-5 h-5 text-gray-600 dark:text-gray-400" />
                     <span className="text-gray-900 dark:text-white font-medium">
                       관리자 로그인
                     </span>
@@ -91,9 +91,9 @@ function Menu({ isOpen, onClose, theme, toggleTheme }) {
                 >
                   <div className="flex items-center gap-3">
                     {theme === 'light' ? (
-                      <Moon className="w-5 h-5 text-gray-600 dark:text-gray-400 group-hover:text-primary-600" />
+                      <Moon className="w-5 h-5 text-gray-600 dark:text-gray-400" />
                     ) : (
-                      <Sun className="w-5 h-5 text-gray-400 group-hover:text-primary-400" />
+                      <Sun className="w-5 h-5 text-gray-400" />
                     )}
                     <span className="text-gray-900 dark:text-white font-medium">
                       다크모드

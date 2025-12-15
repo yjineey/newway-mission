@@ -46,7 +46,7 @@ function BoardEditor({
             htmlFor="category"
             className="block text-sm font-semibold text-gray-900 dark:text-white mb-2"
           >
-            카테고리 <span className="text-red-500">*</span>
+            카테고리
           </label>
           <select
             id="category"
@@ -73,7 +73,7 @@ function BoardEditor({
           htmlFor="title"
           className="block text-sm font-semibold text-gray-900 dark:text-white mb-2"
         >
-          제목 <span className="text-red-500">*</span>
+          제목
         </label>
         <input
           type="text"
@@ -145,7 +145,7 @@ function BoardEditor({
                 <button
                   type="button"
                   onClick={() => removeFile(index)}
-                  className="p-1 hover:bg-gray-200 dark:hover:bg-[#3a3a3a] rounded transition-colors"
+                  className="p-1 rounded transition-colors"
                 >
                   <X className="w-4 h-4 text-gray-500" />
                 </button>
@@ -168,7 +168,7 @@ function BoardEditor({
         </button>
         <button
           type="submit"
-          className="inline-flex items-center gap-2 px-4 py-2.5 bg-primary-600 border border-gray-400 dark:border-gray-600 text-white font-medium text-sm rounded-lg transition-all duration-200 cursor-pointer active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="inline-flex items-center gap-2 px-4 py-2.5 border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white font-medium text-sm rounded-lg transition-all duration-200 cursor-pointer active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
           disabled={isSubmitting}
         >
           <Save className="w-4 h-4" />

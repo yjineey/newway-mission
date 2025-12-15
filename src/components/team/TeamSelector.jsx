@@ -1,33 +1,34 @@
 function TeamSelector({ selectedTeam, onTeamChange }) {
   const teams = [
-    { id: 'egypt', name: '이집트', color: 'from-amber-500 to-orange-500' },
-    { id: 'jordan', name: '요르단', color: 'from-rose-500 to-pink-500' }
-  ]
+    { id: 'egypt', name: '이집트' },
+    { id: 'jordan', name: '요르단' },
+  ];
 
   return (
-    <div className="flex gap-3 justify-center mb-8">
-      {teams.map((team) => (
-        <button
-          key={team.id}
-          onClick={() => onTeamChange(team.id)}
-          className={`
-            relative px-8 py-3 rounded-xl font-semibold text-base
-            transition-all duration-200 
-            ${selectedTeam === team.id
-              ? `bg-gradient-to-r ${team.color} text-white shadow-lg scale-105`
-              : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 shadow-md'
-            }
-          `}
-        >
-          {team.name}
-          {selectedTeam === team.id && (
-            <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-8 h-1 bg-white rounded-full" />
-          )}
-        </button>
-      ))}
+    <div className="border-b border-gray-200 dark:border-gray-700 mb-6">
+      <div className="flex gap-6 px-4">
+        {teams.map((team) => (
+          <button
+            key={team.id}
+            onClick={() => onTeamChange(team.id)}
+            className={`
+              relative pb-3 pt-2 text-base transition-colors duration-200
+              ${
+                selectedTeam === team.id
+                  ? 'font-bold text-gray-900 dark:text-white'
+                  : 'font-medium text-gray-500 dark:text-gray-400'
+              }
+            `}
+          >
+            {team.name}
+            {selectedTeam === team.id && (
+              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gray-900 dark:bg-white rounded-full" />
+            )}
+          </button>
+        ))}
+      </div>
     </div>
-  )
+  );
 }
 
-export default TeamSelector
-
+export default TeamSelector;

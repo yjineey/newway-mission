@@ -6,7 +6,7 @@ function PageLayout({ title, children, actions, showTeamTabs = false }) {
       <div className="container mx-auto px-4 max-w-4xl">
         {/* 헤더 */}
         <div className="mb-8 flex items-center justify-between animate-slide-up">
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
+          <h1 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">
             {title}
           </h1>
           {actions && (

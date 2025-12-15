@@ -11,7 +11,7 @@ function WriteButton({ category }) {
   return (
     <Link
       to={`/write/${category}`}
-      className="inline-flex items-center gap-2 px-4 py-2.5 bg-primary-600 border border-gray-400 dark:border-gray-600 text-white font-medium text-sm rounded-lg transition-all duration-200 cursor-pointer active:scale-95"
+      className="inline-flex items-center gap-2 px-4 py-2.5 border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white font-medium text-sm rounded-lg transition-all duration-200 cursor-pointer active:scale-95"
     >
       <Plus className="w-4 h-4" />
       <span>글쓰기</span>

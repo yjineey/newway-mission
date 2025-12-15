@@ -9,7 +9,6 @@ import { getPosts } from '../services/postService'
 function Records() {
   const { selectedTeam } = useTeam()
   const [records, setRecords] = useState([])
-  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     loadRecords()
@@ -17,22 +16,11 @@ function Records() {
 
   const loadRecords = async () => {
     try {
-      setLoading(true)
       const data = await getPosts('records', selectedTeam)
       setRecords(data)
     } catch (error) {
       console.error('회의록 로드 실패:', error)
-    } finally {
-      setLoading(false)
     }
-  }
-
-  if (loading) {
-    return (
-      <PageLayout title="회의록" showTeamTabs={true} actions={<WriteButton category="records" />}>
-        <EmptyState message="데이터를 불러오고 있습니다" />
-      </PageLayout>
-    )
   }
 
   return (
@@ -51,7 +39,7 @@ function Records() {
           ))}
         </div>
       ) : (
-        <EmptyState message="작성된 회의록이 없습니다." />
+        <EmptyState message="작성된 회의록이 없습니다" />
       )}
     </PageLayout>
   )
