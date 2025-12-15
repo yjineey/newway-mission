@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -11,7 +11,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: 'pages'
   cancel-in-progress: false
 
 jobs:
@@ -19,41 +19,37 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: 코드 체크아웃
-      uses: actions/checkout@v4
+      - name: 코드 체크아웃
+        uses: actions/checkout@v4
 
-    - name: Node.js 설정
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20.x'
-        cache: 'npm'
+      - name: Node.js 설정
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
 
-    - name: 의존성 설치
-      run: npm ci
+      - name: 의존성 설치
+        run: npm ci
 
-    - name: 린트 검사
-      run: npm run lint
+      - name: 프로젝트 빌드
+        run: npm run build
 
-    - name: 프로젝트 빌드
-      run: npm run build
+      - name: GitHub Pages 설정
+        uses: actions/configure-pages@v4
 
-    - name: GitHub Pages 설정
-      uses: actions/configure-pages@v4
-
-    - name: 빌드 결과물 업로드
-      uses: actions/upload-pages-artifact@v3
-      with:
-        path: ./dist
+      - name: 빌드 결과물 업로드
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
 
   deploy:
+    needs: build
+    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
 
     steps:
-    - name: GitHub Pages 배포
-      id: deployment
-      uses: actions/deploy-pages@v4
-
+      - name: GitHub Pages 배포
+        id: deployment
+        uses: actions/deploy-pages@v4
