@@ -1,6 +1,6 @@
 import PageLayout from '../components/layout/PageLayout';
 import { useTeam } from '../context/TeamContext';
-import { Calendar, Users, Flag, Plane } from 'lucide-react';
+import { Calendar, Users, Flag, Plane, Clock } from 'lucide-react';
 
 function Schedule() {
   const { selectedTeam } = useTeam();
@@ -62,30 +62,27 @@ function Schedule() {
   return (
     <PageLayout title="선교일정" showTeamTabs={true}>
       <div className="space-y-6">
-        {/* 국가 */}
+        {/* 일정 안내 */}
         <div className="bg-white dark:bg-[#252525] rounded-2xl shadow-soft border border-gray-200 dark:border-[#333333] p-6 md:p-8">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">
-            {currentSchedule.country}
-          </h2>
-
+          <div className="flex items-center gap-3 mb-6">
+            <h2 className="text-xl font-bold text-gray-900 dark:text-white">
+              일정 안내
+            </h2>
+          </div>
           <div className="space-y-4">
             {/* 기간 */}
-            <div className="flex items-start gap-4 p-4 bg-gray-50 dark:bg-[#2d2d2d] rounded-xl">
-              <Calendar className="w-6 h-6 text-gray-600 dark:text-gray-400 flex-shrink-0 mt-1" />
-              <div>
-                <h3 className="font-semibold text-gray-900 dark:text-white mb-1">
-                  기간
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400">
-                  {currentSchedule.period}
-                </p>
-              </div>
+            <div className="p-4 bg-gray-50 dark:bg-[#2d2d2d] rounded-xl">
+              <h3 className="font-semibold text-gray-900 dark:text-white mb-1">
+                기간
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400">
+                {currentSchedule.period}
+              </p>
             </div>
 
             {/* 인원 */}
             <div className="p-4 bg-gray-50 dark:bg-[#2d2d2d] rounded-xl">
               <div className="flex items-center gap-2 mb-4">
-                <Users className="w-5 h-5 text-gray-600 dark:text-gray-400" />
                 <h3 className="font-semibold text-gray-900 dark:text-white">
                   인원
                 </h3>
@@ -115,16 +112,13 @@ function Schedule() {
             </div>
 
             {/* 출정·파송주일 */}
-            <div className="flex items-start gap-4 p-4 bg-gray-50 dark:bg-[#2d2d2d] rounded-xl">
-              <Flag className="w-6 h-6 text-gray-600 dark:text-gray-400 flex-shrink-0 mt-1" />
-              <div>
-                <h3 className="font-semibold text-gray-900 dark:text-white mb-1">
-                  출정·파송주일
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400">
-                  {currentSchedule.sendOff}
-                </p>
-              </div>
+            <div className="p-4 bg-gray-50 dark:bg-[#2d2d2d] rounded-xl">
+              <h3 className="font-semibold text-gray-900 dark:text-white mb-1">
+                출정·파송주일
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400">
+                {currentSchedule.sendOff}
+              </p>
             </div>
           </div>
         </div>
@@ -133,7 +127,6 @@ function Schedule() {
         {selectedTeam === 'jordan' && currentSchedule.flight && (
           <div className="bg-white dark:bg-[#252525] rounded-2xl shadow-soft border border-gray-200 dark:border-[#333333] p-6 md:p-8">
             <div className="flex items-center gap-3 mb-6">
-              <Plane className="w-6 h-6 text-gray-600 dark:text-gray-400" />
               <h2 className="text-xl font-bold text-gray-900 dark:text-white">
                 항공편 정보
               </h2>

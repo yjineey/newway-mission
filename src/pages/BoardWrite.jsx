@@ -11,7 +11,7 @@ function BoardWrite() {
   const { selectedTeam } = useTeam()
   const [isSubmitting, setIsSubmitting] = useState(false)
 
-  // 카테고리별 설정 (리스트 5개만)
+  // 카테고리별 설정
   const categoryConfig = {
     notices: {
       title: '공지사항',
@@ -23,32 +23,20 @@ function BoardWrite() {
       showTeamTabs: true,
       returnPath: '/records'
     },
-    praise: {
-      title: '찬양',
+    'prayer-requests': {
+      title: '중보기도',
       showTeamTabs: true,
-      returnPath: '/praise'
-    },
-    preparation: {
-      title: '준비물',
-      showTeamTabs: true,
-      returnPath: '/preparation'
-    },
-    items: {
-      title: '선교물품',
-      showTeamTabs: true,
-      returnPath: '/items'
+      returnPath: '/prayer-request'
     }
   }
 
   const config = categoryConfig[category] || categoryConfig.notices
 
-  // 카테고리 옵션 (리스트 5개)
+  // 카테고리 옵션
   const categoryOptions = [
     { value: 'notices', label: '공지사항' },
     { value: 'records', label: '회의록' },
-    { value: 'praise', label: '찬양' },
-    { value: 'preparation', label: '준비물' },
-    { value: 'items', label: '선교물품' },
+    { value: 'prayer-requests', label: '중보기도' }
   ]
 
   const handleSubmit = async (formData) => {

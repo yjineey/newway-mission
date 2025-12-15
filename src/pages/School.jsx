@@ -75,7 +75,7 @@ function School() {
         {/* 기간 헤더 */}
         <div className="mb-6 pb-4 border-b border-gray-200 dark:border-[#333333]">
           <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-            선교스쿨 일정
+            일정 안내
           </h2>
           <p className="text-sm text-gray-600 dark:text-gray-400 whitespace-pre-line">
             기간 : 2025년 12월 7일 (주일) ~ 2026년 1월 11일 (주일){'\n'}장소 :
@@ -124,7 +124,7 @@ function School() {
                 return (
                   <tr
                     key={index}
-                    className="border-b border-gray-200 dark:border-[#333333] last:border-0 hover:bg-gray-50 dark:hover:bg-[#2d2d2d] transition-colors"
+                    className="border-b border-gray-200 dark:border-[#333333] last:border-0"
                   >
                     {isFirstYear && (
                       <td
