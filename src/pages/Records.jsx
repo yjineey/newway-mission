@@ -25,21 +25,93 @@ function Records() {
 
   return (
     <PageLayout title="회의록" showTeamTabs={true} actions={<WriteButton category="records" />}>
-      {records.length > 0 ? (
+      {selectedTeam === 'jordan' ? (
         <div className="space-y-3">
-          {records.map((record) => (
-            <ListItem
-              key={record.id}
-              id={record.id}
-              title={record.title}
-              content={record.content}
-              date={record.createdAt}
-              basePath="/records"
-            />
-          ))}
+          {/* 전체 자료 모음 */}
+          <a
+            href="https://drive.google.com/drive/folders/1Qlb-gWNl9Qjdyc75WVjv0RS1bzhTmK1x"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block bg-white dark:bg-[#252525] rounded-lg shadow-sm border border-gray-200 dark:border-[#333333] p-4"
+          >
+            <div className="flex items-center justify-between">
+              <div>
+                <h3 className="text-sm font-medium text-gray-900 dark:text-white" style={{ wordBreak: 'keep-all' }}>
+                  요르단팀 자료 모음
+                </h3>
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                  Google Drive에서 보기
+                </p>
+              </div>
+              <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </div>
+          </a>
+
+          {/* 회의록 */}
+          <a
+            href="https://drive.google.com/drive/folders/15HPVKNGDrQeYRop_EqAI_MWTKl_moYBG"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block bg-white dark:bg-[#252525] rounded-lg shadow-sm border border-gray-200 dark:border-[#333333] p-4"
+          >
+            <div className="flex items-center justify-between">
+              <div>
+                <h3 className="text-sm font-medium text-gray-900 dark:text-white" style={{ wordBreak: 'keep-all' }}>
+                  회의록
+                </h3>
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                  Google Drive에서 보기
+                </p>
+              </div>
+              <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </div>
+          </a>
+
+          {/* 스터디 */}
+          <a
+            href="https://drive.google.com/drive/folders/1XmveG8o-xqtwnQLIAkRSPPQ_x_s3p8zE"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block bg-white dark:bg-[#252525] rounded-lg shadow-sm border border-gray-200 dark:border-[#333333] p-4"
+          >
+            <div className="flex items-center justify-between">
+              <div>
+                <h3 className="text-sm font-medium text-gray-900 dark:text-white" style={{ wordBreak: 'keep-all' }}>
+                  스터디
+                </h3>
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                  Google Drive에서 보기
+                </p>
+              </div>
+              <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </div>
+          </a>
         </div>
       ) : (
-        <EmptyState message="작성된 회의록이 없습니다" />
+        <>
+          {records.length > 0 ? (
+            <div className="space-y-3">
+              {records.map((record) => (
+                <ListItem
+                  key={record.id}
+                  id={record.id}
+                  title={record.title}
+                  content={record.content}
+                  date={record.createdAt}
+                  basePath="/records"
+                />
+              ))}
+            </div>
+          ) : (
+            <EmptyState message="작성된 회의록이 없습니다" />
+          )}
+        </>
       )}
     </PageLayout>
   )

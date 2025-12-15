@@ -5,35 +5,33 @@ import { Phone } from 'lucide-react';
 function Contact() {
   const { selectedTeam } = useTeam();
 
-  // 임시 데이터 - 나중에 실제 데이터로 교체
   const ministers = [
-    { name: '이혜연 전도사', phone: '010-0000-0000' },
+    { name: '이혜연 전도사', phone: '010-8518-4610' },
   ];
 
   const contactData = {
     egypt: {
       members: [
-        { name: '박진수', phone: '010-0000-0000', isLeader: true },
-        { name: '박동빈', phone: '010-0000-0000' },
-        { name: '박재호', phone: '010-0000-0000' },
-        { name: '박준영', phone: '010-0000-0000' },
-        { name: '윤고은', phone: '010-0000-0000' },
-        { name: '이엘림', phone: '010-0000-0000' },
-        { name: '이호정', phone: '010-0000-0000' },
-        { name: '전유림', phone: '010-0000-0000' },
-        { name: '한아름', phone: '010-0000-0000' },
+        { name: '박진수', phone: '010-', isLeader: true },
+        { name: '이엘림', phone: '010-9086-1131', isSubLeader: true },
+        { name: '박동빈', phone: '010-5013-7593' },
+        { name: '박재호', phone: '010-' },
+        { name: '박준영', phone: '010-9920-1619' },
+        { name: '윤고은', phone: '010-' },
+        { name: '이호정', phone: '010-' },
+        { name: '전유림', phone: '010-4039-3379' },
+        { name: '한아름', phone: '010-' },
       ],
     },
     jordan: {
       members: [
-        { name: '위사은', phone: '010-0000-0000', isLeader: true },
-        { name: '김난영', phone: '010-0000-0000' },
-        { name: '김주은', phone: '010-0000-0000' },
-        { name: '양진', phone: '010-0000-0000' },
-        { name: '이종철', phone: '010-0000-0000' },
-        { name: '임지원', phone: '010-0000-0000' },
-        { name: '진민하', phone: '010-0000-0000' },
-        { name: '최정원', phone: '010-0000-0000' },
+        { name: '위사은', phone: '010-6586-6535', isLeader: true },
+        { name: '양진', phone: '010-2567-3706', isSubLeader: true },
+        { name: '김난영', phone: '010-7415-1813' },
+        { name: '이종철', phone: '010-3419-1909' },
+        { name: '임지원', phone: '010-9314-1167' },
+        { name: '진민하', phone: '010-8640-3555' },
+        { name: '최정원', phone: '010-9137-2740' },
       ],
     },
   };
@@ -94,6 +92,11 @@ function Contact() {
                     {member.isLeader && (
                       <span className="px-2 py-0.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-xs font-medium rounded">
                         팀장
+                      </span>
+                    )}
+                    {member.isSubLeader && (
+                      <span className="px-2 py-0.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-xs font-medium rounded">
+                        부팀장
                       </span>
                     )}
                   </div>
