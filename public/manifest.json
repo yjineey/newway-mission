@@ -1,6 +1,6 @@
 {
-  "name": "뉴웨이교회 선교스쿨",
-  "short_name": "뉴웨이 선교",
+  "name": "NW선교스쿨",
+  "short_name": "NW선교스쿨",
   "description": "단기선교 준비와 훈련 가이드",
   "start_url": "/newway-mission/",
   "display": "standalone",
@@ -22,4 +22,3 @@
     }
   ]
 }
-
