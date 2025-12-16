@@ -1,0 +1,25 @@
+{
+  "name": "뉴웨이교회 선교스쿨",
+  "short_name": "뉴웨이 선교",
+  "description": "단기선교 준비와 훈련 가이드",
+  "start_url": "/newway-mission/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/newway-mission/logo/newwaychurch-logo.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/newway-mission/logo/newwaychurch-logo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
+}
+
