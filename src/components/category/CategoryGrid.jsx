@@ -11,7 +11,7 @@ function CategoryGrid({ groups }) {
           </h2>
 
           {/* 카테고리 그리드 - 모바일/데스크탑 모두 4열 */}
-          <div className="grid grid-cols-4 gap-3 md:gap-4">
+          <div className="grid grid-cols-4 gap-x-3 gap-y-4 md:gap-x-4 md:gap-y-6">
             {group.categories.map((category) => (
               <CategoryCard key={category.id} category={category} />
             ))}
