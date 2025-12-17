@@ -15,7 +15,7 @@ function Contact() {
         { name: '박진수', phone: '010-', isLeader: true },
         { name: '이엘림', phone: '010-9086-1131', isSubLeader: true },
         { name: '박동빈', phone: '010-5013-7593' },
-        { name: '박재호', phone: '010-' },
+        { name: '박재호', phone: '010-8689-3959' },
         { name: '박준영', phone: '010-9920-1619' },
         { name: '윤고은', phone: '010-' },
         { name: '이호정', phone: '010-' },
@@ -46,7 +46,7 @@ function Contact() {
       <div className="space-y-6">
         {/* 사역자 */}
         <div className="bg-white dark:bg-[#252525] rounded-2xl shadow-soft border border-gray-200 dark:border-[#333333] p-6 md:p-8">
-          <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-6">
+          <h2 className="text-base font-bold text-gray-900 dark:text-white mb-4">
             사역자
           </h2>
           <div className="space-y-3">
@@ -74,7 +74,7 @@ function Contact() {
 
         {/* 팀원 */}
         <div className="bg-white dark:bg-[#252525] rounded-2xl shadow-soft border border-gray-200 dark:border-[#333333] p-6 md:p-8">
-          <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-6">
+          <h2 className="text-base font-bold text-gray-900 dark:text-white mb-4">
             팀원
           </h2>
           <div className="space-y-3">

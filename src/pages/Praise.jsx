@@ -123,7 +123,7 @@ function Praise() {
 
               {/* 가사 */}
               <div className="mb-6 bg-white dark:bg-[#252525] rounded-lg shadow-sm border border-gray-200 dark:border-[#333333] p-6">
-                <h3 className="text-lg font-semibold mb-4 text-gray-800 dark:text-white">
+                <h3 className="text-base font-bold mb-4 text-gray-900 dark:text-white">
                   가사
                 </h3>
                 <div
