@@ -14,11 +14,6 @@ function BoardEdit() {
 
   // 카테고리별 설정
   const categoryConfig = {
-    notices: {
-      title: '공지사항',
-      showTeamTabs: true,
-      returnPath: `/notices/${id}`,
-    },
     records: {
       title: '회의록',
       showTeamTabs: true,
@@ -37,7 +32,7 @@ function BoardEdit() {
     },
   };
 
-  const config = categoryConfig[category] || categoryConfig.notices;
+  const config = categoryConfig[category] || categoryConfig.records;
 
   useEffect(() => {
     loadPost();

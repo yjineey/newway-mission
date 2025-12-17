@@ -13,11 +13,6 @@ function BoardWrite() {
 
   // 카테고리별 설정
   const categoryConfig = {
-    notices: {
-      title: '공지사항',
-      showTeamTabs: true,
-      returnPath: '/notices'
-    },
     records: {
       title: '회의록',
       showTeamTabs: true,
@@ -30,11 +25,10 @@ function BoardWrite() {
     }
   }
 
-  const config = categoryConfig[category] || categoryConfig.notices
+  const config = categoryConfig[category] || categoryConfig.records
 
   // 카테고리 옵션
   const categoryOptions = [
-    { value: 'notices', label: '공지사항' },
     { value: 'records', label: '회의록' },
     { value: 'prayer-requests', label: '중보기도' }
   ]

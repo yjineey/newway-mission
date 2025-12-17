@@ -37,7 +37,29 @@ function Records() {
             <div className="flex items-center justify-between">
               <div>
                 <h3 className="text-sm font-medium text-gray-900 dark:text-white" style={{ wordBreak: 'keep-all' }}>
-                  요르단팀 자료 모음
+                  요르단 선교 전체 자료
+                </h3>
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                  Google Drive에서 보기
+                </p>
+              </div>
+              <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </div>
+          </a>
+
+          {/* 강의자료 */}
+          <a
+            href="https://drive.google.com/drive/folders/1x9HvMJm6SwqHnRaiEoGHts4vswczjYuH"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block bg-white dark:bg-[#252525] rounded-lg shadow-sm border border-gray-200 dark:border-[#333333] p-4"
+          >
+            <div className="flex items-center justify-between">
+              <div>
+                <h3 className="text-sm font-medium text-gray-900 dark:text-white" style={{ wordBreak: 'keep-all' }}>
+                  강의자료
                 </h3>
                 <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
                   Google Drive에서 보기
@@ -60,6 +82,28 @@ function Records() {
               <div>
                 <h3 className="text-sm font-medium text-gray-900 dark:text-white" style={{ wordBreak: 'keep-all' }}>
                   회의록
+                </h3>
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                  Google Drive에서 보기
+                </p>
+              </div>
+              <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </div>
+          </a>
+
+          {/* 사진·영상 */}
+          <a
+            href="https://drive.google.com/drive/folders/1AuKa3Q8LOwnN5BJ0uYQ-IxTVDtC_pMl2"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block bg-white dark:bg-[#252525] rounded-lg shadow-sm border border-gray-200 dark:border-[#333333] p-4"
+          >
+            <div className="flex items-center justify-between">
+              <div>
+                <h3 className="text-sm font-medium text-gray-900 dark:text-white" style={{ wordBreak: 'keep-all' }}>
+                  사진·영상
                 </h3>
                 <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
                   Google Drive에서 보기

@@ -3,12 +3,14 @@ import { createContext, useContext, useState, useEffect } from 'react'
 const TeamContext = createContext()
 
 export function TeamProvider({ children }) {
-  const [selectedTeam, setSelectedTeam] = useState('egypt')
+  const [selectedTeam, setSelectedTeam] = useState('jordan')
 
   // 로컬스토리지에서 초기값 불러오기
   useEffect(() => {
-    const savedTeam = localStorage.getItem('selectedTeam') || 'egypt'
-    setSelectedTeam(savedTeam)
+    const savedTeam = localStorage.getItem('selectedTeam') || 'jordan'
+    // 이집트가 저장되어 있으면 요르단으로 변경
+    const team = savedTeam === 'egypt' ? 'jordan' : savedTeam
+    setSelectedTeam(team)
   }, [])
 
   // 팀 변경 시 로컬스토리지에 저장

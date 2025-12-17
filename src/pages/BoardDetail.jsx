@@ -16,14 +16,13 @@ function BoardDetail() {
 
   // 카테고리별 설정
   const categoryConfig = {
-    notices: { title: '공지사항', showTeamTabs: true, listPath: '/notices' },
     records: { title: '회의록', showTeamTabs: true, listPath: '/records' },
     praise: { title: '찬양', showTeamTabs: true, listPath: '/praise' },
     preparation: { title: '준비물', showTeamTabs: true, listPath: '/preparation' },
     items: { title: '선교물품', showTeamTabs: true, listPath: '/items' },
   }
 
-  const config = categoryConfig[category] || categoryConfig.notices
+  const config = categoryConfig[category] || categoryConfig.records
 
   useEffect(() => {
     loadPost()

@@ -135,7 +135,7 @@ function ChurchInfo() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="p-4 bg-gray-50 dark:bg-[#2d2d2d] rounded-lg">
                   <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
-                    주일예배
+                    주일 예배
                   </h4>
                   <p className="text-sm text-gray-600 dark:text-gray-400">
                     주일 오전 11시 30분
@@ -176,7 +176,7 @@ function ChurchInfo() {
                 </div>
                 <div className="p-4 bg-gray-50 dark:bg-[#2d2d2d] rounded-lg">
                   <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
-                    금요예배
+                    금요 예배
                   </h4>
                   <p className="text-sm text-gray-600 dark:text-gray-400">
                     금요일 오후 8시

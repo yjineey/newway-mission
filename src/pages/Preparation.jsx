@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
 import { useTeam } from '../context/TeamContext';
 import PageLayout from '../components/layout/PageLayout';
+import PreparationTabs from '../components/common/PreparationTabs';
 import ListItem from '../components/board/ListItem';
 import EmptyState from '../components/board/EmptyState';
 import { getPosts } from '../services/postService';
 
 function Preparation() {
   const { selectedTeam } = useTeam();
+  const [selectedTab, setSelectedTab] = useState('personal');
   const [items, setItems] = useState([]);
 
   useEffect(() => {
@@ -22,11 +24,15 @@ function Preparation() {
     }
   };
 
+  // 탭에 따라 필터링 (현재는 모든 아이템을 보여주지만, 나중에 카테고리 필드로 필터링 가능)
+  const filteredItems = items; // TODO: selectedTab에 따라 필터링
+
   return (
-    <PageLayout title="준비물" showTeamTabs={true}>
-      {items.length > 0 ? (
+    <PageLayout title="준비물" showTeamTabs={false}>
+      <PreparationTabs selectedTab={selectedTab} onTabChange={setSelectedTab} />
+      {filteredItems.length > 0 ? (
         <div className="space-y-3">
-          {items.map((item) => (
+          {filteredItems.map((item) => (
             <ListItem
               key={item.id}
               id={item.id}

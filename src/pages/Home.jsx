@@ -1,19 +1,10 @@
-import { useTeam } from '../context/TeamContext';
-import TeamSelector from '../components/team/TeamSelector';
 import CategoryGrid from '../components/category/CategoryGrid';
 import { categoryGroups } from '../data/categories';
 
 function Home() {
-  const { selectedTeam, changeTeam } = useTeam();
-
   return (
     <div className="min-h-screen py-8">
       <div className="container mx-auto px-4 max-w-6xl">
-        {/* 팀 선택 */}
-        <div className="mb-8 animate-fade-in">
-          <TeamSelector selectedTeam={selectedTeam} onTeamChange={changeTeam} />
-        </div>
-
         {/* 카테고리 그리드 */}
         <div className="animate-fade-in">
           <CategoryGrid groups={categoryGroups} />

@@ -4,7 +4,7 @@ function TeamTabs() {
   const { selectedTeam, changeTeam } = useTeam()
 
   const teams = [
-    { id: 'egypt', name: '이집트' },
+    // { id: 'egypt', name: '이집트' },
     { id: 'jordan', name: '요르단' },
     // 추가 팀은 여기에 (최대 4개)
     // { id: 'team3', name: '팀3' },

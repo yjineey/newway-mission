@@ -2,7 +2,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { 
   Home, 
   GraduationCap, 
-  Heart, 
+  Cross, 
   BookOpen,
   UsersRound
 } from 'lucide-react'
@@ -14,8 +14,8 @@ function Footer() {
     { path: '/school', label: '선교스쿨', icon: GraduationCap },
     { path: '/building', label: '팀빌딩', icon: UsersRound },
     { path: '/', label: '홈', icon: Home },
-    { path: '/word', label: '말씀훈련', icon: BookOpen },
-    { path: '/prayer-request', label: '중보기도', icon: Heart },
+    { path: '/training-schedule', search: '?tab=word', label: '말씀훈련', icon: BookOpen },
+    { path: '/prayer-request', label: '중보기도', icon: Cross },
   ]
 
   return (
@@ -24,17 +24,19 @@ function Footer() {
       <nav className="md:hidden fixed bottom-0 left-0 right-0 z-30 bg-[#f5f5f5]/95 dark:bg-[#1a1a1a]/95 backdrop-blur-md shadow-lg flex items-center justify-around h-20 px-2">
         {navItems.map((item) => {
           const Icon = item.icon
-          const isActive = location.pathname === item.path
+          const isActive = item.search 
+            ? location.pathname === item.path && location.search === item.search
+            : location.pathname === item.path
           
           return (
             <Link
-              key={item.path}
-              to={item.path}
-              className={`flex flex-col items-center justify-center gap-1 px-3 py-2 rounded-lg ${
+              key={item.path + (item.search || '')}
+              to={{ pathname: item.path, search: item.search }}
+              className={`flex flex-col items-center justify-center gap-1 px-3 py-2 rounded-lg transition-none ${
                 isActive
                   ? 'text-gray-900 dark:text-white'
                   : 'text-gray-600 dark:text-gray-400'
-              }`}
+              } hover:text-inherit active:text-inherit`}
             >
               <Icon 
                 className={`w-6 h-6 transition-transform ${
