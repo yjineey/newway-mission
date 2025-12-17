@@ -124,15 +124,22 @@ function Schedule() {
         {/* 항공편 정보 (요르단 팀만) */}
         {selectedTeam === 'jordan' && currentSchedule.flight && (
           <div className="space-y-4">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-base font-bold text-gray-900 dark:text-white">
-                항공편 정보
-              </h2>
-              <span className="text-sm text-gray-600 dark:text-gray-400">
-                {currentSchedule.flight.airline}
-              </span>
-            </div>
+            <h2 className="text-base font-bold text-gray-900 dark:text-white mb-4">
+              항공편 정보
+            </h2>
             <div className="space-y-4 text-sm">
+              {/* 항공사 */}
+              <div className="p-4 bg-white dark:bg-[#252525] rounded-xl border border-gray-200 dark:border-[#333333]">
+                <div className="flex items-center justify-between">
+                  <p className="font-semibold text-gray-900 dark:text-white">
+                    항공사
+                  </p>
+                  <p className="text-gray-700 dark:text-gray-300">
+                    {currentSchedule.flight.airline}
+                  </p>
+                </div>
+              </div>
+
               {/* 가는 편 */}
               <div className="p-4 bg-white dark:bg-[#252525] rounded-xl border border-gray-200 dark:border-[#333333]">
                 <p className="font-semibold text-gray-900 dark:text-white mb-3">
