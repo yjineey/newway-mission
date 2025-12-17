@@ -351,40 +351,40 @@ service cloud.firestore {
       return isAuthenticated() && request.auth.uid == userId;
     }
 
-    // 공지사항
-    match /notices/{noticeId} {
+    // 회의록
+    match /records/{recordId} {
       allow read: if true;  // 모두 읽기 가능
       allow create: if isAuthenticated();
       allow update, delete: if isAuthenticated()
         && isOwner(resource.data.authorId);
     }
 
-    // 기도훈련
-    match /prayer-trainings/{trainingId} {
+    // 찬양
+    match /praise/{praiseId} {
       allow read: if true;
       allow create: if isAuthenticated();
       allow update, delete: if isAuthenticated()
         && isOwner(resource.data.authorId);
     }
 
-    // 말씀훈련
-    match /word-trainings/{trainingId} {
+    // 중보기도
+    match /prayer-request/{requestId} {
       allow read: if true;
       allow create: if isAuthenticated();
       allow update, delete: if isAuthenticated()
         && isOwner(resource.data.authorId);
     }
 
-    // 회의록
-    match /meeting-records/{recordId} {
+    // 준비물
+    match /preparation/{preparationId} {
       allow read: if true;
       allow create: if isAuthenticated();
       allow update, delete: if isAuthenticated()
         && isOwner(resource.data.authorId);
     }
 
-    // 팀미션
-    match /team-missions/{missionId} {
+    // 선교물품
+    match /items/{itemId} {
       allow read: if true;
       allow create: if isAuthenticated();
       allow update, delete: if isAuthenticated()
@@ -416,18 +416,18 @@ service cloud.firestore {
 
 ```
 storage/
-├── notices/
+├── records/
 │   ├── egypt/
-│   │   ├── {noticeId}/
+│   │   ├── {recordId}/
 │   │   │   ├── file1.pdf
 │   │   │   └── image1.jpg
 │   │   └── ...
 │   └── jordan/
 │       └── ...
-├── prayer-trainings/
-├── word-trainings/
-├── meeting-records/
-└── team-missions/
+├── praise/
+├── prayer-request/
+├── preparation/
+└── items/
 ```
 
 ### Storage 보안 규칙

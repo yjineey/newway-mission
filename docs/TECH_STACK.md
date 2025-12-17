@@ -24,10 +24,6 @@
 - **Lucide React** (0.469.0): 벡터 아이콘 (React 18 호환)
 - **classnames** (2.5.1): 조건부 클래스
 
-## 유틸리티
-
-- **date-fns** (2.30.0): 날짜 처리 (v3는 breaking changes 많음, v2 권장)
-
 ## 개발 도구
 
 - **ESLint** (8.57.1): 코드 품질 (v9는 config 변경 주의)
@@ -49,7 +45,6 @@ npm install react@18.3.1 react-dom@18.3.1
 npm install react-router-dom@6.28.0
 npm install firebase@10.14.1
 npm install lucide-react@0.469.0
-npm install date-fns@2.30.0
 npm install classnames@2.5.1
 ```
 
@@ -70,7 +65,6 @@ npm install -D gh-pages@6.2.0
 ### 피해야 할 버전
 
 - ❌ **React 19**: 아직 많은 라이브러리가 호환 안 됨
-- ❌ **date-fns 3.x**: Breaking changes 많음, v2 권장
 - ❌ **ESLint 9.x**: Config 형식 변경, v8 권장
 - ❌ **Firebase 9.x 이하**: 구버전 API
 
@@ -84,7 +78,6 @@ npm install -D gh-pages@6.2.0
 
 ## 카테고리 그룹 분류
 
-- **필수 정보**: 선교일정, 공지사항, 회의록, 비상연락망
-- **교육/훈련**: 선교스쿨, 기도훈련, 말씀훈련
-- **팀**: 팀빌딩, 팀미션, 찬양
-- **준비/물품**: 준비물, 선교물품
+- **기본정보**: 선교스쿨, 선교일정, 훈련일정, 비상연락망
+- **공동체**: 팀빌딩, 회의록, 찬양, 중보기도
+- **준비사항**: 준비물, 선교물품, 준비사항
