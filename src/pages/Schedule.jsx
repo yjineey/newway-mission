@@ -67,60 +67,56 @@ function Schedule() {
           <h2 className="text-base font-bold text-gray-900 dark:text-white mb-4">
             일정 안내
           </h2>
-          <div className="bg-white dark:bg-[#252525] rounded-2xl shadow-soft border border-gray-200 dark:border-[#333333] p-6 md:p-8">
-            <div className="space-y-4">
-              {/* 기간 */}
-              <div className="p-4 bg-gray-50 dark:bg-[#2d2d2d] rounded-xl">
-                <h3 className="font-semibold text-gray-900 dark:text-white mb-1">
-                  기간
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400">
-                  {currentSchedule.period}
-                </p>
-              </div>
+          <div className="space-y-4">
+            {/* 기간 */}
+            <div className="p-4 bg-white dark:bg-[#252525] rounded-xl border border-gray-200 dark:border-[#333333]">
+              <h3 className="font-semibold text-gray-900 dark:text-white mb-1">
+                기간
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400">
+                {currentSchedule.period}
+              </p>
+            </div>
 
-              {/* 인원 */}
-              <div className="p-4 bg-gray-50 dark:bg-[#2d2d2d] rounded-xl">
-                <div className="flex items-center gap-2 mb-4">
-                  <h3 className="font-semibold text-gray-900 dark:text-white">
-                    인원
-                  </h3>
-                  <span className="text-sm text-gray-500 dark:text-gray-400">
-                    {currentSchedule.trainees}
-                  </span>
+            {/* 인원 */}
+            <div className="p-4 bg-white dark:bg-[#252525] rounded-xl border border-gray-200 dark:border-[#333333]">
+              <div className="flex items-center gap-2 mb-4">
+                <h3 className="font-semibold text-gray-900 dark:text-white">
+                  인원
+                </h3>
+                <span className="text-sm text-gray-500 dark:text-gray-400">
+                  {currentSchedule.trainees}
+                </span>
+              </div>
+              {currentSchedule.traineeList && (
+                <div className="flex flex-wrap gap-2">
+                  {currentSchedule.traineeList.map((name, index) => (
+                    <span
+                      key={name}
+                      className={`px-3 py-1.5 rounded-lg text-sm font-medium ${
+                        index === 0
+                          ? 'bg-gray-900 dark:bg-white text-white dark:text-gray-900'
+                          : 'bg-white dark:bg-[#1a1a1a] text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-[#333333]'
+                      }`}
+                    >
+                      {name}
+                      {index === 0 && (
+                        <span className="ml-1.5 text-xs opacity-80">팀장</span>
+                      )}
+                    </span>
+                  ))}
                 </div>
-                {currentSchedule.traineeList && (
-                  <div className="flex flex-wrap gap-2">
-                    {currentSchedule.traineeList.map((name, index) => (
-                      <span
-                        key={name}
-                        className={`px-3 py-1.5 rounded-lg text-sm font-medium ${
-                          index === 0
-                            ? 'bg-gray-900 dark:bg-white text-white dark:text-gray-900'
-                            : 'bg-white dark:bg-[#1a1a1a] text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-[#333333]'
-                        }`}
-                      >
-                        {name}
-                        {index === 0 && (
-                          <span className="ml-1.5 text-xs opacity-80">
-                            팀장
-                          </span>
-                        )}
-                      </span>
-                    ))}
-                  </div>
-                )}
-              </div>
+              )}
+            </div>
 
-              {/* 출정·파송주일 */}
-              <div className="p-4 bg-gray-50 dark:bg-[#2d2d2d] rounded-xl">
-                <h3 className="font-semibold text-gray-900 dark:text-white mb-1">
-                  출정·파송주일
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400">
-                  {currentSchedule.sendOff}
-                </p>
-              </div>
+            {/* 출정·파송주일 */}
+            <div className="p-4 bg-white dark:bg-[#252525] rounded-xl border border-gray-200 dark:border-[#333333]">
+              <h3 className="font-semibold text-gray-900 dark:text-white mb-1">
+                출정·파송주일
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400">
+                {currentSchedule.sendOff}
+              </p>
             </div>
           </div>
         </div>
@@ -128,100 +124,93 @@ function Schedule() {
         {/* 항공편 정보 (요르단 팀만) */}
         {selectedTeam === 'jordan' && currentSchedule.flight && (
           <div className="space-y-4">
-            <h2 className="text-base font-bold text-gray-900 dark:text-white mb-4">
-              항공편 정보
-            </h2>
-            <div className="bg-white dark:bg-[#252525] rounded-2xl shadow-soft border border-gray-200 dark:border-[#333333] p-6 md:p-8">
-              <div className="space-y-4 text-sm">
-                {/* 항공사 */}
-                <div className="p-4 bg-gray-50 dark:bg-[#2d2d2d] rounded-xl">
-                  <p className="font-semibold text-gray-900 dark:text-white mb-1">
-                    항공사
-                  </p>
-                  <p className="text-gray-700 dark:text-gray-300">
-                    {currentSchedule.flight.airline}
-                  </p>
-                </div>
-
-                {/* 가는 편 */}
-                <div className="p-4 bg-gray-50 dark:bg-[#2d2d2d] rounded-xl">
-                  <p className="font-semibold text-gray-900 dark:text-white mb-3">
-                    가는 편
-                  </p>
-                  <div className="space-y-2 text-gray-700 dark:text-gray-300">
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-600 dark:text-gray-400">
-                        출발
-                      </span>
-                      <span className="font-medium">
-                        {currentSchedule.flight.outbound.departure}
-                      </span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-600 dark:text-gray-400">
-                        경유
-                      </span>
-                      <span className="font-medium">
-                        {currentSchedule.flight.outbound.layover}
-                      </span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-600 dark:text-gray-400">
-                        도착
-                      </span>
-                      <span className="font-medium">
-                        {currentSchedule.flight.outbound.arrival}
-                      </span>
-                    </div>
-                    <div className="flex justify-between items-center pt-2 border-t border-gray-200 dark:border-[#333333]">
-                      <span className="text-gray-600 dark:text-gray-400">
-                        총 비행시간
-                      </span>
-                      <span className="font-bold text-gray-900 dark:text-white">
-                        {currentSchedule.flight.outbound.totalTime}
-                      </span>
-                    </div>
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-base font-bold text-gray-900 dark:text-white">
+                항공편 정보
+              </h2>
+              <span className="text-sm text-gray-600 dark:text-gray-400">
+                {currentSchedule.flight.airline}
+              </span>
+            </div>
+            <div className="space-y-4 text-sm">
+              {/* 가는 편 */}
+              <div className="p-4 bg-white dark:bg-[#252525] rounded-xl border border-gray-200 dark:border-[#333333]">
+                <p className="font-semibold text-gray-900 dark:text-white mb-3">
+                  가는 편
+                </p>
+                <div className="space-y-2 text-gray-700 dark:text-gray-300">
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-600 dark:text-gray-400">
+                      출발
+                    </span>
+                    <span className="font-medium">
+                      {currentSchedule.flight.outbound.departure}
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-600 dark:text-gray-400">
+                      경유
+                    </span>
+                    <span className="font-medium">
+                      {currentSchedule.flight.outbound.layover}
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-600 dark:text-gray-400">
+                      도착
+                    </span>
+                    <span className="font-medium">
+                      {currentSchedule.flight.outbound.arrival}
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center pt-2 border-t border-gray-200 dark:border-[#333333]">
+                    <span className="text-gray-600 dark:text-gray-400">
+                      총 비행시간
+                    </span>
+                    <span className="font-bold text-gray-900 dark:text-white">
+                      {currentSchedule.flight.outbound.totalTime}
+                    </span>
                   </div>
                 </div>
+              </div>
 
-                {/* 오는 편 */}
-                <div className="p-4 bg-gray-50 dark:bg-[#2d2d2d] rounded-xl">
-                  <p className="font-semibold text-gray-900 dark:text-white mb-3">
-                    오는 편
-                  </p>
-                  <div className="space-y-2 text-gray-700 dark:text-gray-300">
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-600 dark:text-gray-400">
-                        출발
-                      </span>
-                      <span className="font-medium">
-                        {currentSchedule.flight.inbound.departure}
-                      </span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-600 dark:text-gray-400">
-                        경유
-                      </span>
-                      <span className="font-medium">
-                        {currentSchedule.flight.inbound.layover}
-                      </span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-gray-600 dark:text-gray-400">
-                        도착
-                      </span>
-                      <span className="font-medium">
-                        {currentSchedule.flight.inbound.arrival}
-                      </span>
-                    </div>
-                    <div className="flex justify-between items-center pt-2 border-t border-gray-200 dark:border-[#333333]">
-                      <span className="text-gray-600 dark:text-gray-400">
-                        총 비행시간
-                      </span>
-                      <span className="font-bold text-gray-900 dark:text-white">
-                        {currentSchedule.flight.inbound.totalTime}
-                      </span>
-                    </div>
+              {/* 오는 편 */}
+              <div className="p-4 bg-white dark:bg-[#252525] rounded-xl border border-gray-200 dark:border-[#333333]">
+                <p className="font-semibold text-gray-900 dark:text-white mb-3">
+                  오는 편
+                </p>
+                <div className="space-y-2 text-gray-700 dark:text-gray-300">
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-600 dark:text-gray-400">
+                      출발
+                    </span>
+                    <span className="font-medium">
+                      {currentSchedule.flight.inbound.departure}
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-600 dark:text-gray-400">
+                      경유
+                    </span>
+                    <span className="font-medium">
+                      {currentSchedule.flight.inbound.layover}
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-600 dark:text-gray-400">
+                      도착
+                    </span>
+                    <span className="font-medium">
+                      {currentSchedule.flight.inbound.arrival}
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center pt-2 border-t border-gray-200 dark:border-[#333333]">
+                    <span className="text-gray-600 dark:text-gray-400">
+                      총 비행시간
+                    </span>
+                    <span className="font-bold text-gray-900 dark:text-white">
+                      {currentSchedule.flight.inbound.totalTime}
+                    </span>
                   </div>
                 </div>
               </div>
