@@ -45,7 +45,7 @@ function Contact() {
     <PageLayout title="비상연락망" showTeamTabs={true}>
       <div className="space-y-6">
         {/* 사역자 */}
-        <div className="bg-white dark:bg-[#252525] rounded-2xl shadow-soft border border-gray-200 dark:border-[#333333] p-6 md:p-8">
+        <div className="space-y-4">
           <h2 className="text-base font-bold text-gray-900 dark:text-white mb-4">
             사역자
           </h2>
@@ -53,7 +53,7 @@ function Contact() {
             {ministers.map((minister, index) => (
               <div
                 key={index}
-                className="flex items-center gap-3 p-4 bg-gray-50 dark:bg-[#2d2d2d] rounded-xl"
+                className="flex items-center gap-3 p-4 bg-white dark:bg-[#252525] rounded-xl border border-gray-200 dark:border-[#333333]"
               >
                 <Phone className="w-5 h-5 text-gray-600 dark:text-gray-400 flex-shrink-0" />
                 <div className="flex-1">
@@ -73,7 +73,7 @@ function Contact() {
         </div>
 
         {/* 팀원 */}
-        <div className="bg-white dark:bg-[#252525] rounded-2xl shadow-soft border border-gray-200 dark:border-[#333333] p-6 md:p-8">
+        <div className="space-y-4">
           <h2 className="text-base font-bold text-gray-900 dark:text-white mb-4">
             팀원
           </h2>
@@ -81,7 +81,7 @@ function Contact() {
             {currentMembers.map((member, index) => (
               <div
                 key={index}
-                className="flex items-center gap-3 p-4 bg-gray-50 dark:bg-[#2d2d2d] rounded-xl"
+                className="flex items-center gap-3 p-4 bg-white dark:bg-[#252525] rounded-xl border border-gray-200 dark:border-[#333333]"
               >
                 <Phone className="w-5 h-5 text-gray-600 dark:text-gray-400 flex-shrink-0" />
                 <div className="flex-1">
