@@ -3,7 +3,7 @@ import { categoryGroups } from '../data/categories';
 
 function Home() {
   return (
-    <div className="min-h-screen py-8">
+    <div className="py-8">
       <div className="container mx-auto px-4 max-w-6xl">
         {/* 카테고리 그리드 */}
         <div className="animate-fade-in">
