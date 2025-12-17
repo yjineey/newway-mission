@@ -425,54 +425,64 @@ function School() {
           </h2>
           <div className="space-y-6">
             {missionData.map((item, index) => (
-              <div
-                key={index}
-                className="p-5 bg-white dark:bg-[#2d2d2d] rounded-xl border border-gray-200 dark:border-[#333333] overflow-x-auto"
-                style={{ wordBreak: 'keep-all' }}
-              >
-                <div className="flex items-start gap-4 mb-3">
-                  <div className="flex-shrink-0">
-                    <div className="px-3 py-1 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg font-bold text-sm">
-                      {item.week}
-                    </div>
-                    <div className="text-xs text-gray-600 dark:text-gray-400 text-center mt-1">
+              <div key={index}>
+                {/* Week와 날짜를 카드 밖으로 */}
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="px-3 py-1 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg font-bold text-sm">
+                    {item.week}
+                  </div>
+                  {item.period && (
+                    <div className="text-sm text-gray-600 dark:text-gray-400">
                       {item.period}
                     </div>
-                  </div>
-                  <div className="flex-1" style={{ whiteSpace: 'pre' }}>
-                    {item.mission && (
-                      <h3 className="font-semibold text-gray-900 dark:text-white mb-3 whitespace-nowrap">
-                        {item.mission}
-                      </h3>
-                    )}
-                    {item.details.length > 0 && (
-                      <div className="space-y-3">
-                        {item.details.map((detail, dIndex) => (
-                          <div key={dIndex}>
-                            {detail.title && (
-                              <p className="font-semibold text-gray-900 dark:text-white mb-2 whitespace-nowrap">
-                                {detail.title}
-                              </p>
-                            )}
-                            <div
-                              className="text-sm text-gray-700 dark:text-gray-300"
-                              style={{ whiteSpace: 'pre' }}
-                            >
-                              {detail.items.join('\n')}
-                            </div>
+                  )}
+                </div>
+                {/* 카드 영역 */}
+                <div className="p-5 bg-white dark:bg-[#2d2d2d] rounded-xl border border-gray-200 dark:border-[#333333]">
+                  <div style={{ whiteSpace: 'pre-wrap' }}>
+                    {item.mission ||
+                    (item.details && item.details.length > 0) ||
+                    item.note ? (
+                      <>
+                        {item.mission && (
+                          <h3 className="font-semibold text-gray-900 dark:text-white mb-3">
+                            {item.mission}
+                          </h3>
+                        )}
+                        {item.details.length > 0 && (
+                          <div className="space-y-3">
+                            {item.details.map((detail, dIndex) => (
+                              <div key={dIndex}>
+                                {detail.title && (
+                                  <p className="font-semibold text-gray-900 dark:text-white mb-2">
+                                    {detail.title}
+                                  </p>
+                                )}
+                                <div
+                                  className="text-sm text-gray-700 dark:text-gray-300"
+                                  style={{ whiteSpace: 'pre-wrap' }}
+                                >
+                                  {detail.items.join('\n')}
+                                </div>
+                              </div>
+                            ))}
                           </div>
-                        ))}
-                      </div>
-                    )}
-                    {item.note && (
-                      <div className="mt-4 pt-4 border-t border-gray-200 dark:border-[#333333]">
-                        <p
-                          className="text-sm text-gray-600 dark:text-gray-400"
-                          style={{ whiteSpace: 'pre' }}
-                        >
-                          {item.note}
-                        </p>
-                      </div>
+                        )}
+                        {item.note && (
+                          <div className="mt-4 pt-4 border-t border-gray-200 dark:border-[#333333]">
+                            <p
+                              className="text-sm text-gray-600 dark:text-gray-400"
+                              style={{ whiteSpace: 'pre-wrap' }}
+                            >
+                              {item.note}
+                            </p>
+                          </div>
+                        )}
+                      </>
+                    ) : (
+                      <p className="text-sm text-gray-500 dark:text-gray-400">
+                        -
+                      </p>
                     )}
                   </div>
                 </div>
