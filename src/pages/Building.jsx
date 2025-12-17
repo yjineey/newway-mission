@@ -184,13 +184,13 @@ function Building() {
                   rowSpan={2}
                   className="px-4 py-3 text-center text-sm font-bold text-gray-900 dark:text-white border-r border-gray-300 dark:border-gray-600"
                 >
-                  역할
+                  상세내용
                 </th>
                 <th
                   rowSpan={2}
                   className="px-4 py-3 text-center text-sm font-bold text-gray-900 dark:text-white"
                 >
-                  기타
+                  비고
                 </th>
               </tr>
               <tr className="border-b-2 border-gray-300 dark:border-gray-600">

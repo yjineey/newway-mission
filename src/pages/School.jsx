@@ -45,10 +45,6 @@ function School() {
           items: [
             '1. 필수 단어 & 문장 습득하기',
             '2. 아랍어 찬양으로 예배하기',
-            '',
-            '아랍어 찬양 참고 (수원하나교회)',
-            '• 풀세션 ver',
-            '• 어쿠스틱 ver',
           ],
         },
       ],
@@ -431,7 +427,8 @@ function School() {
             {missionData.map((item, index) => (
               <div
                 key={index}
-                className="p-5 bg-white dark:bg-[#2d2d2d] rounded-xl border border-gray-200 dark:border-[#333333]"
+                className="p-5 bg-white dark:bg-[#2d2d2d] rounded-xl border border-gray-200 dark:border-[#333333] overflow-x-auto"
+                style={{ wordBreak: 'keep-all' }}
               >
                 <div className="flex items-start gap-4 mb-3">
                   <div className="flex-shrink-0">
@@ -442,9 +439,9 @@ function School() {
                       {item.period}
                     </div>
                   </div>
-                  <div className="flex-1">
+                  <div className="flex-1" style={{ whiteSpace: 'pre' }}>
                     {item.mission && (
-                      <h3 className="font-semibold text-gray-900 dark:text-white mb-3">
+                      <h3 className="font-semibold text-gray-900 dark:text-white mb-3 whitespace-nowrap">
                         {item.mission}
                       </h3>
                     )}
@@ -453,14 +450,15 @@ function School() {
                         {item.details.map((detail, dIndex) => (
                           <div key={dIndex}>
                             {detail.title && (
-                              <p className="font-semibold text-gray-900 dark:text-white mb-2">
+                              <p className="font-semibold text-gray-900 dark:text-white mb-2 whitespace-nowrap">
                                 {detail.title}
                               </p>
                             )}
-                            <div className="text-sm text-gray-700 dark:text-gray-300 space-y-1 whitespace-pre-line">
-                              {detail.items.map((line, lIndex) => (
-                                <p key={lIndex}>{line}</p>
-                              ))}
+                            <div
+                              className="text-sm text-gray-700 dark:text-gray-300"
+                              style={{ whiteSpace: 'pre' }}
+                            >
+                              {detail.items.join('\n')}
                             </div>
                           </div>
                         ))}
@@ -468,7 +466,10 @@ function School() {
                     )}
                     {item.note && (
                       <div className="mt-4 pt-4 border-t border-gray-200 dark:border-[#333333]">
-                        <p className="text-sm text-gray-600 dark:text-gray-400 whitespace-pre-line">
+                        <p
+                          className="text-sm text-gray-600 dark:text-gray-400"
+                          style={{ whiteSpace: 'pre' }}
+                        >
                           {item.note}
                         </p>
                       </div>

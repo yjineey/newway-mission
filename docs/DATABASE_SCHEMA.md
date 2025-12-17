@@ -4,12 +4,12 @@
 
 ---
 
-## 1. 공지사항 (notices)
+## 1. 회의록 (records)
 
 ### 컬렉션 경로
 
 ```
-/notices/{noticeId}
+/records/{recordId}
 ```
 
 ### 필드 스키마
@@ -18,14 +18,13 @@
 | ------------- | --------- | ---- | ------------------- | ---------------------- |
 | `id`          | string    | ✅   | 문서 ID (자동 생성) | `abc123xyz`            |
 | `team`        | string    | ✅   | 팀 (egypt, jordan)  | `egypt`                |
-| `title`       | string    | ✅   | 제목                | `6월 선교 준비 모임`   |
-| `content`     | string    | ✅   | 내용                | `다음 주 토요일...`    |
+| `title`       | string    | ✅   | 제목                | `1차 팀 회의록`        |
+| `content`     | string    | ✅   | 내용                | `주요 논의사항...`     |
 | `author`      | string    | ✅   | 작성자 이름         | `홍길동`               |
 | `authorId`    | string    | ❌   | 작성자 ID           | `user_abc123`          |
 | `createdAt`   | timestamp | ✅   | 작성일시            | `2024-06-01T10:00:00Z` |
 | `updatedAt`   | timestamp | ✅   | 수정일시            | `2024-06-02T15:30:00Z` |
 | `views`       | number    | ✅   | 조회수              | `42`                   |
-| `isPinned`    | boolean   | ✅   | 상단 고정 여부      | `false`                |
 | `attachments` | array     | ❌   | 첨부파일 목록       | `[{name, url, size}]`  |
 
 ### 첨부파일 (attachments) 구조
@@ -44,7 +43,6 @@ attachments: [
 ### 인덱스
 
 ```
-- team (ASC) + isPinned (DESC) + createdAt (DESC)
 - team (ASC) + createdAt (DESC)
 ```
 
@@ -52,157 +50,141 @@ attachments: [
 
 ```json
 {
-  "id": "notice001",
+  "id": "record001",
   "team": "egypt",
-  "title": "6월 선교 준비 모임 공지",
-  "content": "다음 주 토요일 오후 2시에 교회에서 선교 준비 모임이 있습니다...",
+  "title": "1차 팀 회의록",
+  "content": "주요 논의사항...",
   "author": "홍길동",
   "authorId": "user_abc123",
   "createdAt": { "_seconds": 1717228800, "_nanoseconds": 0 },
   "updatedAt": { "_seconds": 1717228800, "_nanoseconds": 0 },
   "views": 42,
-  "isPinned": false,
-  "attachments": [
-    {
-      "name": "준비물_리스트.pdf",
-      "url": "https://storage.googleapis.com/...",
-      "size": 102400
-    }
-  ]
+  "attachments": []
 }
 ```
 
 ---
 
-## 2. 기도훈련 (prayer-trainings)
+## 2. 찬양 (praise)
 
 ### 컬렉션 경로
 
 ```
-/prayer-trainings/{trainingId}
+/praise/{praiseId}
 ```
 
 ### 필드 스키마
 
-| 필드명      | 타입      | 필수 | 설명      | 예시                        |
-| ----------- | --------- | ---- | --------- | --------------------------- |
-| `id`        | string    | ✅   | 문서 ID   | `prayer001`                 |
-| `team`      | string    | ✅   | 팀        | `jordan`                    |
-| `title`     | string    | ✅   | 제목      | `1주차 기도 모임`           |
-| `content`   | string    | ✅   | 내용      | `선교지를 위한 중보기도...` |
-| `date`      | timestamp | ✅   | 훈련 날짜 | `2024-06-15T14:00:00Z`      |
-| `location`  | string    | ❌   | 장소      | `교회 세미나실`             |
-| `author`    | string    | ✅   | 작성자    | `김기도`                    |
-| `authorId`  | string    | ❌   | 작성자 ID | `user_def456`               |
-| `createdAt` | timestamp | ✅   | 작성일시  | -                           |
-| `updatedAt` | timestamp | ✅   | 수정일시  | -                           |
-| `views`     | number    | ✅   | 조회수    | `15`                        |
+| 필드명        | 타입      | 필수 | 설명                | 예시                   |
+| ------------- | --------- | ---- | ------------------- | ---------------------- |
+| `id`          | string    | ✅   | 문서 ID (자동 생성) | `praise001`            |
+| `team`        | string    | ✅   | 팀 (egypt, jordan)  | `egypt`                |
+| `title`       | string    | ✅   | 제목                | `주님의 마음`          |
+| `content`     | string    | ✅   | 내용                | `찬양 가사...`         |
+| `author`      | string    | ✅   | 작성자 이름         | `홍길동`               |
+| `authorId`    | string    | ❌   | 작성자 ID           | `user_abc123`          |
+| `createdAt`   | timestamp | ✅   | 작성일시            | `2024-06-01T10:00:00Z` |
+| `updatedAt`   | timestamp | ✅   | 수정일시            | `2024-06-02T15:30:00Z` |
+| `views`       | number    | ✅   | 조회수              | `15`                   |
+| `attachments` | array     | ❌   | 첨부파일 목록       | `[{name, url, size}]`  |
 
 ### 인덱스
 
 ```
-- team (ASC) + date (DESC)
 - team (ASC) + createdAt (DESC)
 ```
 
 ---
 
-## 3. 말씀훈련 (word-trainings)
+## 3. 중보기도 (prayer-request)
 
 ### 컬렉션 경로
 
 ```
-/word-trainings/{trainingId}
+/prayer-request/{requestId}
 ```
 
 ### 필드 스키마
 
-| 필드명      | 타입      | 필수 | 설명      | 예시                  |
-| ----------- | --------- | ---- | --------- | --------------------- |
-| `id`        | string    | ✅   | 문서 ID   | `word001`             |
-| `team`      | string    | ✅   | 팀        | `egypt`               |
-| `title`     | string    | ✅   | 제목      | `선교사의 마음`       |
-| `content`   | string    | ✅   | 내용      | `바울의 선교 여정...` |
-| `scripture` | string    | ❌   | 성경 구절 | `사도행전 13:1-3`     |
-| `date`      | timestamp | ✅   | 훈련 날짜 | -                     |
-| `location`  | string    | ❌   | 장소      | `교회 본당`           |
-| `author`    | string    | ✅   | 작성자    | `이말씀`              |
-| `authorId`  | string    | ❌   | 작성자 ID | -                     |
-| `createdAt` | timestamp | ✅   | 작성일시  | -                     |
-| `updatedAt` | timestamp | ✅   | 수정일시  | -                     |
-| `views`     | number    | ✅   | 조회수    | `23`                  |
+| 필드명        | 타입      | 필수 | 설명                | 예시                   |
+| ------------- | --------- | ---- | ------------------- | ---------------------- |
+| `id`          | string    | ✅   | 문서 ID (자동 생성) | `prayer001`            |
+| `team`        | string    | ✅   | 팀 (egypt, jordan)  | `jordan`               |
+| `title`       | string    | ✅   | 제목                | `선교지를 위한 기도`   |
+| `content`     | string    | ✅   | 내용                | `기도 요청 내용...`     |
+| `author`      | string    | ✅   | 작성자 이름         | `김기도`               |
+| `authorId`    | string    | ❌   | 작성자 ID           | `user_def456`          |
+| `createdAt`   | timestamp | ✅   | 작성일시            | `2024-06-01T10:00:00Z` |
+| `updatedAt`   | timestamp | ✅   | 수정일시            | `2024-06-02T15:30:00Z` |
+| `views`       | number    | ✅   | 조회수              | `23`                   |
+| `attachments` | array     | ❌   | 첨부파일 목록       | `[{name, url, size}]`  |
 
 ### 인덱스
 
 ```
-- team (ASC) + date (DESC)
+- team (ASC) + createdAt (DESC)
 ```
 
 ---
 
-## 4. 회의록 (meeting-records)
+## 4. 준비물 (preparation)
 
 ### 컬렉션 경로
 
 ```
-/meeting-records/{recordId}
+/preparation/{preparationId}
 ```
 
 ### 필드 스키마
 
-| 필드명        | 타입      | 필수 | 설명        | 예시                         |
-| ------------- | --------- | ---- | ----------- | ---------------------------- |
-| `id`          | string    | ✅   | 문서 ID     | `meeting001`                 |
-| `team`        | string    | ✅   | 팀          | `jordan`                     |
-| `title`       | string    | ✅   | 제목        | `1차 팀 회의록`              |
-| `content`     | string    | ✅   | 회의 내용   | `주요 논의사항...`           |
-| `meetingDate` | timestamp | ✅   | 회의 날짜   | -                            |
-| `attendees`   | array     | ❌   | 참석자 목록 | `["홍길동", "김철수"]`       |
-| `agenda`      | array     | ❌   | 안건 목록   | `["일정 조율", "예산 논의"]` |
-| `decisions`   | string    | ❌   | 결정사항    | `예산안 승인...`             |
-| `author`      | string    | ✅   | 작성자      | `박회의`                     |
-| `authorId`    | string    | ❌   | 작성자 ID   | -                            |
-| `createdAt`   | timestamp | ✅   | 작성일시    | -                            |
-| `updatedAt`   | timestamp | ✅   | 수정일시    | -                            |
-| `views`       | number    | ✅   | 조회수      | `18`                         |
+| 필드명        | 타입      | 필수 | 설명                | 예시                   |
+| ------------- | --------- | ---- | ------------------- | ---------------------- |
+| `id`          | string    | ✅   | 문서 ID (자동 생성) | `prep001`              |
+| `team`        | string    | ✅   | 팀 (egypt, jordan)  | `egypt`                |
+| `title`       | string    | ✅   | 제목                | `여름 준비물`          |
+| `content`     | string    | ✅   | 내용                | `준비물 목록...`       |
+| `author`      | string    | ✅   | 작성자 이름         | `이준비`               |
+| `authorId`    | string    | ❌   | 작성자 ID           | `user_ghi789`          |
+| `createdAt`   | timestamp | ✅   | 작성일시            | `2024-06-01T10:00:00Z` |
+| `updatedAt`   | timestamp | ✅   | 수정일시            | `2024-06-02T15:30:00Z` |
+| `views`       | number    | ✅   | 조회수              | `18`                   |
+| `attachments` | array     | ❌   | 첨부파일 목록       | `[{name, url, size}]`  |
 
 ### 인덱스
 
 ```
-- team (ASC) + meetingDate (DESC)
+- team (ASC) + createdAt (DESC)
 ```
 
 ---
 
-## 5. 팀미션 (team-missions)
+## 5. 선교물품 (items)
 
 ### 컬렉션 경로
 
 ```
-/team-missions/{missionId}
+/items/{itemId}
 ```
 
 ### 필드 스키마
 
-| 필드명      | 타입      | 필수 | 설명       | 예시                        |
-| ----------- | --------- | ---- | ---------- | --------------------------- |
-| `id`        | string    | ✅   | 문서 ID    | `mission001`                |
-| `team`      | string    | ✅   | 팀         | `egypt`                     |
-| `week`      | number    | ✅   | 주차 (1-6) | `1`                         |
-| `title`     | string    | ✅   | 제목       | `1주차: 이슬람 문화 스터디` |
-| `content`   | string    | ✅   | 내용       | `이슬람 문화의 이해...`     |
-| `mission`   | string    | ✅   | 미션 유형  | `스터디`                    |
-| `dueDate`   | timestamp | ❌   | 마감일     | -                           |
-| `author`    | string    | ✅   | 작성자     | `최미션`                    |
-| `authorId`  | string    | ❌   | 작성자 ID  | -                           |
-| `createdAt` | timestamp | ✅   | 작성일시   | -                           |
-| `updatedAt` | timestamp | ✅   | 수정일시   | -                           |
-| `views`     | number    | ✅   | 조회수     | `31`                        |
+| 필드명        | 타입      | 필수 | 설명                | 예시                   |
+| ------------- | --------- | ---- | ------------------- | ---------------------- |
+| `id`          | string    | ✅   | 문서 ID (자동 생성) | `item001`              |
+| `team`        | string    | ✅   | 팀 (egypt, jordan)  | `jordan`               |
+| `title`       | string    | ✅   | 제목                | `성경 100권`           |
+| `content`     | string    | ✅   | 내용                | `물품 상세 내용...`    |
+| `author`      | string    | ✅   | 작성자 이름         | `최물품`               |
+| `authorId`    | string    | ❌   | 작성자 ID           | `user_jkl012`          |
+| `createdAt`   | timestamp | ✅   | 작성일시            | `2024-06-01T10:00:00Z` |
+| `updatedAt`   | timestamp | ✅   | 수정일시            | `2024-06-02T15:30:00Z` |
+| `views`       | number    | ✅   | 조회수              | `31`                   |
+| `attachments` | array     | ❌   | 첨부파일 목록       | `[{name, url, size}]`  |
 
 ### 인덱스
 
 ```
-- team (ASC) + week (ASC)
+- team (ASC) + createdAt (DESC)
 ```
 
 ---

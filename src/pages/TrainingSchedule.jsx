@@ -230,7 +230,7 @@ function TrainingSchedule() {
       </div> */}
 
       {/* 요르단 드롭다운 */}
-      <div className="bg-white dark:bg-[#2d2d2d] rounded-xl border border-gray-200 dark:border-[#333333] overflow-hidden">
+      {/* <div className="bg-white dark:bg-[#2d2d2d] rounded-xl border border-gray-200 dark:border-[#333333] overflow-hidden">
         <button
           onClick={() => setIsJordanOpen(!isJordanOpen)}
           className="w-full p-5 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-[#333333] transition-colors"
@@ -245,7 +245,8 @@ function TrainingSchedule() {
           )}
         </button>
         {isJordanOpen && (
-          <div className="px-5 pb-5 space-y-6">
+          <div className="px-5 pb-5 space-y-6"> */}
+          <div className="space-y-6">
             <div className="bg-white dark:bg-[#252525] rounded-2xl shadow-soft border border-gray-200 dark:border-[#333333] p-6 md:p-8">
             <div className="flex items-center gap-3 mb-4">
               <h2 className="text-base font-bold text-gray-900 dark:text-white">
@@ -1438,8 +1439,8 @@ function TrainingSchedule() {
             </div>
           </div>
           </div>
-        )}
-      </div>
+        {/* )}
+      </div> */}
     </div>
   );
 

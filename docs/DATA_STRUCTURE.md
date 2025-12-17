@@ -12,33 +12,32 @@
 
 ```
 firestore/
-├── notices/              # 공지사항
-├── prayer-trainings/     # 기도훈련
-├── word-trainings/       # 말씀훈련
-├── meeting-records/      # 회의록
-├── team-missions/        # 팀미션
+├── records/              # 회의록
+├── praise/               # 찬양
+├── prayer-request/       # 중보기도
+├── preparation/          # 준비물
+├── items/                # 선교물품
 ├── comments/             # 댓글 (모든 페이지)
-└── users/                # 사용자 (익명 포함)
+└── users/                # 사용자 (선택사항)
 ```
 
 ---
 
 ## 📝 컬렉션별 스키마
 
-### 1. **공지사항 (notices)**
+### 1. **회의록 (records)**
 
 ```javascript
 {
-  id: "auto-generated-id",        // Firestore 자동 생성
-  team: "egypt" | "jordan",       // 팀
-  title: "공지사항 제목",           // 제목
-  content: "공지사항 내용...",     // 내용 (마크다운 지원 가능)
-  author: "작성자명",              // 작성자
-  authorId: "user-id",            // 작성자 ID (익명일 경우 null)
-  createdAt: Timestamp,           // 작성일 (Firebase Timestamp)
-  updatedAt: Timestamp,           // 수정일
-  views: 0,                       // 조회수
-  isPinned: false,                // 상단 고정 여부
+  id: "auto-generated-id",
+  team: "egypt" | "jordan",
+  title: "회의록 제목",
+  content: "회의 내용...",
+  author: "작성자명",
+  authorId: "user-id",
+  createdAt: Timestamp,
+  updatedAt: Timestamp,
+  views: 0,
   attachments: [                  // 첨부파일 (선택)
     {
       name: "파일명.pdf",
@@ -49,102 +48,91 @@ firestore/
 }
 ```
 
-**인덱스:** `team`, `createdAt DESC`, `isPinned DESC`
+**인덱스:** `team`, `createdAt DESC`
 
 ---
 
-### 2. **기도훈련 (prayer-trainings)**
+### 2. **찬양 (praise)**
 
 ```javascript
 {
   id: "auto-generated-id",
   team: "egypt" | "jordan",
-  title: "기도훈련 제목",
-  content: "훈련 내용...",
-  date: Timestamp,                // 훈련 날짜
-  location: "장소",                // 장소 (선택)
+  title: "찬양 제목",
+  content: "찬양 가사...",
   author: "작성자명",
   authorId: "user-id",
   createdAt: Timestamp,
   updatedAt: Timestamp,
-  views: 0
+  views: 0,
+  attachments: []
 }
 ```
 
-**인덱스:** `team`, `date DESC`
+**인덱스:** `team`, `createdAt DESC`
 
 ---
 
-### 3. **말씀훈련 (word-trainings)**
+### 3. **중보기도 (prayer-request)**
 
 ```javascript
 {
   id: "auto-generated-id",
   team: "egypt" | "jordan",
-  title: "말씀훈련 제목",
-  content: "훈련 내용...",
-  scripture: "요한복음 3:16",     // 성경 구절 (선택)
-  date: Timestamp,
-  location: "장소",
+  title: "기도 제목",
+  content: "기도 요청 내용...",
   author: "작성자명",
   authorId: "user-id",
   createdAt: Timestamp,
   updatedAt: Timestamp,
-  views: 0
+  views: 0,
+  attachments: []
 }
 ```
 
-**인덱스:** `team`, `date DESC`
+**인덱스:** `team`, `createdAt DESC`
 
 ---
 
-### 4. **회의록 (meeting-records)**
+### 4. **준비물 (preparation)**
 
 ```javascript
 {
   id: "auto-generated-id",
   team: "egypt" | "jordan",
-  title: "회의록 제목",
-  content: "회의 내용...",
-  meetingDate: Timestamp,         // 회의 날짜
-  attendees: ["참석자1", "참석자2"], // 참석자 목록
-  agenda: [                       // 안건 (선택)
-    "안건 1",
-    "안건 2"
-  ],
-  decisions: "결정사항...",        // 결정사항 (선택)
+  title: "준비물 제목",
+  content: "준비물 내용...",
   author: "작성자명",
   authorId: "user-id",
   createdAt: Timestamp,
   updatedAt: Timestamp,
-  views: 0
+  views: 0,
+  attachments: []
 }
 ```
 
-**인덱스:** `team`, `meetingDate DESC`
+**인덱스:** `team`, `createdAt DESC`
 
 ---
 
-### 5. **팀미션 (team-missions)**
+### 5. **선교물품 (items)**
 
 ```javascript
 {
   id: "auto-generated-id",
   team: "egypt" | "jordan",
-  week: 1,                        // 주차 (1-6)
-  title: "팀미션 제목",
-  content: "미션 내용...",
-  mission: "스터디" | "양화진방문" | "기타",
-  dueDate: Timestamp,             // 마감일 (선택)
+  title: "물품 제목",
+  content: "물품 내용...",
   author: "작성자명",
   authorId: "user-id",
   createdAt: Timestamp,
   updatedAt: Timestamp,
-  views: 0
+  views: 0,
+  attachments: []
 }
 ```
 
-**인덱스:** `team`, `week ASC`
+**인덱스:** `team`, `createdAt DESC`
 
 ---
 
@@ -380,17 +368,16 @@ await addDoc(collection(db, 'comments'), {
 
 | 카테고리   | 데이터 저장 | 글쓰기 | 댓글 |
 | ---------- | ----------- | ------ | ---- |
-| 공지사항   | Firestore   | ✅     | ✅   |
-| 기도훈련   | Firestore   | ✅     | ✅   |
-| 말씀훈련   | Firestore   | ✅     | ✅   |
 | 회의록     | Firestore   | ✅     | ✅   |
-| 팀미션     | Firestore   | ✅     | ✅   |
-| 선교일정   | 정적 파일   | ❌     | ✅   |
-| 선교스쿨   | 정적 파일   | ❌     | ✅   |
-| 비상연락망 | 정적 파일   | ❌     | ✅   |
-| 팀빌딩     | 정적 파일   | ❌     | ✅   |
-| 준비물     | 정적 파일   | ❌     | ✅   |
-| 선교물품   | 정적 파일   | ❌     | ✅   |
-| 찬양       | 정적 파일   | ❌     | ✅   |
+| 찬양       | Firestore   | ✅     | ✅   |
+| 중보기도   | Firestore   | ✅     | ✅   |
+| 준비물     | Firestore   | ✅     | ✅   |
+| 선교물품   | Firestore   | ✅     | ✅   |
+| 선교스쿨   | 정적 데이터 | ❌     | ✅   |
+| 선교일정   | 정적 데이터 | ❌     | ✅   |
+| 훈련일정   | 정적 데이터 | ❌     | ✅   |
+| 비상연락망 | 정적 데이터 | ❌     | ✅   |
+| 팀빌딩     | 정적 데이터 | ❌     | ✅   |
+| 준비사항   | 정적 데이터 | ❌     | ✅   |
 
 **댓글은 모든 페이지에서 Firestore 사용**

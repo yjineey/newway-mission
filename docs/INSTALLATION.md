@@ -29,9 +29,6 @@ npm install firebase
 # 아이콘 (통일된 벡터 아이콘)
 npm install lucide-react
 
-# 날짜 포맷팅
-npm install date-fns
-
 # 조건부 클래스 관리
 npm install classnames
 ```
@@ -76,7 +73,7 @@ npm create vite@latest newway-mission -- --template react
 cd newway-mission
 
 # 모든 패키지 한 번에 설치
-npm install react-router-dom firebase lucide-react date-fns classnames
+npm install react-router-dom firebase lucide-react classnames
 
 # 개발 의존성
 npm install -D tailwindcss postcss autoprefixer gh-pages eslint eslint-plugin-react prettier
@@ -93,11 +90,10 @@ npx tailwindcss init -p
 |--------|------|------|----------|
 | `react` | ^18.3.1 | UI 라이브러리 | 필수 |
 | `react-dom` | ^18.3.1 | React DOM 렌더링 | 필수 |
-| `react-router-dom` | ^6.x | 페이지 라우팅 | 필수 |
-| `firebase` | ^10.x | 백엔드, DB, 인증 | 필수 |
-| `lucide-react` | ^0.x | 벡터 아이콘 | 필수 |
-| `date-fns` | ^3.x | 날짜 포맷팅 | 필수 |
-| `classnames` | ^2.x | 조건부 클래스 | 권장 |
+| `react-router-dom` | ^6.28.0 | 페이지 라우팅 | 필수 |
+| `firebase` | ^10.14.1 | 백엔드, DB, 인증 | 필수 |
+| `lucide-react` | ^0.469.0 | 벡터 아이콘 | 필수 |
+| `classnames` | ^2.5.1 | 조건부 클래스 | 필수 |
 | `tailwindcss` | ^3.x | 스타일링 | 필수 |
 | `postcss` | ^8.x | CSS 처리 | 필수 |
 | `autoprefixer` | ^10.x | CSS 벤더 프리픽스 | 필수 |
@@ -127,7 +123,7 @@ export default {
 }
 ```
 
-**src/index.css**
+**src/styles/global.css**
 ```css
 @tailwind base;
 @tailwind components;
@@ -176,6 +172,13 @@ export default defineConfig({
   plugins: [react()],
   base: '/newway-mission/', // GitHub Pages 배포 시 저장소 이름
 })
+```
+
+**App.jsx**
+```javascript
+<Router basename="/newway-mission">
+  {/* ... */}
+</Router>
 ```
 
 ---
