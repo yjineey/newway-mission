@@ -4,23 +4,18 @@ import { TeamProvider } from './context/TeamContext';
 import { AuthProvider } from './context/AuthContext';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
+import ScrollToTop from './components/common/ScrollToTop';
 import Home from './pages/Home';
 import Schedule from './pages/Schedule';
-import Notices from './pages/Notices';
+import TrainingSchedule from './pages/TrainingSchedule';
 import School from './pages/School';
-import TeamTraining from './pages/TeamTraining';
-import Prayer from './pages/Prayer';
 import PrayerRequest from './pages/PrayerRequest';
-import Word from './pages/Word';
-import Worship from './pages/Worship';
 import Records from './pages/Records';
 import Contact from './pages/Contact';
 import Building from './pages/Building';
-import Missions from './pages/Missions';
 import Preparation from './pages/Preparation';
 import Items from './pages/Items';
-import DepartureCheck from './pages/DepartureCheck';
-import FieldCheck from './pages/FieldCheck';
+import ReadyItems from './pages/Checklist';
 import Praise from './pages/Praise';
 import ChurchInfo from './pages/ChurchInfo';
 import BoardWrite from './pages/BoardWrite';
@@ -46,6 +41,7 @@ function App() {
 
   return (
     <Router basename="/newway-mission">
+      <ScrollToTop />
       <AuthProvider>
         <TeamProvider>
           <div className="min-h-screen flex flex-col">
@@ -55,21 +51,18 @@ function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/schedule" element={<Schedule />} />
-                <Route path="/notices" element={<Notices />} />
+                <Route
+                  path="/training-schedule"
+                  element={<TrainingSchedule />}
+                />
                 <Route path="/school" element={<School />} />
-                <Route path="/teamtraining" element={<TeamTraining />} />
-                <Route path="/prayer" element={<Prayer />} />
                 <Route path="/prayer-request" element={<PrayerRequest />} />
-                <Route path="/word" element={<Word />} />
-                <Route path="/worship" element={<Worship />} />
                 <Route path="/records" element={<Records />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/building" element={<Building />} />
-                <Route path="/missions" element={<Missions />} />
                 <Route path="/preparation" element={<Preparation />} />
                 <Route path="/items" element={<Items />} />
-                <Route path="/departure-check" element={<DepartureCheck />} />
-                <Route path="/field-check" element={<FieldCheck />} />
+                <Route path="/checklist" element={<ReadyItems />} />
                 <Route path="/praise" element={<Praise />} />
                 <Route path="/church-info" element={<ChurchInfo />} />
 
