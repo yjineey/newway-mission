@@ -85,7 +85,8 @@ function Building() {
         sub: '',
         detail:
           '모든 일정 동안 팀 전체를 총괄하며 한국 본부와 현지 선생님들 사이에서 원활한 소통을 담당\n- 선교지의 소통: 훈련 및 선교 기간 선교사님과 직접 소통\n- 교회와의 소통: 팀 훈련 상황 및 매일 1회 상황 보고\n- 태도와 자세: 선교사님의 지시와 일정 변동에 우선적으로 순종하며 팀을 이끔',
-        other: '전도사님, 선교사님 소통은 오직 팀장님만\n- 필요한 부분(자료)은 팀장 통해서 소통',
+        other:
+          '전도사님, 선교사님 소통은 오직 팀장님만\n- 필요한 부분(자료)은 팀장 통해서 소통',
       },
       {
         role: '부팀장',
@@ -119,23 +120,23 @@ function Building() {
       },
       {
         role: '중보자',
-        main: '김난영',
-        sub: '김주은, 최정원',
+        main: '김주은',
+        sub: '김난영, 최정원',
         detail:
           '팀의 모든 팀원들 & 현지 선교사님을 기도로 보호하며, 모든 일정을 위해 중보\n- 훈련 기간:\n  • 팀과 팀원들의 기도제목을 작성하고 정기적으로 기도\n  • 기도 알림을 보내어 모두 기도에 동참할 수 있도록 도움\n  • 중보 기도의 시간을 사수하며, 팀장을 도와 기도로 영적 분위기를 환기시킴\n- 선교 기간: 팀 기도 카드를 제작하여 공유하며, 현지의 모든 상황에 대하여 기도한다',
       },
       {
         role: '하스피',
-        main: '진민하',
-        sub: '최정원',
+        main: '최정원',
+        sub: '진민하',
         detail:
           '현지에서 필요한 물품 세밀하게 살피고, 물품을 준비하고 관리 (선물, 공용물품, 응급물품, 간식 등)\n- 팀장 및 회계와 긴밀히 협력하여 물품 준비 조율\n- 준비한 모든 물품은 리스트로 작성하여 체계적으로 관리하고, 짐 패킹 및 운반 관련하여 총괄함',
         other: '의약품',
       },
       {
         role: '미디어',
-        main: '김난영',
-        sub: '김주은, 이종철, 임지원',
+        main: '임지원',
+        sub: '김난영, 김주은, 이종철',
         detail:
           '모든 순간을 기록하며, 영적인 메시지가 담긴 의미 있는 장면을 포착\n- 사진&영상 촬영 및 모임 기록 담당\n- 선교 후, 하이라이트 영상 제작',
         other: '크리스마스행사 시도-의영자매에게 학습(릴스용)',
@@ -159,6 +160,16 @@ function Building() {
   };
 
   const currentTeamData = teamData[selectedTeam] || teamData.jordan;
+
+  // 이름들을 가나다 순으로 정렬하는 함수
+  const sortNames = (namesStr) => {
+    if (!namesStr || namesStr.trim() === '') return '';
+    const names = namesStr
+      .split(',')
+      .map((name) => name.trim())
+      .filter((name) => name);
+    return names.sort((a, b) => a.localeCompare(b, 'ko')).join(', ');
+  };
 
   return (
     <PageLayout title="팀 빌딩" showTeamTabs={true}>
@@ -221,10 +232,10 @@ function Building() {
                   ) : (
                     <>
                       <td className="px-4 py-4 text-sm text-gray-700 dark:text-gray-300 text-center">
-                        {item.main || '-'}
+                        {sortNames(item.main) || '-'}
                       </td>
                       <td className="px-4 py-4 text-sm text-gray-700 dark:text-gray-300 text-center border-r border-gray-300 dark:border-gray-600">
-                        {item.sub || '-'}
+                        {sortNames(item.sub) || '-'}
                       </td>
                     </>
                   )}
