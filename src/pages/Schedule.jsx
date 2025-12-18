@@ -64,9 +64,6 @@ function Schedule() {
       <div className="space-y-6">
         {/* 일정 안내 */}
         <div className="space-y-4">
-          <h2 className="text-base font-bold text-gray-900 dark:text-white mb-4">
-            일정 안내
-          </h2>
           <div className="space-y-4">
             {/* 기간 */}
             <div className="p-4 bg-white dark:bg-[#252525] rounded-xl border border-gray-200 dark:border-[#333333]">
