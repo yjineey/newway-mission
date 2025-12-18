@@ -3,20 +3,17 @@ import { createContext, useContext, useState, useEffect } from 'react'
 const TeamContext = createContext()
 
 export function TeamProvider({ children }) {
+  // 항상 요르단으로 고정
   const [selectedTeam, setSelectedTeam] = useState('jordan')
 
-  // 로컬스토리지에서 초기값 불러오기
   useEffect(() => {
-    const savedTeam = localStorage.getItem('selectedTeam') || 'jordan'
-    // 이집트가 저장되어 있으면 요르단으로 변경
-    const team = savedTeam === 'egypt' ? 'jordan' : savedTeam
-    setSelectedTeam(team)
+    // 항상 요르단으로 설정
+    setSelectedTeam('jordan')
   }, [])
 
-  // 팀 변경 시 로컬스토리지에 저장
+  // 팀 변경 불가 (요르단만 사용)
   const changeTeam = (team) => {
-    setSelectedTeam(team)
-    localStorage.setItem('selectedTeam', team)
+    // 변경하지 않음
   }
 
   const value = {
