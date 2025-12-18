@@ -5,11 +5,9 @@ import { Phone } from 'lucide-react';
 
 function Contact() {
   const { selectedTeam } = useTeam();
-  const { userTeam } = useAuth();
+  const { effectiveTeam } = useAuth();
 
-  const ministers = [
-    { name: '이혜연 전도사', phone: '010-8518-4610' },
-  ];
+  const ministers = [{ name: '이혜연 전도사', phone: '010-8518-4610' }];
 
   const contactData = {
     egypt: {
@@ -40,20 +38,30 @@ function Contact() {
   };
 
   // null 권한일 때는 이집트와 요르단 각각 팀장/부팀장만, 로그인 시에는 선택된 팀의 모든 멤버
-  const egyptLeaders = contactData.egypt.members.filter(member => member.isLeader || member.isSubLeader);
-  const jordanLeaders = contactData.jordan.members.filter(member => member.isLeader || member.isSubLeader);
-  
+  const egyptLeaders = contactData.egypt.members.filter(
+    (member) => member.isLeader || member.isSubLeader
+  );
+  const jordanLeaders = contactData.jordan.members.filter(
+    (member) => member.isLeader || member.isSubLeader
+  );
+
   // 로그인한 경우: 팀장/부팀장 먼저, 나머지는 가나다순 정렬
   const sortMembers = (members) => {
-    const leaders = members.filter(m => m.isLeader || m.isSubLeader);
-    const others = members.filter(m => !m.isLeader && !m.isSubLeader);
-    const sortedOthers = others.sort((a, b) => a.name.localeCompare(b.name, 'ko'));
+    const leaders = members.filter((m) => m.isLeader || m.isSubLeader);
+    const others = members.filter((m) => !m.isLeader && !m.isSubLeader);
+    const sortedOthers = others.sort((a, b) =>
+      a.name.localeCompare(b.name, 'ko')
+    );
     return [...leaders, ...sortedOthers];
   };
-  
-  const currentMembers = userTeam === null
-    ? null // null일 때는 별도로 처리
-    : sortMembers(selectedTeam === 'egypt' ? contactData.egypt.members : contactData.jordan.members);
+
+  const currentMembers = !effectiveTeam
+    ? null // effectiveTeam이 null이면 별도로 처리
+    : sortMembers(
+        selectedTeam === 'egypt'
+          ? contactData.egypt.members
+          : contactData.jordan.members
+      );
 
   return (
     <PageLayout title="비상연락망" showTeamTabs={true}>
@@ -87,7 +95,7 @@ function Contact() {
         </div>
 
         {/* 팀원 */}
-        {userTeam === null ? (
+        {!effectiveTeam ? (
           <>
             {/* 이집트 팀 */}
             <div className="space-y-4">
@@ -215,4 +223,3 @@ function Contact() {
 }
 
 export default Contact;
-
