@@ -5,9 +5,7 @@ import { Phone } from 'lucide-react';
 function Contact() {
   const { selectedTeam } = useTeam();
 
-  const ministers = [
-    { name: '이혜연 전도사', phone: '010-8518-4610' },
-  ];
+  const ministers = [{ name: '이혜연 전도사', phone: '010-8518-4610' }];
 
   const contactData = {
     egypt: {
@@ -39,9 +37,11 @@ function Contact() {
 
   // 팀장/부팀장 먼저, 나머지는 가나다순 정렬
   const sortMembers = (members) => {
-    const leaders = members.filter(m => m.isLeader || m.isSubLeader);
-    const others = members.filter(m => !m.isLeader && !m.isSubLeader);
-    const sortedOthers = others.sort((a, b) => a.name.localeCompare(b.name, 'ko'));
+    const leaders = members.filter((m) => m.isLeader || m.isSubLeader);
+    const others = members.filter((m) => !m.isLeader && !m.isSubLeader);
+    const sortedOthers = others.sort((a, b) =>
+      a.name.localeCompare(b.name, 'ko')
+    );
     return [...leaders, ...sortedOthers];
   };
 
@@ -128,4 +128,3 @@ function Contact() {
 }
 
 export default Contact;
-
