@@ -1,22 +1,33 @@
 import { createContext, useContext, useState, useEffect } from 'react'
+import { useAuth } from './AuthContext'
 
 const TeamContext = createContext()
 
 export function TeamProvider({ children }) {
+  const { userTeam } = useAuth()
   const [selectedTeam, setSelectedTeam] = useState('jordan')
 
-  // 로컬스토리지에서 초기값 불러오기
+  // 로그인한 팀이 있으면 자동으로 그 팀으로 설정, 관리자는 선택 가능
   useEffect(() => {
-    const savedTeam = localStorage.getItem('selectedTeam') || 'jordan'
-    // 이집트가 저장되어 있으면 요르단으로 변경
-    const team = savedTeam === 'egypt' ? 'jordan' : savedTeam
-    setSelectedTeam(team)
-  }, [])
+    if (userTeam === 'egypt' || userTeam === 'jordan') {
+      // 사용자 권한이 있으면 해당 팀으로 고정
+      setSelectedTeam(userTeam)
+    } else if (userTeam === 'admin') {
+      // 관리자는 로컬스토리지에서 선택된 팀 불러오기
+      const savedTeam = localStorage.getItem('selectedTeam') || 'jordan'
+      setSelectedTeam(savedTeam)
+    } else {
+      // 로그인 안 했으면 기본값
+      setSelectedTeam('jordan')
+    }
+  }, [userTeam])
 
-  // 팀 변경 시 로컬스토리지에 저장
+  // 팀 변경 시 로컬스토리지에 저장 (관리자만 가능)
   const changeTeam = (team) => {
-    setSelectedTeam(team)
-    localStorage.setItem('selectedTeam', team)
+    if (userTeam === 'admin') {
+      setSelectedTeam(team)
+      localStorage.setItem('selectedTeam', team)
+    }
   }
 
   const value = {

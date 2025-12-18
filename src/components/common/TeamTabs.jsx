@@ -1,14 +1,16 @@
 import { useTeam } from '../../context/TeamContext'
+import { useAuth } from '../../context/AuthContext'
 
 function TeamTabs() {
   const { selectedTeam, changeTeam } = useTeam()
+  const { isAdmin } = useAuth()
+
+  // 관리자가 아니면 탭 표시 안 함
+  if (!isAdmin) return null
 
   const teams = [
-    // { id: 'egypt', name: '이집트' },
+    { id: 'egypt', name: '이집트' },
     { id: 'jordan', name: '요르단' },
-    // 추가 팀은 여기에 (최대 4개)
-    // { id: 'team3', name: '팀3' },
-    // { id: 'team4', name: '팀4' },
   ]
 
   return (

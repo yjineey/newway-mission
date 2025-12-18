@@ -1,6 +1,12 @@
 import TeamTabs from '../common/TeamTabs'
+import { useAuth } from '../../context/AuthContext'
 
 function PageLayout({ title, children, actions, showTeamTabs = false }) {
+  const { isAdmin } = useAuth()
+  
+  // 관리자이고 showTeamTabs가 true일 때만 탭 표시
+  const shouldShowTabs = showTeamTabs && isAdmin
+
   return (
     <div className="min-h-screen py-8">
       <div className="container mx-auto px-4 max-w-4xl">
@@ -16,8 +22,8 @@ function PageLayout({ title, children, actions, showTeamTabs = false }) {
           )}
         </div>
 
-        {/* 팀 탭 (필요한 페이지만) */}
-        {showTeamTabs && <TeamTabs />}
+        {/* 팀 탭 (관리자이고 필요한 페이지만) */}
+        {shouldShowTabs && <TeamTabs />}
 
         {/* 컨텐츠 */}
         <div className="animate-fade-in">
