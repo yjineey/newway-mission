@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { useTeam } from '../context/TeamContext'
 import PageLayout from '../components/layout/PageLayout'
 import BoardEditor from '../components/board/BoardEditor'
-import { createPost, uploadFile } from '../services/postService'
+import { createPost, uploadFile, updatePost } from '../services/postService'
 
 function BoardWrite() {
   const navigate = useNavigate()
@@ -55,7 +55,12 @@ function BoardWrite() {
         const uploadPromises = formData.files.map(file => 
           uploadFile(file, postId)
         )
-        await Promise.all(uploadPromises)
+        const uploadedFiles = await Promise.all(uploadPromises)
+        
+        // 업로드된 파일 정보를 게시글에 저장
+        await updatePost(postId, {
+          attachments: uploadedFiles
+        })
       }
 
       // 3. 성공 후 목록으로 이동
