@@ -21,6 +21,7 @@ import ChurchInfo from './pages/ChurchInfo';
 import BoardWrite from './pages/BoardWrite';
 import BoardDetail from './pages/BoardDetail';
 import BoardEdit from './pages/BoardEdit';
+import ProtectedRoute from './components/auth/ProtectedRoute';
 
 function App() {
   const [theme, setTheme] = useState('light');
@@ -56,20 +57,64 @@ function App() {
                   element={<TrainingSchedule />}
                 />
                 <Route path="/school" element={<School />} />
-                <Route path="/prayer-request" element={<PrayerRequest />} />
-                <Route path="/records" element={<Records />} />
                 <Route path="/contact" element={<Contact />} />
-                <Route path="/building" element={<Building />} />
                 <Route path="/preparation" element={<Preparation />} />
                 <Route path="/items" element={<Items />} />
                 <Route path="/checklist" element={<ReadyItems />} />
-                <Route path="/praise" element={<Praise />} />
                 <Route path="/church-info" element={<ChurchInfo />} />
 
+                {/* 로그인 필요한 페이지 */}
+                <Route
+                  path="/prayer-request"
+                  element={
+                    <ProtectedRoute>
+                      <PrayerRequest />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/records"
+                  element={
+                    <ProtectedRoute>
+                      <Records />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/building"
+                  element={
+                    <ProtectedRoute>
+                      <Building />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/praise"
+                  element={
+                    <ProtectedRoute>
+                      <Praise />
+                    </ProtectedRoute>
+                  }
+                />
+
                 {/* 공통 게시판 페이지 */}
-                <Route path="/write/:category" element={<BoardWrite />} />
+                <Route
+                  path="/write/:category"
+                  element={
+                    <ProtectedRoute>
+                      <BoardWrite />
+                    </ProtectedRoute>
+                  }
+                />
                 <Route path="/:category/:id" element={<BoardDetail />} />
-                <Route path="/edit/:category/:id" element={<BoardEdit />} />
+                <Route
+                  path="/edit/:category/:id"
+                  element={
+                    <ProtectedRoute>
+                      <BoardEdit />
+                    </ProtectedRoute>
+                  }
+                />
               </Routes>
             </main>
 
