@@ -5,7 +5,7 @@ import { useAuth } from '../../context/AuthContext';
 import LoginModal from '../auth/LoginModal';
 
 function Menu({ isOpen, onClose, theme, toggleTheme }) {
-  const { isAdmin, logout } = useAuth();
+  const { isLoggedIn, logout } = useAuth();
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
   if (!isOpen) return null;
@@ -92,9 +92,9 @@ function Menu({ isOpen, onClose, theme, toggleTheme }) {
                 </button>
               </li>
 
-              {/* 관리자 로그인/로그아웃 */}
+              {/* 로그인/로그아웃 */}
               <li>
-                {isAdmin ? (
+                {isLoggedIn ? (
                   <button
                     onClick={handleLogout}
                     className="w-full flex items-center gap-3 p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-[#2d2d2d] transition-colors group"
@@ -111,7 +111,7 @@ function Menu({ isOpen, onClose, theme, toggleTheme }) {
                   >
                     <LogIn className="w-5 h-5 text-gray-600 dark:text-gray-400" />
                     <span className="text-gray-900 dark:text-white font-medium">
-                      관리자 로그인
+                      로그인
                     </span>
                   </button>
                 )}

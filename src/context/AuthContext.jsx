@@ -11,33 +11,44 @@ export function useAuth() {
 }
 
 export function AuthProvider({ children }) {
-  const [isAdmin, setIsAdmin] = useState(false)
+  const [userTeam, setUserTeam] = useState(null) // 'egypt' | 'jordan' | 'admin' | null
 
   // 초기화: localStorage에서 로그인 상태 확인
   useEffect(() => {
-    const adminStatus = localStorage.getItem('isAdmin')
-    if (adminStatus === 'true') {
-      setIsAdmin(true)
+    const savedUserTeam = localStorage.getItem('userTeam')
+    if (savedUserTeam && ['egypt', 'jordan', 'admin'].includes(savedUserTeam)) {
+      setUserTeam(savedUserTeam)
     }
   }, [])
 
   const login = (password) => {
-    // 간단한 비밀번호 체크 (실제로는 서버에서 검증해야 함)
-    if (password === 'newway2025') {
-      setIsAdmin(true)
-      localStorage.setItem('isAdmin', 'true')
+    // 비밀번호에 따라 권한 설정
+    if (password === 'e2025') {
+      setUserTeam('egypt')
+      localStorage.setItem('userTeam', 'egypt')
+      return true
+    } else if (password === 'j2025') {
+      setUserTeam('jordan')
+      localStorage.setItem('userTeam', 'jordan')
+      return true
+    } else if (password === 'nw2025') {
+      setUserTeam('admin')
+      localStorage.setItem('userTeam', 'admin')
       return true
     }
     return false
   }
 
   const logout = () => {
-    setIsAdmin(false)
-    localStorage.removeItem('isAdmin')
+    setUserTeam(null)
+    localStorage.removeItem('userTeam')
   }
 
+  const isLoggedIn = userTeam !== null
+  const isAdmin = userTeam === 'admin'
+
   return (
-    <AuthContext.Provider value={{ isAdmin, login, logout }}>
+    <AuthContext.Provider value={{ userTeam, isLoggedIn, isAdmin, login, logout }}>
       {children}
     </AuthContext.Provider>
   )

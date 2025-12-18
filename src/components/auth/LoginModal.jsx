@@ -45,7 +45,7 @@ function LoginModal({ isOpen, onClose }) {
             <div className="flex items-center gap-3">
               <Lock className="w-6 h-6 text-gray-600 dark:text-gray-400" />
               <h2 className="text-xl font-bold text-gray-900 dark:text-white">
-                관리자 로그인
+                로그인
               </h2>
             </div>
             <button
