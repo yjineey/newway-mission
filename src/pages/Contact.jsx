@@ -28,6 +28,7 @@ function Contact() {
         { name: '위사은', phone: '010-6586-6535', isLeader: true },
         { name: '양진', phone: '010-2567-3706', isSubLeader: true },
         { name: '김난영', phone: '010-7415-1813' },
+        { name: '김주은', phone: '010-2592-2386' },
         { name: '이종철', phone: '010-3419-1909' },
         { name: '임지원', phone: '010-9314-1167' },
         { name: '진민하', phone: '010-8640-3555' },
@@ -36,10 +37,20 @@ function Contact() {
     },
   };
 
-  const currentMembers =
+  // 팀장/부팀장 먼저, 나머지는 가나다순 정렬
+  const sortMembers = (members) => {
+    const leaders = members.filter(m => m.isLeader || m.isSubLeader);
+    const others = members.filter(m => !m.isLeader && !m.isSubLeader);
+    const sortedOthers = others.sort((a, b) => a.name.localeCompare(b.name, 'ko'));
+    return [...leaders, ...sortedOthers];
+  };
+
+  const allMembers =
     selectedTeam === 'egypt'
       ? contactData.egypt.members
       : contactData.jordan.members;
+
+  const currentMembers = sortMembers(allMembers);
 
   return (
     <PageLayout title="비상연락망" showTeamTabs={true}>
@@ -75,7 +86,7 @@ function Contact() {
         {/* 팀원 */}
         <div className="space-y-4">
           <h2 className="text-base font-bold text-gray-900 dark:text-white mb-4">
-            팀원
+            팀원 ({currentMembers.length}명)
           </h2>
           <div className="space-y-3">
             {currentMembers.map((member, index) => (
@@ -95,7 +106,7 @@ function Contact() {
                       </span>
                     )}
                     {member.isSubLeader && (
-                      <span className="px-2 py-0.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-xs font-medium rounded">
+                      <span className="px-2 py-0.5 border border-gray-900 dark:border-white text-gray-900 dark:text-white bg-transparent text-xs font-medium rounded">
                         부팀장
                       </span>
                     )}
