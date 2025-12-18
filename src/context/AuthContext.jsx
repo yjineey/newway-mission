@@ -23,7 +23,7 @@ export function AuthProvider({ children }) {
 
   const login = (password) => {
     // 간단한 비밀번호 체크 (실제로는 서버에서 검증해야 함)
-    if (password === 'newway2025') {
+    if (password === 'nw2025') {
       setIsAdmin(true)
       localStorage.setItem('isAdmin', 'true')
       return true
