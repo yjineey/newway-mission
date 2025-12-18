@@ -2,9 +2,20 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Menu as MenuIcon } from 'lucide-react'
 import Menu from './Menu'
+import { useAuth } from '../../context/AuthContext'
 
 function Header({ theme, toggleTheme }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { effectiveTeam } = useAuth()
+
+  const getTeamLabel = () => {
+    if (effectiveTeam === 'admin') return '관리자'
+    if (effectiveTeam === 'egypt') return '이집트'
+    if (effectiveTeam === 'jordan') return '요르단'
+    return null
+  }
+
+  const teamLabel = getTeamLabel()
 
   return (
     <>
@@ -26,14 +37,21 @@ function Header({ theme, toggleTheme }) {
               </h1>
             </Link>
 
-            {/* 더보기 버튼 */}
-            <button
-              onClick={() => setIsMenuOpen(true)}
-              className="p-2 rounded-lg transition-colors"
-              aria-label="메뉴 열기"
-            >
-              <MenuIcon className="w-6 h-6 text-gray-700 dark:text-gray-300" />
-            </button>
+            {/* 권한 표시 및 더보기 버튼 */}
+            <div className="flex items-center gap-3">
+              {teamLabel && (
+                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                  {teamLabel}
+                </span>
+              )}
+              <button
+                onClick={() => setIsMenuOpen(true)}
+                className="p-2 rounded-lg transition-colors"
+                aria-label="메뉴 열기"
+              >
+                <MenuIcon className="w-6 h-6 text-gray-700 dark:text-gray-300" />
+              </button>
+            </div>
           </div>
         </div>
       </header>
