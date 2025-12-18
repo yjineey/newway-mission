@@ -6,9 +6,14 @@ import {
   BookOpen,
   UsersRound
 } from 'lucide-react'
+import { useAuth } from '../../context/AuthContext'
 
 function Footer() {
   const location = useLocation()
+  const { userTeam } = useAuth()
+
+  // userTeam이 null이면 Footer를 표시하지 않음
+  if (userTeam === null) return null
 
   const navItems = [
     { path: '/school', label: '선교스쿨', icon: GraduationCap },
