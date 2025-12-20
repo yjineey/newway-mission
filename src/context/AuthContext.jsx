@@ -5,7 +5,7 @@ const AuthContext = createContext();
 // 기본 권한 설정 (로그인하지 않은 상태에서 사용할 권한)
 // 'admin' | 'egypt' | 'jordan' | null 중 선택 가능
 // null로 설정하면 비로그인 상태 (제한된 메뉴만 표시)
-const DEFAULT_TEAM = null;
+const DEFAULT_TEAM = 'jordan';
 
 export function useAuth() {
   const context = useContext(AuthContext);
