@@ -1,5 +1,7 @@
 # 설치 가이드
 
+> ✅ 모든 버전은 상호 호환성 및 안정성을 검증한 조합입니다.
+
 ## 📦 패키지 및 라이브러리 설치
 
 ### 1️⃣ 프로젝트 생성
@@ -17,20 +19,12 @@ cd newway-mission
 ### 2️⃣ 필수 라이브러리 설치
 
 ```bash
-# 기본 의존성
-npm install
-
-# 라우팅
-npm install react-router-dom
-
-# Firebase (백엔드, 데이터베이스, 인증)
-npm install firebase
-
-# 아이콘 (통일된 벡터 아이콘)
-npm install lucide-react
-
-# 조건부 클래스 관리
-npm install classnames
+# 필수 패키지 (검증된 버전)
+npm install react@18.3.1 react-dom@18.3.1
+npm install react-router-dom@6.28.0
+npm install firebase@10.14.1
+npm install lucide-react@0.469.0
+npm install classnames@2.5.1
 ```
 
 ---
@@ -39,7 +33,7 @@ npm install classnames
 
 ```bash
 # Tailwind CSS 설치
-npm install -D tailwindcss postcss autoprefixer
+npm install -D tailwindcss@3.4.15 postcss@8.4.49 autoprefixer@10.4.20
 
 # Tailwind 초기화
 npx tailwindcss init -p
@@ -51,7 +45,7 @@ npx tailwindcss init -p
 
 ```bash
 # 코드 품질 및 포맷팅
-npm install -D eslint eslint-plugin-react prettier
+npm install -D eslint@8.57.1 eslint-plugin-react@7.37.2 prettier@3.3.3
 ```
 
 ---
@@ -60,7 +54,7 @@ npm install -D eslint eslint-plugin-react prettier
 
 ```bash
 # GitHub Pages 배포
-npm install -D gh-pages
+npm install -D gh-pages@6.2.0
 ```
 
 ---
@@ -72,11 +66,11 @@ npm install -D gh-pages
 npm create vite@latest newway-mission -- --template react
 cd newway-mission
 
-# 모든 패키지 한 번에 설치
-npm install react-router-dom firebase lucide-react classnames
+# 모든 패키지 한 번에 설치 (검증된 버전)
+npm install react@18.3.1 react-dom@18.3.1 react-router-dom@6.28.0 firebase@10.14.1 lucide-react@0.469.0 classnames@2.5.1
 
 # 개발 의존성
-npm install -D tailwindcss postcss autoprefixer gh-pages eslint eslint-plugin-react prettier
+npm install -D vite@5.4.11 tailwindcss@3.4.15 postcss@8.4.49 autoprefixer@10.4.20 gh-pages@6.2.0 eslint@8.57.1 eslint-plugin-react@7.37.2 prettier@3.3.3
 
 # Tailwind 초기화
 npx tailwindcss init -p
@@ -86,20 +80,53 @@ npx tailwindcss init -p
 
 ## 📋 설치 패키지 목록
 
+### 핵심 기술
 | 패키지 | 버전 | 용도 | 카테고리 |
 |--------|------|------|----------|
-| `react` | ^18.3.1 | UI 라이브러리 | 필수 |
-| `react-dom` | ^18.3.1 | React DOM 렌더링 | 필수 |
-| `react-router-dom` | ^6.28.0 | 페이지 라우팅 | 필수 |
-| `firebase` | ^10.14.1 | 백엔드, DB, 인증 | 필수 |
-| `lucide-react` | ^0.469.0 | 벡터 아이콘 | 필수 |
-| `classnames` | ^2.5.1 | 조건부 클래스 | 필수 |
-| `tailwindcss` | ^3.x | 스타일링 | 필수 |
-| `postcss` | ^8.x | CSS 처리 | 필수 |
-| `autoprefixer` | ^10.x | CSS 벤더 프리픽스 | 필수 |
-| `gh-pages` | ^6.x | GitHub Pages 배포 | 배포 |
-| `eslint` | ^8.x | 코드 품질 | 선택 |
-| `prettier` | ^3.x | 코드 포맷팅 | 선택 |
+| `react` | 18.3.1 | UI 라이브러리 | 필수 |
+| `react-dom` | 18.3.1 | React 렌더링 | 필수 |
+| `react-router-dom` | 6.28.0 | 페이지 라우팅 | 필수 |
+| `vite` | 5.4.11 | 빌드 도구 | 필수 |
+
+### 백엔드
+| 패키지 | 버전 | 용도 | 카테고리 |
+|--------|------|------|----------|
+| `firebase` | 10.14.1 | Firestore, Storage, Auth | 필수 |
+
+### UI/UX 라이브러리
+| 패키지 | 버전 | 용도 | 카테고리 |
+|--------|------|------|----------|
+| `tailwindcss` | 3.4.15 | 스타일링 | 필수 |
+| `postcss` | 8.4.49 | CSS 처리 | 필수 |
+| `autoprefixer` | 10.4.20 | CSS 벤더 프리픽스 | 필수 |
+| `lucide-react` | 0.469.0 | 벡터 아이콘 | 필수 |
+| `classnames` | 2.5.1 | 조건부 클래스 | 필수 |
+
+### 개발 도구
+| 패키지 | 버전 | 용도 | 카테고리 |
+|--------|------|------|----------|
+| `eslint` | 8.57.1 | 코드 품질 | 선택 |
+| `eslint-plugin-react` | 7.37.2 | React ESLint | 선택 |
+| `prettier` | 3.3.3 | 코드 포맷팅 | 선택 |
+
+### 배포
+| 패키지 | 버전 | 용도 | 카테고리 |
+|--------|------|------|----------|
+| `gh-pages` | 6.2.0 | GitHub Pages 배포 | 배포 |
+
+---
+
+## ⚠️ 주의사항
+
+### 피해야 할 버전
+- ❌ **React 19**: 아직 많은 라이브러리가 호환 안 됨
+- ❌ **ESLint 9.x**: Config 형식 변경, v8 권장
+- ❌ **Firebase 9.x 이하**: 구버전 API
+
+### 보안 권장사항
+- ✅ Firebase 10.14.1 이상 (보안 패치 포함)
+- ✅ 정기적인 `npm audit` 실행
+- ✅ `npm outdated` 로 업데이트 확인
 
 ---
 

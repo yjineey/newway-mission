@@ -38,6 +38,13 @@ export const categoryGroups = [
         color: 'from-cyan-500 to-teal-500',
       },
       {
+        id: 'blood-declaration',
+        name: '선포기도문',
+        icon: Flame,
+        path: '/blood-declaration',
+        color: 'from-orange-500 to-red-500',
+      },
+      {
         id: 'contact',
         name: '비상연락망',
         icon: PhoneCall,
@@ -70,13 +77,6 @@ export const categoryGroups = [
         icon: Music,
         path: '/praise',
         color: 'from-violet-500 to-purple-500',
-      },
-      {
-        id: 'blood-declaration',
-        name: '선포기도문',
-        icon: Flame,
-        path: '/blood-declaration',
-        color: 'from-orange-500 to-red-500',
       },
       {
         id: 'prayer-request',

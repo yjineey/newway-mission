@@ -543,6 +543,54 @@ export async function seedNotices() {
 
 ---
 
+## 📊 전체 컬렉션 구조 개요
+
+```
+firestore/
+├── records/              # 회의록
+├── praise/               # 찬양
+├── prayer-requests/      # 중보기도
+├── preparation/          # 준비물
+├── items/                # 선교물품
+├── comments/             # 댓글 (모든 페이지)
+└── users/                # 사용자 (선택사항)
+```
+
+---
+
+## 🔑 정적 데이터 (Static Data)
+
+다음 카테고리는 **정적 데이터**로 관리하며, 코드에서 직접 수정:
+
+- 선교스쿨 (`/school`)
+- 훈련일정 (`/training-schedule`)
+- 비상연락망 (`/contact`)
+- 팀빌딩 (`/building`)
+- 선포기도문 (`/blood-declaration`)
+- 준비사항 (`/checklist`)
+
+---
+
+## 📊 데이터 저장 방식 요약
+
+| 카테고리   | 데이터 저장 | 글쓰기 | 댓글 |
+| ---------- | ----------- | ------ | ---- |
+| 회의록     | Firestore   | ✅     | ✅   |
+| 찬양       | Firestore   | ✅     | ✅   |
+| 중보기도   | Firestore   | ✅     | ✅   |
+| 준비물     | Firestore   | ✅     | ✅   |
+| 선교물품   | Firestore   | ✅     | ✅   |
+| 선교스쿨   | 정적 데이터 | ❌     | ✅   |
+| 훈련일정   | 정적 데이터 | ❌     | ✅   |
+| 비상연락망 | 정적 데이터 | ❌     | ✅   |
+| 팀빌딩     | 정적 데이터 | ❌     | ✅   |
+| 선포기도문 | 정적 데이터 | ❌     | ✅   |
+| 준비사항   | 정적 데이터 | ❌     | ✅   |
+
+**댓글은 모든 페이지에서 Firestore 사용**
+
+---
+
 ## 📚 참고사항
 
 ### Firebase 제한사항

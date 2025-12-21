@@ -9,25 +9,26 @@ function Home() {
   const filteredGroups = effectiveTeam
     ? categoryGroups.map((group) => {
         if (group.id === 'essential') {
-          // 기본정보: 선교스쿨, 훈련지침, 비상연락망
-          return {
-            ...group,
-            categories: group.categories.filter((cat) =>
-              ['school', 'training-schedule', 'contact'].includes(cat.id)
-            ),
-          };
-        } else if (group.id === 'team') {
-          // 공동체: 팀빌딩, 회의록, 찬양, 선포기도문, 중보기도
+          // 기본정보: 선교스쿨, 훈련지침, 선포기도문, 비상연락망
           return {
             ...group,
             categories: group.categories.filter((cat) =>
               [
-                'building',
-                'records',
-                'praise',
+                'school',
+                'training-schedule',
                 'blood-declaration',
-                'prayer-request',
+                'contact',
               ].includes(cat.id)
+            ),
+          };
+        } else if (group.id === 'team') {
+          // 공동체: 팀빌딩, 회의록, 찬양, 중보기도
+          return {
+            ...group,
+            categories: group.categories.filter((cat) =>
+              ['building', 'records', 'praise', 'prayer-request'].includes(
+                cat.id
+              )
             ),
           };
         }
@@ -36,25 +37,26 @@ function Home() {
     : categoryGroups
         .map((group) => {
           if (group.id === 'essential') {
-            // 기본정보: 선교스쿨, 훈련지침, 비상연락망
-            return {
-              ...group,
-              categories: group.categories.filter((cat) =>
-                ['school', 'training-schedule', 'contact'].includes(cat.id)
-              ),
-            };
-          } else if (group.id === 'team') {
-            // 공동체: 팀빌딩, 회의록, 찬양, 선포기도문, 중보기도
+            // 기본정보: 선교스쿨, 훈련지침, 선포기도문, 비상연락망
             return {
               ...group,
               categories: group.categories.filter((cat) =>
                 [
-                  'building',
-                  'records',
-                  'praise',
+                  'school',
+                  'training-schedule',
                   'blood-declaration',
-                  'prayer-request',
+                  'contact',
                 ].includes(cat.id)
+              ),
+            };
+          } else if (group.id === 'team') {
+            // 공동체: 팀빌딩, 회의록, 찬양, 중보기도
+            return {
+              ...group,
+              categories: group.categories.filter((cat) =>
+                ['building', 'records', 'praise', 'prayer-request'].includes(
+                  cat.id
+                )
               ),
             };
           } else if (group.id === 'preparation') {

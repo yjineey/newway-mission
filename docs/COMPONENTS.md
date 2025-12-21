@@ -21,13 +21,6 @@
 - `CategoryGrid.jsx`: 카테고리 그룹별 그리드 레이아웃
 - `CategoryCard.jsx`: 개별 카테고리 카드 (아이콘 + 이름)
 
-## 레이아웃 컴포넌트 (`components/layout/`)
-
-- `Header.jsx`: 로고, 타이틀, 햄버거 메뉴 버튼
-- `Menu.jsx`: 슬라이드 메뉴 (교회 소개, 관리자 로그인, 다크모드)
-- `Footer.jsx`: 하단 고정 네비게이션 (모바일) + 저작권 (웹)
-- `PageLayout.jsx`: 공통 페이지 레이아웃 (제목, 팀 탭, 액션 버튼)
-
 ## 공통 컴포넌트 (`components/common/`)
 
 - `TeamTabs.jsx`: 페이지 내 팀 탭 전환
