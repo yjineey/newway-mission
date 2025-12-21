@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useTeam } from '../context/TeamContext';
 import PageLayout from '../components/layout/PageLayout';
+import { ChevronDown } from 'lucide-react';
 
 function Praise() {
   const { selectedTeam } = useTeam();
@@ -8,7 +9,7 @@ function Praise() {
   // 찬양 데이터
   const praiseList = [
     {
-      id: 3,
+      id: 1,
       title: '주 예수 안에 | 수원하나교회 | 아랍어',
       youtubeId: 'rZYk_D3x3BE',
       lyrics: [
@@ -45,7 +46,43 @@ function Praise() {
       ],
     },
     {
-      id: 1,
+      id: 2,
+      title: '주 예수 안에 | 뉴웨이교회 | 아랍어',
+      lyrics: [
+        {
+          arabic: 'فيك يا يسوع فيك حرية فيك شفاء',
+          pronunciation: '피잌 야 예수 피잌 후리야 피잌 쉬파-',
+          korean: '예수 안에 자유있네 치유있네',
+        },
+        {
+          arabic: 'فيك سالم فيك حياة فيك يا يسوع',
+          pronunciation: '피잌 살람 피잌 하야 피잌 야 예수',
+          korean: '평화있네 생명있네 예수 안에',
+        },
+        {
+          arabic: 'حرية شفاء سالم حياة',
+          pronunciation: '호뤼아 쉬파 살람 하야',
+          korean: '자유 치유 평화 생명',
+        },
+        {
+          arabic: 'في يسوع في يسوع فيك يا يسوع',
+          pronunciation: '피 예수 피 예수 피잌 야 예수',
+          korean: '예수 안에 예수 안에 예수 안에',
+        },
+        {
+          arabic: 'أمواج شفاء أمواج حياة',
+          pronunciation: '암와즈 쉬파 암와즈 하야',
+          korean: '치유의 파도 생명의 파도',
+        },
+        {
+          arabic: 'أمواج محبة من عرش الآب',
+          pronunciation: '암와즈 마합빠 민 아르쉴랍',
+          korean: '사랑의 파도가 아버지 보좌로부터',
+        },
+      ],
+    },
+    {
+      id: 3,
       title: '온 성도와 천사 | 수원하나교회 | 아랍어',
       youtubeId: 'tQ4e51h76ho',
       lyrics: [
@@ -77,7 +114,7 @@ function Praise() {
       ],
     },
     {
-      id: 2,
+      id: 4,
       title: '온 성도와 천사 | 뉴웨이교회 | 아랍어',
       youtubeId: 'miM8ZQOB4bA',
       lyrics: [
@@ -116,27 +153,29 @@ function Praise() {
     <PageLayout title="찬양" showTeamTabs={true}>
       {selectedTeam === 'jordan' ? (
         <>
-          {/* 찬양 리스트 */}
-          <div className="mb-6 bg-white dark:bg-[#252525] rounded-lg shadow-sm border border-gray-200 dark:border-[#333333] overflow-hidden">
-            <div className="divide-y dark:divide-gray-700">
+          {/* 셀렉트 박스 */}
+          <div className="mb-6 relative">
+            <select
+              value={selectedPraise?.id || ''}
+              onChange={(e) => {
+                const selected = praiseList.find(
+                  (p) => p.id === parseInt(e.target.value)
+                );
+                if (selected) {
+                  setSelectedPraise(selected);
+                }
+              }}
+              className="w-full px-4 py-3 bg-white dark:bg-[#252525] rounded-lg shadow-sm border border-gray-200 dark:border-[#333333] text-sm font-medium text-gray-900 dark:text-white appearance-none cursor-pointer hover:bg-gray-50 dark:hover:bg-[#2d2d2d] transition-colors"
+              style={{ wordBreak: 'keep-all' }}
+            >
               {praiseList.map((praise) => (
-                <button
-                  key={praise.id}
-                  onClick={() => setSelectedPraise(praise)}
-                  className={`w-full px-4 py-3 text-left ${
-                    selectedPraise?.id === praise.id
-                      ? 'bg-gray-100 dark:bg-[#2d2d2d]'
-                      : ''
-                  }`}
-                >
-                  <h3
-                    className="text-sm font-medium text-gray-900 dark:text-white"
-                    style={{ wordBreak: 'keep-all' }}
-                  >
-                    {praise.title}
-                  </h3>
-                </button>
+                <option key={praise.id} value={praise.id}>
+                  {praise.title}
+                </option>
               ))}
+            </select>
+            <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+              <ChevronDown className="w-5 h-5 text-gray-500 dark:text-gray-400" />
             </div>
           </div>
 
@@ -144,19 +183,21 @@ function Praise() {
           {selectedPraise ? (
             <>
               {/* YouTube 동영상 */}
-              <div className="mb-6 bg-white dark:bg-[#252525] rounded-lg shadow-sm border border-gray-200 dark:border-[#333333] overflow-hidden">
-                <div className="aspect-video w-full">
-                  <iframe
-                    width="100%"
-                    height="100%"
-                    src={`https://www.youtube.com/embed/${selectedPraise.youtubeId}`}
-                    title={selectedPraise.title}
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
+              {selectedPraise.youtubeId && (
+                <div className="mb-6 bg-white dark:bg-[#252525] rounded-lg shadow-sm border border-gray-200 dark:border-[#333333] overflow-hidden">
+                  <div className="aspect-video w-full">
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      src={`https://www.youtube.com/embed/${selectedPraise.youtubeId}`}
+                      title={selectedPraise.title}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
                 </div>
-              </div>
+              )}
 
               {/* 가사 */}
               <div className="mb-6 bg-white dark:bg-[#252525] rounded-lg shadow-sm border border-gray-200 dark:border-[#333333] p-6">
