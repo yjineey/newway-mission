@@ -31,16 +31,9 @@ export const categoryGroups = [
         color: 'from-indigo-500 to-blue-500',
       },
       {
-        id: 'schedule',
-        name: '선교일정',
-        icon: CalendarDays,
-        path: '/schedule',
-        color: 'from-blue-500 to-cyan-500',
-      },
-      {
         id: 'training-schedule',
-        name: '훈련일정',
-        icon: Flame,
+        name: '훈련지침',
+        icon: BookOpen,
         path: '/training-schedule',
         color: 'from-cyan-500 to-teal-500',
       },
@@ -77,6 +70,13 @@ export const categoryGroups = [
         icon: Music,
         path: '/praise',
         color: 'from-violet-500 to-purple-500',
+      },
+      {
+        id: 'blood-declaration',
+        name: '선포기도문',
+        icon: Flame,
+        path: '/blood-declaration',
+        color: 'from-orange-500 to-red-500',
       },
       {
         id: 'prayer-request',

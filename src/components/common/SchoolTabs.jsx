@@ -1,13 +1,14 @@
 function SchoolTabs({ selectedTab, onTabChange }) {
   const tabs = [
-    { id: 'schedule', name: '일정' },
+    { id: 'mission-schedule', name: '출정일정' },
+    { id: 'schedule', name: '강의일정' },
     { id: 'training', name: '팀 훈련' },
     { id: 'mission', name: '팀 미션' },
   ];
 
   return (
     <div className="border-b border-gray-200 dark:border-[#333333] mb-8">
-      <div className="flex gap-6 px-4">
+      <div className="flex gap-6">
         {tabs.map((tab) => (
           <button
             key={tab.id}
@@ -33,4 +34,3 @@ function SchoolTabs({ selectedTab, onTabChange }) {
 }
 
 export default SchoolTabs;
-

@@ -2,7 +2,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { 
   Home, 
   GraduationCap, 
-  Cross, 
+  Flame, 
   BookOpen,
   UsersRound
 } from 'lucide-react'
@@ -20,7 +20,7 @@ function Footer() {
     { path: '/building', label: '팀빌딩', icon: UsersRound },
     { path: '/', label: '홈', icon: Home },
     { path: '/training-schedule', search: '?tab=word', label: '말씀훈련', icon: BookOpen },
-    { path: '/prayer-request', label: '중보기도', icon: Cross },
+    { path: '/blood-declaration', label: '선포기도문', icon: Flame },
   ]
 
   return (
