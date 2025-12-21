@@ -7,7 +7,7 @@ function TrainingTabs({ selectedTab, onTabChange }) {
 
   return (
     <div className="border-b border-gray-200 dark:border-[#333333] mb-8">
-      <div className="flex gap-6 px-4">
+      <div className="flex gap-6">
         {tabs.map((tab) => (
           <button
             key={tab.id}
@@ -33,4 +33,3 @@ function TrainingTabs({ selectedTab, onTabChange }) {
 }
 
 export default TrainingTabs;
-
