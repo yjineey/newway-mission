@@ -1,21 +1,21 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { Menu as MenuIcon } from 'lucide-react'
-import Menu from './Menu'
-import { useAuth } from '../../context/AuthContext'
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Menu as MenuIcon } from 'lucide-react';
+import Menu from './Menu';
+import { useAuth } from '../../context/AuthContext';
 
 function Header({ theme, toggleTheme }) {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const { effectiveTeam } = useAuth()
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { effectiveTeam } = useAuth();
 
   const getTeamLabel = () => {
-    if (effectiveTeam === 'admin') return '관리자'
-    if (effectiveTeam === 'egypt') return '이집트'
-    if (effectiveTeam === 'jordan') return '요르단'
-    return null
-  }
+    if (effectiveTeam === 'admin') return '관리자';
+    if (effectiveTeam === 'egypt') return '이집트';
+    if (effectiveTeam === 'jordan') return '요르단';
+    return null;
+  };
 
-  const teamLabel = getTeamLabel()
+  const teamLabel = getTeamLabel();
 
   return (
     <>
@@ -23,13 +23,10 @@ function Header({ theme, toggleTheme }) {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             {/* 로고 */}
-            <Link 
-              to="/" 
-              className="flex items-center gap-3 group"
-            >
-              <img 
+            <Link to="/" className="flex items-center gap-3 group">
+              <img
                 src={`${import.meta.env.BASE_URL}logo/nw-logo.png`}
-                alt="뉴웨이교회 로고" 
+                alt="뉴웨이교회 로고"
                 className="w-8 h-8 object-contain rounded-lg invert dark:invert-0"
               />
               <h1 className="text-lg font-semibold text-gray-900 dark:text-white transition-colors">
@@ -57,15 +54,14 @@ function Header({ theme, toggleTheme }) {
       </header>
 
       {/* 메뉴 */}
-      <Menu 
-        isOpen={isMenuOpen} 
-        onClose={() => setIsMenuOpen(false)} 
+      <Menu
+        isOpen={isMenuOpen}
+        onClose={() => setIsMenuOpen(false)}
         theme={theme}
         toggleTheme={toggleTheme}
       />
     </>
-  )
+  );
 }
 
-export default Header
-
+export default Header;

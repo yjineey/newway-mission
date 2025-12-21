@@ -20,6 +20,7 @@ function BoardDetail() {
     praise: { title: '찬양', showTeamTabs: true, listPath: '/praise' },
     preparation: { title: '준비물', showTeamTabs: true, listPath: '/preparation' },
     items: { title: '선교물품', showTeamTabs: true, listPath: '/items' },
+    'prayer-request': { title: '중보기도', showTeamTabs: true, listPath: '/prayer-request' },
   }
 
   const config = categoryConfig[category] || categoryConfig.records
@@ -93,9 +94,12 @@ function BoardDetail() {
     >
       <div className="bg-white dark:bg-[#252525] rounded-2xl shadow-soft border border-gray-200 dark:border-[#333333] p-6 md:p-8">
         {/* 제목 */}
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-          {post.title}
-        </h2>
+        <div className="mb-4">
+          <span className="text-sm font-medium text-gray-600 dark:text-gray-400">제목</span>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-1">
+            {post.title}
+          </h2>
+        </div>
 
         {/* 메타 정보 */}
         <div className="flex items-center gap-4 pb-6 mb-6 border-b border-gray-200 dark:border-[#333333]">
