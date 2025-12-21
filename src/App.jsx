@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { TeamProvider } from './context/TeamContext';
 import { AuthProvider } from './context/AuthContext';
@@ -6,7 +11,6 @@ import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import ScrollToTop from './components/common/ScrollToTop';
 import Home from './pages/Home';
-import Schedule from './pages/Schedule';
 import TrainingSchedule from './pages/TrainingSchedule';
 import School from './pages/School';
 import PrayerRequest from './pages/PrayerRequest';
@@ -18,6 +22,7 @@ import Items from './pages/Items';
 import ReadyItems from './pages/Checklist';
 import Praise from './pages/Praise';
 import ChurchInfo from './pages/ChurchInfo';
+import BloodDeclaration from './pages/BloodDeclaration';
 import BoardWrite from './pages/BoardWrite';
 import BoardDetail from './pages/BoardDetail';
 import BoardEdit from './pages/BoardEdit';
@@ -51,7 +56,7 @@ function App() {
             <main className="flex-1 mobile-content">
               <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/schedule" element={<Schedule />} />
+                <Route path="/schedule" element={<Navigate to="/" replace />} />
                 <Route
                   path="/training-schedule"
                   element={<TrainingSchedule />}
@@ -62,6 +67,10 @@ function App() {
                 <Route path="/items" element={<Items />} />
                 <Route path="/checklist" element={<ReadyItems />} />
                 <Route path="/church-info" element={<ChurchInfo />} />
+                <Route
+                  path="/blood-declaration"
+                  element={<BloodDeclaration />}
+                />
 
                 {/* 로그인 필요한 페이지 */}
                 <Route
