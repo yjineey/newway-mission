@@ -1,3 +1,7 @@
+---
+liquid: false
+---
+
 # 동적 연결 가이드
 
 Firebase와 동적으로 연결하여 데이터를 가져오고 저장하는 방법을 설명합니다.
@@ -35,11 +39,11 @@ VITE_FIREBASE_APP_ID=your_app_id
 `src/firebase/config.js`에서 Firebase가 올바르게 초기화되었는지 확인합니다:
 
 ```javascript
-import { db, storage, auth, isFirebaseConfigured } from '../firebase/config'
+import { db, storage, auth, isFirebaseConfigured } from '../firebase/config';
 
 // Firebase 설정이 되어있는지 확인
 if (!isFirebaseConfigured) {
-  console.warn('Firebase 설정이 없습니다')
+  console.warn('Firebase 설정이 없습니다');
 }
 ```
 
@@ -52,68 +56,75 @@ if (!isFirebaseConfigured) {
 ### 사용 가능한 함수들
 
 #### 1. 게시글 생성
+
 ```javascript
-import { createPost } from '../services/postService'
+import { createPost } from '../services/postService';
 
 const postData = {
-  category: 'records',        // 카테고리 ID
-  team: 'egypt',              // 팀 (선택사항)
+  category: 'records', // 카테고리 ID
+  team: 'egypt', // 팀 (선택사항)
   title: '제목',
   content: '내용',
-  author: '작성자명'
-}
+  author: '작성자명',
+};
 
-const postId = await createPost(postData)
+const postId = await createPost(postData);
 ```
 
 #### 2. 게시글 목록 조회
+
 ```javascript
-import { getPosts } from '../services/postService'
+import { getPosts } from '../services/postService';
 
 // 카테고리별 조회
-const posts = await getPosts('records')
+const posts = await getPosts('records');
 
 // 팀별 조회
-const posts = await getPosts('records', 'egypt')
+const posts = await getPosts('records', 'egypt');
 ```
 
 #### 3. 게시글 상세 조회
-```javascript
-import { getPost } from '../services/postService'
 
-const post = await getPost(postId)
+```javascript
+import { getPost } from '../services/postService';
+
+const post = await getPost(postId);
 ```
 
 #### 4. 게시글 수정
+
 ```javascript
-import { updatePost } from '../services/postService'
+import { updatePost } from '../services/postService';
 
 await updatePost(postId, {
   title: '수정된 제목',
-  content: '수정된 내용'
-})
+  content: '수정된 내용',
+});
 ```
 
 #### 5. 게시글 삭제
-```javascript
-import { deletePost } from '../services/postService'
 
-await deletePost(postId)
+```javascript
+import { deletePost } from '../services/postService';
+
+await deletePost(postId);
 ```
 
 #### 6. 파일 업로드
-```javascript
-import { uploadFile } from '../services/postService'
 
-const fileData = await uploadFile(file, postId)
+```javascript
+import { uploadFile } from '../services/postService';
+
+const fileData = await uploadFile(file, postId);
 // 반환값: { name, url, path, size, type }
 ```
 
 #### 7. 파일 삭제
-```javascript
-import { deleteFile } from '../services/postService'
 
-await deleteFile(filePath)
+```javascript
+import { deleteFile } from '../services/postService';
+
+await deleteFile(filePath);
 ```
 
 ---
@@ -198,7 +209,7 @@ function BoardWrite() {
 
   const handleSubmit = async (formData) => {
     if (isSubmitting) return
-    
+
     try {
       setIsSubmitting(true)
 
@@ -215,11 +226,11 @@ function BoardWrite() {
 
       // 2. 파일 업로드 (있는 경우)
       if (formData.files && formData.files.length > 0) {
-        const uploadPromises = formData.files.map(file => 
+        const uploadPromises = formData.files.map(file =>
           uploadFile(file, postId)
         )
         const uploadedFiles = await Promise.all(uploadPromises)
-        
+
         // 업로드된 파일 정보를 게시글에 추가
         await updatePost(postId, {
           attachments: uploadedFiles
@@ -320,52 +331,52 @@ function BoardDetail() {
 ### 단일 파일 업로드
 
 ```javascript
-import { uploadFile } from '../services/postService'
+import { uploadFile } from '../services/postService';
 
 const handleFileUpload = async (file, postId) => {
   try {
-    const fileData = await uploadFile(file, postId)
-    console.log('업로드된 파일:', fileData)
+    const fileData = await uploadFile(file, postId);
+    console.log('업로드된 파일:', fileData);
     // fileData: { name, url, path, size, type }
   } catch (error) {
-    console.error('파일 업로드 실패:', error)
+    console.error('파일 업로드 실패:', error);
   }
-}
+};
 ```
 
 ### 여러 파일 업로드
 
 ```javascript
-import { uploadFile } from '../services/postService'
+import { uploadFile } from '../services/postService';
 
 const handleMultipleFiles = async (files, postId) => {
   try {
-    const uploadPromises = files.map(file => uploadFile(file, postId))
-    const uploadedFiles = await Promise.all(uploadPromises)
-    
+    const uploadPromises = files.map((file) => uploadFile(file, postId));
+    const uploadedFiles = await Promise.all(uploadPromises);
+
     // 업로드된 파일들을 게시글에 저장
     await updatePost(postId, {
-      attachments: uploadedFiles
-    })
+      attachments: uploadedFiles,
+    });
   } catch (error) {
-    console.error('파일 업로드 실패:', error)
+    console.error('파일 업로드 실패:', error);
   }
-}
+};
 ```
 
 ### 파일 삭제
 
 ```javascript
-import { deleteFile } from '../services/postService'
+import { deleteFile } from '../services/postService';
 
 const handleFileDelete = async (filePath) => {
   try {
-    await deleteFile(filePath)
-    console.log('파일 삭제 완료')
+    await deleteFile(filePath);
+    console.log('파일 삭제 완료');
   } catch (error) {
-    console.error('파일 삭제 실패:', error)
+    console.error('파일 삭제 실패:', error);
   }
-}
+};
 ```
 
 ---
@@ -375,26 +386,26 @@ const handleFileDelete = async (filePath) => {
 현재는 실시간 업데이트가 구현되어 있지 않습니다. 필요시 `onSnapshot`을 사용하여 구현할 수 있습니다:
 
 ```javascript
-import { collection, query, where, onSnapshot } from 'firebase/firestore'
-import { db } from '../firebase/config'
+import { collection, query, where, onSnapshot } from 'firebase/firestore';
+import { db } from '../firebase/config';
 
 useEffect(() => {
   const q = query(
     collection(db, 'posts'),
     where('category', '==', 'records'),
     where('team', '==', selectedTeam)
-  )
+  );
 
   const unsubscribe = onSnapshot(q, (snapshot) => {
-    const posts = snapshot.docs.map(doc => ({
+    const posts = snapshot.docs.map((doc) => ({
       id: doc.id,
-      ...doc.data()
-    }))
-    setPosts(posts)
-  })
+      ...doc.data(),
+    }));
+    setPosts(posts);
+  });
 
-  return () => unsubscribe() // cleanup
-}, [selectedTeam])
+  return () => unsubscribe(); // cleanup
+}, [selectedTeam]);
 ```
 
 ---
@@ -406,35 +417,35 @@ useEffect(() => {
 ```javascript
 const loadData = async () => {
   try {
-    const data = await getPosts('category', 'team')
-    setData(data)
+    const data = await getPosts('category', 'team');
+    setData(data);
   } catch (error) {
-    console.error('데이터 로드 실패:', error)
+    console.error('데이터 로드 실패:', error);
     // 사용자에게 알림
-    alert('데이터를 불러올 수 없습니다.')
+    alert('데이터를 불러올 수 없습니다.');
   }
-}
+};
 ```
 
 ### 로딩 상태 관리
 
 ```javascript
-const [loading, setLoading] = useState(false)
-const [error, setError] = useState(null)
+const [loading, setLoading] = useState(false);
+const [error, setError] = useState(null);
 
 const loadData = async () => {
   try {
-    setLoading(true)
-    setError(null)
-    const data = await getPosts('category', 'team')
-    setData(data)
+    setLoading(true);
+    setError(null);
+    const data = await getPosts('category', 'team');
+    setData(data);
   } catch (error) {
-    console.error('데이터 로드 실패:', error)
-    setError('데이터를 불러올 수 없습니다.')
+    console.error('데이터 로드 실패:', error);
+    setError('데이터를 불러올 수 없습니다.');
   } finally {
-    setLoading(false)
+    setLoading(false);
   }
-}
+};
 ```
 
 ---
@@ -446,38 +457,38 @@ const loadData = async () => {
 1. **페이지 컴포넌트 생성** (`src/pages/MyCategory.jsx`)
 
 ```javascript
-import { useState, useEffect } from 'react'
-import { useTeam } from '../context/TeamContext'
-import PageLayout from '../components/layout/PageLayout'
-import WriteButton from '../components/board/WriteButton'
-import ListItem from '../components/board/ListItem'
-import EmptyState from '../components/board/EmptyState'
-import { getPosts } from '../services/postService'
+import { useState, useEffect } from 'react';
+import { useTeam } from '../context/TeamContext';
+import PageLayout from '../components/layout/PageLayout';
+import WriteButton from '../components/board/WriteButton';
+import ListItem from '../components/board/ListItem';
+import EmptyState from '../components/board/EmptyState';
+import { getPosts } from '../services/postService';
 
 function MyCategory() {
-  const { selectedTeam } = useTeam()
-  const [posts, setPosts] = useState([])
-  const [loading, setLoading] = useState(false)
+  const { selectedTeam } = useTeam();
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    loadPosts()
-  }, [selectedTeam])
+    loadPosts();
+  }, [selectedTeam]);
 
   const loadPosts = async () => {
     try {
-      setLoading(true)
-      const data = await getPosts('my-category', selectedTeam)
-      setPosts(data)
+      setLoading(true);
+      const data = await getPosts('my-category', selectedTeam);
+      setPosts(data);
     } catch (error) {
-      console.error('데이터 로드 실패:', error)
+      console.error('데이터 로드 실패:', error);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
   return (
-    <PageLayout 
-      title="내 카테고리" 
+    <PageLayout
+      title="내 카테고리"
       showTeamTabs={true}
       actions={<WriteButton category="my-category" />}
     >
@@ -500,19 +511,19 @@ function MyCategory() {
         <EmptyState message="작성된 게시글이 없습니다" />
       )}
     </PageLayout>
-  )
+  );
 }
 
-export default MyCategory
+export default MyCategory;
 ```
 
 2. **라우팅 추가** (`src/App.jsx`)
 
 ```javascript
-import MyCategory from './pages/MyCategory'
+import MyCategory from './pages/MyCategory';
 
 // Routes 안에 추가
-<Route path="/my-category" element={<MyCategory />} />
+<Route path="/my-category" element={<MyCategory />} />;
 ```
 
 3. **카테고리 추가** (`src/data/categories.js`)
@@ -544,20 +555,20 @@ export const searchPosts = async (category, searchTerm) => {
       where('title', '<=', searchTerm + '\uf8ff'),
       orderBy('title'),
       orderBy('createdAt', 'desc')
-    )
+    );
 
-    const querySnapshot = await getDocs(q)
-    return querySnapshot.docs.map(doc => ({
+    const querySnapshot = await getDocs(q);
+    return querySnapshot.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),
       createdAt: doc.data().createdAt?.toDate(),
       updatedAt: doc.data().updatedAt?.toDate(),
-    }))
+    }));
   } catch (error) {
-    console.error('게시글 검색 실패:', error)
-    throw error
+    console.error('게시글 검색 실패:', error);
+    throw error;
   }
-}
+};
 ```
 
 ---
@@ -582,9 +593,8 @@ export const searchPosts = async (category, searchTerm) => {
 
 - **Firebase 설정**: `src/firebase/config.js`
 - **서비스 레이어**: `src/services/postService.js`
-- **예제 페이지**: 
+- **예제 페이지**:
   - `src/pages/Records.jsx` (리스트)
   - `src/pages/BoardWrite.jsx` (작성)
   - `src/pages/BoardDetail.jsx` (상세)
   - `src/pages/BoardEdit.jsx` (수정)
-

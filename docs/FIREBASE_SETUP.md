@@ -1,3 +1,7 @@
+---
+liquid: false
+---
+
 # Firebase 설정 가이드
 
 Firebase 프로젝트를 생성하고 앱과 연동하는 방법을 단계별로 안내합니다.
