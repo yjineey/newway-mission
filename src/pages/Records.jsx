@@ -1,30 +1,34 @@
-import { useState, useEffect } from 'react'
-import { useTeam } from '../context/TeamContext'
-import PageLayout from '../components/layout/PageLayout'
-import WriteButton from '../components/board/WriteButton'
-import ListItem from '../components/board/ListItem'
-import EmptyState from '../components/board/EmptyState'
-import { getPosts } from '../services/postService'
+import { useState, useEffect } from 'react';
+import { useTeam } from '../context/TeamContext';
+import PageLayout from '../components/layout/PageLayout';
+import WriteButton from '../components/board/WriteButton';
+import ListItem from '../components/board/ListItem';
+import EmptyState from '../components/board/EmptyState';
+import { getPosts } from '../services/postService';
 
 function Records() {
-  const { selectedTeam } = useTeam()
-  const [records, setRecords] = useState([])
+  const { selectedTeam } = useTeam();
+  const [records, setRecords] = useState([]);
 
   useEffect(() => {
-    loadRecords()
-  }, [selectedTeam])
+    loadRecords();
+  }, [selectedTeam]);
 
   const loadRecords = async () => {
     try {
-      const data = await getPosts('records', selectedTeam)
-      setRecords(data)
+      const data = await getPosts('records', selectedTeam);
+      setRecords(data);
     } catch (error) {
-      console.error('회의록 로드 실패:', error)
+      console.error('회의록 로드 실패:', error);
     }
-  }
+  };
 
   return (
-    <PageLayout title="회의록" showTeamTabs={true} actions={<WriteButton category="records" />}>
+    <PageLayout
+      title="회의록"
+      showTeamTabs={true}
+      actions={<WriteButton category="records" />}
+    >
       {selectedTeam === 'jordan' ? (
         <div className="space-y-3">
           {/* 전체 자료 모음 */}
@@ -36,15 +40,28 @@ function Records() {
           >
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="text-sm font-medium text-gray-900 dark:text-white" style={{ wordBreak: 'keep-all' }}>
+                <h3
+                  className="text-sm font-medium text-gray-900 dark:text-white"
+                  style={{ wordBreak: 'keep-all' }}
+                >
                   요르단 선교 전체 자료
                 </h3>
                 <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
                   Google Drive에서 보기
                 </p>
               </div>
-              <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              <svg
+                className="w-5 h-5 text-gray-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
               </svg>
             </div>
           </a>
@@ -58,15 +75,28 @@ function Records() {
           >
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="text-sm font-medium text-gray-900 dark:text-white" style={{ wordBreak: 'keep-all' }}>
+                <h3
+                  className="text-sm font-medium text-gray-900 dark:text-white"
+                  style={{ wordBreak: 'keep-all' }}
+                >
                   강의자료
                 </h3>
                 <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
                   Google Drive에서 보기
                 </p>
               </div>
-              <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              <svg
+                className="w-5 h-5 text-gray-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
               </svg>
             </div>
           </a>
@@ -80,15 +110,98 @@ function Records() {
           >
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="text-sm font-medium text-gray-900 dark:text-white" style={{ wordBreak: 'keep-all' }}>
+                <h3
+                  className="text-sm font-medium text-gray-900 dark:text-white"
+                  style={{ wordBreak: 'keep-all' }}
+                >
                   회의록
                 </h3>
                 <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
                   Google Drive에서 보기
                 </p>
               </div>
-              <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              <svg
+                className="w-5 h-5 text-gray-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
+              </svg>
+            </div>
+          </a>
+
+          {/* 아랍어 공부 */}
+          <a
+            href="https://drive.google.com/drive/folders/1hgdCP9en5OdDdm7PIClwFrVma_bDr0pc"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block bg-white dark:bg-[#252525] rounded-lg shadow-sm border border-gray-200 dark:border-[#333333] p-4"
+          >
+            <div className="flex items-center justify-between">
+              <div>
+                <h3
+                  className="text-sm font-medium text-gray-900 dark:text-white"
+                  style={{ wordBreak: 'keep-all' }}
+                >
+                  아랍어 공부
+                </h3>
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                  Google Drive에서 보기
+                </p>
+              </div>
+              <svg
+                className="w-5 h-5 text-gray-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
+              </svg>
+            </div>
+          </a>
+
+          {/* 요르단 스터디 */}
+          <a
+            href="https://drive.google.com/drive/folders/1XmveG8o-xqtwnQLIAkRSPPQ_x_s3p8zE"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block bg-white dark:bg-[#252525] rounded-lg shadow-sm border border-gray-200 dark:border-[#333333] p-4"
+          >
+            <div className="flex items-center justify-between">
+              <div>
+                <h3
+                  className="text-sm font-medium text-gray-900 dark:text-white"
+                  style={{ wordBreak: 'keep-all' }}
+                >
+                  요르단 스터디
+                </h3>
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                  Google Drive에서 보기
+                </p>
+              </div>
+              <svg
+                className="w-5 h-5 text-gray-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
               </svg>
             </div>
           </a>
@@ -102,37 +215,28 @@ function Records() {
           >
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="text-sm font-medium text-gray-900 dark:text-white" style={{ wordBreak: 'keep-all' }}>
+                <h3
+                  className="text-sm font-medium text-gray-900 dark:text-white"
+                  style={{ wordBreak: 'keep-all' }}
+                >
                   사진·영상
                 </h3>
                 <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
                   Google Drive에서 보기
                 </p>
               </div>
-              <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
-            </div>
-          </a>
-
-          {/* 스터디 */}
-          <a
-            href="https://drive.google.com/drive/folders/1XmveG8o-xqtwnQLIAkRSPPQ_x_s3p8zE"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block bg-white dark:bg-[#252525] rounded-lg shadow-sm border border-gray-200 dark:border-[#333333] p-4"
-          >
-            <div className="flex items-center justify-between">
-              <div>
-                <h3 className="text-sm font-medium text-gray-900 dark:text-white" style={{ wordBreak: 'keep-all' }}>
-                  스터디
-                </h3>
-                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                  Google Drive에서 보기
-                </p>
-              </div>
-              <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              <svg
+                className="w-5 h-5 text-gray-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
               </svg>
             </div>
           </a>
@@ -158,8 +262,7 @@ function Records() {
         </>
       )}
     </PageLayout>
-  )
+  );
 }
 
-export default Records
-
+export default Records;
