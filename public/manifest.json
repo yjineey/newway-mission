@@ -5,8 +5,8 @@
   "start_url": "/newway-mission/",
   "scope": "/newway-mission/",
   "display": "standalone",
-  "background_color": "#1a1a1a",
-  "theme_color": "#1a1a1a",
+  "background_color": "#262728",
+  "theme_color": "#262728",
   "orientation": "portrait",
   "id": "/newway-mission/",
   "icons": [
@@ -17,9 +17,9 @@
       "purpose": "any"
     },
     {
-      "src": "/newway-mission/logo/newwaychurch-logo.png",
+      "src": "/newway-mission/logo/newwaychurch-logo.jpg",
       "sizes": "512x512",
-      "type": "image/png",
+      "type": "image/jpeg",
       "purpose": "any"
     }
   ]
