@@ -4,20 +4,20 @@
   "description": "단기선교 준비와 훈련 가이드",
   "start_url": "/newway-mission/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#3b82f6",
+  "background_color": "#171717",
+  "theme_color": "#171717",
   "orientation": "portrait",
   "icons": [
     {
-      "src": "/newway-mission/logo/newwaychurch-logo.jpg",
+      "src": "/newway-mission/logo/newwaychurch-logo.png",
       "sizes": "192x192",
-      "type": "image/jpeg",
+      "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/newway-mission/logo/newwaychurch-logo.jpg",
+      "src": "/newway-mission/logo/newwaychurch-logo.png",
       "sizes": "512x512",
-      "type": "image/jpeg",
+      "type": "image/png",
       "purpose": "any maskable"
     }
   ]
