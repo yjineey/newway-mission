@@ -3,10 +3,12 @@
   "short_name": "NW선교스쿨",
   "description": "단기선교 준비와 훈련 가이드",
   "start_url": "/newway-mission/",
+  "scope": "/newway-mission/",
   "display": "standalone",
-  "background_color": "#1e1e1e",
-  "theme_color": "#1e1e1e",
+  "background_color": "#1a1a1a",
+  "theme_color": "#1a1a1a",
   "orientation": "portrait",
+  "id": "/newway-mission/",
   "icons": [
     {
       "src": "/newway-mission/logo/newwaychurch-logo.png",
