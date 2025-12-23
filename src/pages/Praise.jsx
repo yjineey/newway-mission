@@ -48,6 +48,7 @@ function Praise() {
     {
       id: 2,
       title: '주 예수 안에 | 뉴웨이교회 | 아랍어',
+      youtubeId: 'GKacomQt8yg',
       lyrics: [
         {
           arabic: 'فيك يا يسوع فيك حرية فيك شفاء',
