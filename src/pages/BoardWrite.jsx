@@ -33,6 +33,22 @@ function BoardWrite() {
     { value: 'prayer-requests', label: '중보기도' }
   ]
 
+  // 중보기도 하위 카테고리 옵션
+  const prayerSubCategories = [
+    '기도 무기',
+    '요르단 땅 위한 기도',
+    '선교사님을 위한 중보',
+    '요르단 사역을 위한 중보',
+    // '위사은',
+    // '양진',
+    // '김난영',
+    // '김주은',
+    // '이종철',
+    // '임지원',
+    // '진민하',
+    // '최정원',
+  ]
+
   const handleSubmit = async (formData) => {
     if (isSubmitting) return
     
@@ -46,6 +62,11 @@ function BoardWrite() {
         title: formData.title,
         content: formData.content,
         author: '관리자', // AuthContext에서 가져올 수 있음
+      }
+
+      // 중보기도인 경우 subCategory 추가
+      if ((formData.category || category) === 'prayer-requests' && formData.subCategory) {
+        postData.subCategory = formData.subCategory
       }
 
       const postId = await createPost(postData)
@@ -82,9 +103,11 @@ function BoardWrite() {
         <BoardEditor 
           title={config.title} 
           onSubmit={handleSubmit}
-          initialData={{ title: '', content: '', category }}
+          initialData={{ title: '', content: '', category, subCategory: '' }}
           showCategorySelect={true}
           categories={categoryOptions}
+          showSubCategorySelect={category === 'prayer-requests'}
+          subCategories={prayerSubCategories}
           isSubmitting={isSubmitting}
         />
       </div>
