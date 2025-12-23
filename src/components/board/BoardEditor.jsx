@@ -5,9 +5,11 @@ import { X, Save, Paperclip } from 'lucide-react';
 function BoardEditor({
   title,
   onSubmit,
-  initialData = { title: '', content: '', category: '' },
+  initialData = { title: '', content: '', category: '', subCategory: '' },
   showCategorySelect = true,
   categories = [],
+  subCategories = [],
+  showSubCategorySelect = false,
 }) {
   const navigate = useNavigate();
   const [formData, setFormData] = useState(initialData);
@@ -61,6 +63,34 @@ function BoardEditor({
             {categories.map((cat) => (
               <option key={cat.value} value={cat.value}>
                 {cat.label}
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
+
+      {/* 하위 카테고리 선택 (중보기도 등) */}
+      {showSubCategorySelect && subCategories.length > 0 && (
+        <div>
+          <label
+            htmlFor="subCategory"
+            className="block text-sm font-semibold text-gray-900 dark:text-white mb-2"
+          >
+            기도 대상
+          </label>
+          <select
+            id="subCategory"
+            value={formData.subCategory || ''}
+            onChange={(e) =>
+              setFormData({ ...formData, subCategory: e.target.value })
+            }
+            className="input w-full"
+            required
+          >
+            <option value="">기도 대상을 선택하세요</option>
+            {subCategories.map((subCat) => (
+              <option key={subCat} value={subCat}>
+                {subCat}
               </option>
             ))}
           </select>
