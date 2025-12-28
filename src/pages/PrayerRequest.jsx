@@ -100,7 +100,7 @@ function PrayerRequest() {
 
   // 요르단 팀원 역할 정보 및 공통 기도 설명 (Building.jsx 기반, 정 역할과 부 역할 모두 포함)
   const jordanRoles = {
-    '기도 무기': ['아래 말씀들을 붙잡고 기도해주시기 바랍니다'],
+    '기도 무기': ['기도 무기'],
     '요르단 땅 위한 기도': ['요르단 땅을 위한 기도'],
     '선교사님을 위한 중보': ['선교사님을 위한 중보기도'],
     '요르단 선교팀을 위한 중보': ['요르단 선교팀을 위한 중보기도'],
@@ -168,43 +168,33 @@ function PrayerRequest() {
           {selectedCategory === '기도 무기' ? (
             <div className="bg-white dark:bg-[#252525] rounded-2xl shadow-soft border border-gray-200 dark:border-[#333333] p-6 md:p-8">
               <h3
-                className="text-base font-semibold text-gray-900 dark:text-white mb-2"
+                className="text-base font-semibold text-gray-900 dark:text-white mb-4"
                 style={{ wordBreak: 'keep-all' }}
               >
                 {selectedCategory}
               </h3>
-              {jordanRoles[selectedCategory] &&
-                jordanRoles[selectedCategory].length > 0 && (
-                  <>
-                    <p
-                      className="text-sm text-gray-600 dark:text-gray-400 mb-6"
+              <div className="space-y-4">
+                {prayerWeapons.map((weapon, index) => (
+                  <div key={index}>
+                    <h4
+                      className="text-sm font-semibold text-gray-900 dark:text-white mb-3"
                       style={{ wordBreak: 'keep-all' }}
                     >
-                      {jordanRoles[selectedCategory][0]}
-                    </p>
-                    <div className="border-b border-gray-200 dark:border-[#333333] mb-6"></div>
-                  </>
-                )}
-              {prayerWeapons.map((weapon, index) => (
-                <div key={index}>
-                  <h4
-                    className="text-sm font-semibold text-gray-900 dark:text-white mb-3"
-                    style={{ wordBreak: 'keep-all' }}
-                  >
-                    {weapon.verse}
-                  </h4>
-                  <p
-                    className={`text-xs text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-wrap ${index < prayerWeapons.length - 1 ? 'mb-6' : ''}`}
-                    style={{ wordBreak: 'keep-all' }}
-                    dangerouslySetInnerHTML={{
-                      __html: weapon.text.replace(/\n/g, '<br />'),
-                    }}
-                  />
-                  {index < prayerWeapons.length - 1 && (
-                    <div className="border-b border-gray-200 dark:border-[#333333] mb-6"></div>
-                  )}
-                </div>
-              ))}
+                      {weapon.verse}
+                    </h4>
+                    <p
+                      className="text-xs text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-wrap"
+                      style={{ wordBreak: 'keep-all' }}
+                      dangerouslySetInnerHTML={{
+                        __html: weapon.text.replace(/\n/g, '<br />'),
+                      }}
+                    />
+                    {index < prayerWeapons.length - 1 && (
+                      <div className="border-b border-gray-200 dark:border-[#333333] mt-4"></div>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
           ) : prayerContents[selectedCategory] ? (
             <div className="bg-white dark:bg-[#252525] rounded-2xl shadow-soft border border-gray-200 dark:border-[#333333] p-6 md:p-8">
@@ -281,22 +271,6 @@ function PrayerRequest() {
               >
                 {selectedCategory}
               </h3>
-              {jordanRoles[selectedCategory] &&
-                jordanRoles[selectedCategory].length > 0 && (
-                  <p
-                    className="text-sm text-gray-600 dark:text-gray-400"
-                    style={{ wordBreak: 'keep-all' }}
-                  >
-                    {selectedCategory === '요르단 땅 위한 기도' ||
-                    selectedCategory === '선교사님을 위한 중보' ||
-                    selectedCategory === '요르단 선교팀을 위한 중보' ||
-                    selectedCategory === '요르단 사역을 위한 중보'
-                      ? jordanRoles[selectedCategory]?.[0] || ''
-                      : jordanRoles[selectedCategory]
-                          ?.map((role) => role.replace('(부)', ''))
-                          .join(', ') || ''}
-                  </p>
-                )}
             </div>
           )}
         </>
