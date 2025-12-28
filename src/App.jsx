@@ -23,6 +23,7 @@ import ReadyItems from './pages/Checklist';
 import Praise from './pages/Praise';
 import ChurchInfo from './pages/ChurchInfo';
 import BloodDeclaration from './pages/BloodDeclaration';
+import Arabic from './pages/Arabic';
 import BoardWrite from './pages/BoardWrite';
 import BoardDetail from './pages/BoardDetail';
 import BoardEdit from './pages/BoardEdit';
@@ -71,6 +72,7 @@ function App() {
                   path="/blood-declaration"
                   element={<BloodDeclaration />}
                 />
+                <Route path="/arabic" element={<Arabic />} />
 
                 {/* 로그인 필요한 페이지 */}
                 <Route
