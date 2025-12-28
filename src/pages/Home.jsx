@@ -5,74 +5,11 @@ import { useAuth } from '../context/AuthContext';
 function Home() {
   const { effectiveTeam } = useAuth();
 
-  // 로그인한 사용자(effectiveTeam이 null이 아니면)는 모든 카테고리 표시, 아니면 제한된 카테고리만 표시
-  const filteredGroups = effectiveTeam
-    ? categoryGroups.map((group) => {
-        if (group.id === 'essential') {
-          // 기본정보: 선교스쿨, 훈련지침, 선포기도문, 비상연락망
-          return {
-            ...group,
-            categories: group.categories.filter((cat) =>
-              [
-                'school',
-                'training-schedule',
-                'blood-declaration',
-                'contact',
-              ].includes(cat.id)
-            ),
-          };
-        } else if (group.id === 'team') {
-          // 공동체: 팀빌딩, 회의록, 찬양, 중보기도
-          return {
-            ...group,
-            categories: group.categories.filter((cat) =>
-              ['building', 'records', 'praise', 'prayer-request'].includes(
-                cat.id
-              )
-            ),
-          };
-        }
-        return group;
-      })
-    : categoryGroups
-        .map((group) => {
-          if (group.id === 'essential') {
-            // 기본정보: 선교스쿨, 훈련지침, 선포기도문, 비상연락망
-            return {
-              ...group,
-              categories: group.categories.filter((cat) =>
-                [
-                  'school',
-                  'training-schedule',
-                  'blood-declaration',
-                  'contact',
-                ].includes(cat.id)
-              ),
-            };
-          } else if (group.id === 'team') {
-            // 공동체: 팀빌딩, 회의록, 찬양, 중보기도
-            return {
-              ...group,
-              categories: group.categories.filter((cat) =>
-                ['building', 'records', 'praise', 'prayer-request'].includes(
-                  cat.id
-                )
-              ),
-            };
-          } else if (group.id === 'preparation') {
-            // 준비사항: 준비물, 선교물품, 준비사항
-            return {
-              ...group,
-              categories: group.categories.filter((cat) =>
-                ['preparation', 'items', 'checklist'].includes(cat.id)
-              ),
-            };
-          } else {
-            // 다른 그룹은 표시하지 않음
-            return null;
-          }
-        })
-        .filter((group) => group !== null);
+  // effectiveTeam이 null이면 공동체 그룹 전체 제외, 나머지는 모두 표시
+  const filteredGroups =
+    effectiveTeam === null
+      ? categoryGroups.filter((group) => group.id !== 'team') // null일 때 공동체 그룹 제외
+      : categoryGroups; // effectiveTeam이 있으면 모든 그룹 표시
 
   return (
     <div className="py-8">

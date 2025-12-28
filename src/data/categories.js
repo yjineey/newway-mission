@@ -16,6 +16,7 @@ import {
   ListChecks,
   Flame,
   Cross,
+  Languages,
 } from 'lucide-react';
 
 export const categoryGroups = [
@@ -36,13 +37,6 @@ export const categoryGroups = [
         icon: BookOpen,
         path: '/training-schedule',
         color: 'from-cyan-500 to-teal-500',
-      },
-      {
-        id: 'blood-declaration',
-        name: '선포기도문',
-        icon: Flame,
-        path: '/blood-declaration',
-        color: 'from-orange-500 to-red-500',
       },
       {
         id: 'contact',
@@ -72,11 +66,11 @@ export const categoryGroups = [
         color: 'from-purple-500 to-violet-500',
       },
       {
-        id: 'praise',
-        name: '찬양',
-        icon: Music,
-        path: '/praise',
-        color: 'from-violet-500 to-purple-500',
+        id: 'blood-declaration',
+        name: '선포기도문',
+        icon: Flame,
+        path: '/blood-declaration',
+        color: 'from-orange-500 to-red-500',
       },
       {
         id: 'prayer-request',
@@ -84,6 +78,26 @@ export const categoryGroups = [
         icon: Cross,
         path: '/prayer-request',
         color: 'from-rose-500 to-pink-500',
+      },
+    ],
+  },
+  {
+    id: 'study',
+    label: '스터디',
+    categories: [
+      {
+        id: 'praise',
+        name: '찬양',
+        icon: Music,
+        path: '/praise',
+        color: 'from-violet-500 to-purple-500',
+      },
+      {
+        id: 'arabic',
+        name: '아랍어',
+        icon: Languages,
+        path: '/arabic',
+        color: 'from-emerald-500 to-green-500',
       },
     ],
   },
