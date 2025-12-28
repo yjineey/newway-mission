@@ -19,7 +19,7 @@ import Contact from './pages/Contact';
 import Building from './pages/Building';
 import Preparation from './pages/Preparation';
 import Items from './pages/Items';
-import ReadyItems from './pages/Checklist';
+import Notice from './pages/Notice';
 import Praise from './pages/Praise';
 import ChurchInfo from './pages/ChurchInfo';
 import BloodDeclaration from './pages/BloodDeclaration';
@@ -66,7 +66,7 @@ function App() {
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/preparation" element={<Preparation />} />
                 <Route path="/items" element={<Items />} />
-                <Route path="/checklist" element={<ReadyItems />} />
+                <Route path="/notice" element={<Notice />} />
                 <Route path="/church-info" element={<ChurchInfo />} />
                 <Route
                   path="/blood-declaration"

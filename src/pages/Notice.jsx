@@ -1,8 +1,8 @@
 import PageLayout from '../components/layout/PageLayout';
-import ChecklistTabs from '../components/common/ChecklistTabs';
+import NoticeTabs from '../components/common/NoticeTabs';
 import { useState } from 'react';
 
-function Checklist() {
+function Notice() {
   const [selectedTab, setSelectedTab] = useState('departure');
 
   const renderContent = () => {
@@ -368,11 +368,11 @@ function Checklist() {
                 4
               </div>
               <div className="flex-1">
-                <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
-                  선교지에서는 사용하는 용어와 말에 신경을 써야 합니다
-                </h3>
                 <div className="text-sm text-gray-700 dark:text-gray-300 space-y-2">
-                  <p>- 자신의 감정을 날 것 그대로 표현하지 않습니다.</p>
+                  <p>
+                    선교지에서는 사용하는 용어와 말에 신경을 써야 합니다. 자신의
+                    감정을 날 것 그대로 표현하지 않습니다.
+                  </p>
                   <div className="pl-4 space-y-1">
                     <p>
                       - 목사님: 사장님/대표님, 선교사님: 선생님,
@@ -585,11 +585,11 @@ function Checklist() {
   };
 
   return (
-    <PageLayout title="준비사항" showTeamTabs={false}>
-      <ChecklistTabs selectedTab={selectedTab} onTabChange={setSelectedTab} />
+    <PageLayout title="공지사항" showTeamTabs={false}>
+      <NoticeTabs selectedTab={selectedTab} onTabChange={setSelectedTab} />
       {renderContent()}
     </PageLayout>
   );
 }
 
-export default Checklist;
+export default Notice;

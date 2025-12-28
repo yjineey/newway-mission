@@ -13,7 +13,7 @@ function Preparation() {
   const getSampleData = () => [
     {
       id: 'sample-1',
-      title: '필수 체크리스트',
+      title: '필수',
       content: `• 여권 및 비자 (유효기간 확인)
 • 항공권 (출발/귀국)
 • 여행자 보험 증서
@@ -58,7 +58,7 @@ function Preparation() {
     },
     {
       id: 'sample-4',
-      title: '선교활동용',
+      title: '선교활동',
       content: `• 성경책 (한국어/아랍어)
 • 찬양집
 • 선교 자료

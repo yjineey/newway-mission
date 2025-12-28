@@ -1,4 +1,4 @@
-function ChecklistTabs({ selectedTab, onTabChange }) {
+function NoticeTabs({ selectedTab, onTabChange }) {
   const tabs = [
     { id: 'departure', name: '출발전' },
     { id: 'afterDeparture', name: '출발후' },
@@ -33,5 +33,4 @@ function ChecklistTabs({ selectedTab, onTabChange }) {
   );
 }
 
-export default ChecklistTabs;
-
+export default NoticeTabs;

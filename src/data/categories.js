@@ -39,6 +39,13 @@ export const categoryGroups = [
         color: 'from-cyan-500 to-teal-500',
       },
       {
+        id: 'notice',
+        name: '공지사항',
+        icon: Megaphone,
+        path: '/notice',
+        color: 'from-blue-500 to-cyan-500',
+      },
+      {
         id: 'contact',
         name: '비상연락망',
         icon: PhoneCall,
@@ -118,13 +125,6 @@ export const categoryGroups = [
         icon: Gift,
         path: '/items',
         color: 'from-amber-500 to-yellow-500',
-      },
-      {
-        id: 'checklist',
-        name: '준비사항',
-        icon: CheckSquare,
-        path: '/checklist',
-        color: 'from-blue-500 to-cyan-500',
       },
     ],
   },
