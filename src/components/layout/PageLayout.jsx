@@ -1,7 +1,7 @@
 import TeamTabs from '../common/TeamTabs'
 import { useAuth } from '../../context/AuthContext'
 
-function PageLayout({ title, children, actions, showTeamTabs = false }) {
+function PageLayout({ title, children, actions, showTeamTabs = false, showSample = false }) {
   const { isAdmin } = useAuth()
   
   // 관리자이고 showTeamTabs가 true일 때만 탭 표시
@@ -12,9 +12,18 @@ function PageLayout({ title, children, actions, showTeamTabs = false }) {
       <div className="container mx-auto px-4 max-w-4xl">
         {/* 헤더 */}
         <div className="mb-8 flex items-center justify-between animate-slide-up">
-          <h1 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">
-            {title}
-          </h1>
+          <div className="flex items-center gap-3">
+            <h1 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">
+              {title}
+            </h1>
+            {showSample && (
+              <div className="px-2 py-1 bg-red-100 dark:bg-red-900/20 border border-red-300 dark:border-red-700 rounded text-xs inline-block">
+                <p className="text-xs text-red-800 dark:text-red-200 font-medium">
+                  샘플
+                </p>
+              </div>
+            )}
+          </div>
           {actions && (
             <div className="flex gap-2">
               {actions}

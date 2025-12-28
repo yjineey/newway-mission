@@ -453,7 +453,7 @@ function Arabic() {
   const [selectedContent, setSelectedContent] = useState(arabicContent[0]);
 
   return (
-    <PageLayout title="아랍어" showTeamTabs={true}>
+    <PageLayout title="아랍어" showTeamTabs={true} showSample={true}>
       {selectedTeam === 'jordan' ? (
         <>
           {/* 탭 */}
@@ -491,14 +491,11 @@ function Arabic() {
                 <table className="w-full" style={{ wordBreak: 'keep-all' }}>
                   <thead>
                     <tr className="bg-gray-50 dark:bg-[#2a2a2a]">
-                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 border-b border-gray-200 dark:border-[#333333]">
+                      <th className="px-4 py-3 text-center text-xs font-semibold text-gray-700 dark:text-gray-300 border-b border-gray-200 dark:border-[#333333]">
                         한국어
                       </th>
-                      <th className="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 border-b border-gray-200 dark:border-[#333333]">
+                      <th className="px-4 py-3 text-center text-xs font-semibold text-gray-700 dark:text-gray-300 border-b border-gray-200 dark:border-[#333333]">
                         발음
-                      </th>
-                      <th className="px-4 py-3 text-right text-xs font-semibold text-gray-700 dark:text-gray-300 border-b border-gray-200 dark:border-[#333333]">
-                        아랍어
                       </th>
                     </tr>
                   </thead>
@@ -524,8 +521,8 @@ function Arabic() {
                             {/* 카테고리 헤더 */}
                             <tr className="bg-gray-100 dark:bg-[#2d2d2d]">
                               <td
-                                colSpan={3}
-                                className="px-4 py-2 text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wide"
+                                colSpan={2}
+                                className="px-4 py-2 text-center text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wide"
                               >
                                 {category}
                               </td>
@@ -536,7 +533,7 @@ function Arabic() {
                                 key={`${category}-${index}`}
                                 className="border-b border-gray-200 dark:border-[#333333] hover:bg-gray-50 dark:hover:bg-[#2a2a2a] transition-colors"
                               >
-                                <td className="px-4 py-3 text-sm text-gray-900 dark:text-white font-medium">
+                                <td className="px-4 py-3 text-center text-sm text-gray-900 dark:text-white font-medium">
                                   <div>
                                     {item.korean}
                                     {item.note && (
@@ -546,14 +543,8 @@ function Arabic() {
                                     )}
                                   </div>
                                 </td>
-                                <td className="px-4 py-3 text-sm text-gray-700 dark:text-gray-300">
+                                <td className="px-4 py-3 text-center text-sm text-gray-700 dark:text-gray-300">
                                   {item.pronunciation}
-                                </td>
-                                <td
-                                  className="px-4 py-3 text-sm text-gray-900 dark:text-white text-right font-medium"
-                                  dir="rtl"
-                                >
-                                  {item.arabic}
                                 </td>
                               </tr>
                             ))}
