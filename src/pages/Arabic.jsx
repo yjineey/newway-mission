@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import React from 'react';
 import { useTeam } from '../context/TeamContext';
 import PageLayout from '../components/layout/PageLayout';
 
@@ -10,441 +9,274 @@ function Arabic() {
   const arabicContent = [
     {
       id: 1,
-      title: '인사',
+      title: '👋 인사·기본',
       items: [
         {
-          category: '인사말',
           arabic: 'مرحبا',
           pronunciation: '마르하바',
           korean: '안녕하세요',
         },
         {
-          category: '인사말',
           arabic: 'السلام عليكم',
-          pronunciation: '앗살라무 알라이쿰',
-          korean: '평화가 있기를',
+          pronunciation: '앗살라무 알레이쿰',
+          korean: '평안이 있기를',
         },
         {
-          category: '인사말',
+          arabic: 'وعليكم السلام',
+          pronunciation: '와 알레이쿰 앗살람',
+          korean: '평안이 있기를',
+        },
+        {
+          arabic: 'أهلاً',
+          pronunciation: '아홀란',
+          korean: '안녕하세요',
+        },
+        {
           arabic: 'مع السلامة',
-          pronunciation: '마앗살라마',
+          pronunciation: '마아 살라메',
           korean: '안녕히 가세요',
-        },
-        {
-          category: '감사/사과',
-          arabic: 'شكرا',
-          pronunciation: '슈크란',
-          korean: '감사합니다',
-        },
-        {
-          category: '감사/사과',
-          arabic: 'شكرا جزيلا',
-          pronunciation: '슈크란 자질란',
-          korean: '대단히 감사합니다',
-        },
-        {
-          category: '감사/사과',
-          arabic: 'عفوا',
-          pronunciation: '아프완',
-          korean: '천만에요',
-        },
-        {
-          category: '감사/사과',
-          arabic: 'آسف',
-          pronunciation: '아시프',
-          korean: '미안합니다',
-        },
-        {
-          category: '감사/사과',
-          arabic: 'المعذرة',
-          pronunciation: '알마아즈라',
-          korean: '실례합니다',
         },
       ],
     },
     {
       id: 2,
-      title: '기본 표현',
+      title: '🙇 예의',
       items: [
         {
-          category: '긍정/부정',
-          arabic: 'نعم',
-          pronunciation: '나암',
-          korean: '네',
+          arabic: 'شكراً',
+          pronunciation: '슈크란',
+          korean: '감사합니다',
         },
         {
-          category: '긍정/부정',
-          arabic: 'لا',
-          pronunciation: '라',
-          korean: '아니요',
+          arabic: 'عفواً',
+          pronunciation: '아프완',
+          korean: '천만에요 / 실례합니다',
         },
         {
-          category: '긍정/부정',
-          arabic: 'تمام',
-          pronunciation: '타맘',
-          korean: '괜찮아요 / 좋아요',
-        },
-        {
-          category: '부탁',
-          arabic: 'من فضلك',
-          pronunciation: '민 파들락',
+          arabic: 'لو سمحت',
+          pronunciation: '라우 사마흐트',
           korean: '부탁합니다',
         },
         {
-          category: '부탁',
-          arabic: 'لو سمحت',
-          pronunciation: '루 스마흐트',
-          korean: '실례합니다 (부탁할 때)',
+          arabic: 'آسف',
+          pronunciation: '아세프',
+          korean: '미안합니다',
         },
         {
-          category: '질문',
-          arabic: 'كيفك؟',
-          pronunciation: '케이팍/케이픽',
-          korean: '어떻게 지내?',
+          arabic: 'الله يخليك',
+          pronunciation: '알라 이할릭',
+          korean: '고마워요 진짜',
         },
       ],
     },
     {
       id: 3,
-      title: '사람',
+      title: '😊 상태·반응',
       items: [
         {
-          category: '일반',
-          arabic: 'شخص',
-          pronunciation: '샤흐스',
-          korean: '사람',
+          arabic: 'نعم',
+          pronunciation: '나암',
+          korean: '네',
         },
         {
-          category: '일반',
-          arabic: 'رجل',
-          pronunciation: '라줄',
-          korean: '남자',
+          arabic: 'لا',
+          pronunciation: '라',
+          korean: '아니요',
         },
         {
-          category: '일반',
-          arabic: 'امرأة',
-          pronunciation: '임라아',
-          korean: '여자',
+          arabic: 'تمام',
+          pronunciation: '타맘',
+          korean: '좋아요 / 오케이',
         },
         {
-          category: '일반',
-          arabic: 'طفل',
-          pronunciation: '투풀',
-          korean: '아이',
+          arabic: 'ماشي مشكلة',
+          pronunciation: '마쉬 무슈킬레',
+          korean: '문제없어요',
         },
         {
-          category: '일반',
-          arabic: 'طفلة',
-          pronunciation: '투풀라',
-          korean: '여자 아이',
-        },
-        {
-          category: '가족',
-          arabic: 'أب',
-          pronunciation: '압',
-          korean: '아빠',
-        },
-        {
-          category: '가족',
-          arabic: 'أم',
-          pronunciation: '움',
-          korean: '엄마',
-        },
-        {
-          category: '가족',
-          arabic: 'أخ',
-          pronunciation: '아흐',
-          korean: '형/오빠/동생 (남자)',
-        },
-        {
-          category: '가족',
-          arabic: 'أخت',
-          pronunciation: '우흐트',
-          korean: '누나/언니/동생 (여자)',
-        },
-        {
-          category: '가족',
-          arabic: 'أخ صغير',
-          pronunciation: '아흐 사기르',
-          korean: '남동생',
-        },
-        {
-          category: '가족',
-          arabic: 'أخت صغيرة',
-          pronunciation: '우흐트 사기라',
-          korean: '여동생',
-        },
-        {
-          category: '직업',
-          arabic: 'معلم',
-          pronunciation: '무알림',
-          korean: '선생님',
-        },
-        {
-          category: '직업',
-          arabic: 'طبيب',
-          pronunciation: '타비브',
-          korean: '의사',
-        },
-        {
-          category: '직업',
-          arabic: 'ممرض',
-          pronunciation: '무마리드',
-          korean: '간호사',
-        },
-        {
-          category: '친구',
-          arabic: 'صديق',
-          pronunciation: '사디크',
-          korean: '친구',
+          arabic: 'الحمد لله',
+          pronunciation: '알함둘릴라',
+          korean: '다행이에요 / 감사합니다',
         },
       ],
     },
     {
       id: 4,
-      title: '기본 명사',
+      title: '🗣️ 기본 대화',
       items: [
         {
-          category: '장소',
-          arabic: 'بيت',
-          pronunciation: '바이트',
-          korean: '집',
+          arabic: 'كيفك',
+          pronunciation: '키팍',
+          korean: '잘 지내요',
         },
         {
-          category: '장소',
-          arabic: 'مدرسة',
-          pronunciation: '마드라사',
-          korean: '학교',
+          arabic: 'منيح',
+          pronunciation: '므니흐',
+          korean: '잘 지내요 / 좋아요',
         },
         {
-          category: '물건',
-          arabic: 'ماء',
-          pronunciation: '마아',
-          korean: '물',
+          arabic: 'تشرفت',
+          pronunciation: '타샤라프나',
+          korean: '만나서 반가워요',
         },
         {
-          category: '물건',
-          arabic: 'طعام',
-          pronunciation: '타아암',
-          korean: '음식',
+          arabic: 'اسمي ____',
+          pronunciation: '이스미 ____',
+          korean: '제 이름은 ____예요',
+        },
+        {
+          arabic: 'أنا من كوريا',
+          pronunciation: '아나 민 코리아',
+          korean: '저는 한국에서 왔어요',
         },
       ],
     },
     {
       id: 5,
-      title: '숫자',
+      title: '🧭 길·장소',
       items: [
         {
-          category: '1-10',
-          arabic: 'واحد',
-          pronunciation: '와히드',
-          korean: '1',
+          arabic: 'وين',
+          pronunciation: '웬',
+          korean: '어디',
         },
         {
-          category: '1-10',
-          arabic: 'اثنان',
-          pronunciation: '이쓰난',
-          korean: '2',
+          arabic: 'وين الحمام',
+          pronunciation: '웬 알함맘',
+          korean: '화장실 어디예요',
         },
         {
-          category: '1-10',
-          arabic: 'ثلاثة',
-          pronunciation: '쌀라사',
-          korean: '3',
+          arabic: 'قريب',
+          pronunciation: '까리브',
+          korean: '가까워요',
         },
         {
-          category: '1-10',
-          arabic: 'أربعة',
-          pronunciation: '아르바아',
-          korean: '4',
+          arabic: 'بعيد',
+          pronunciation: '바이드',
+          korean: '멀어요',
         },
         {
-          category: '1-10',
-          arabic: 'خمسة',
-          pronunciation: '함사',
-          korean: '5',
+          arabic: 'يمين',
+          pronunciation: '야민',
+          korean: '오른쪽',
         },
         {
-          category: '1-10',
-          arabic: 'ستة',
-          pronunciation: '씻타',
-          korean: '6',
-        },
-        {
-          category: '1-10',
-          arabic: 'سبعة',
-          pronunciation: '사브아',
-          korean: '7',
-        },
-        {
-          category: '1-10',
-          arabic: 'ثمانية',
-          pronunciation: '싸마니야',
-          korean: '8',
-        },
-        {
-          category: '1-10',
-          arabic: 'تسعة',
-          pronunciation: '티스아',
-          korean: '9',
-        },
-        {
-          category: '1-10',
-          arabic: 'عشرة',
-          pronunciation: '아샤라',
-          korean: '10',
-        },
-        {
-          category: '큰 수',
-          arabic: 'مئة',
-          pronunciation: '미아',
-          korean: '100',
-        },
-        {
-          category: '큰 수',
-          arabic: 'ألف',
-          pronunciation: '알프',
-          korean: '1000',
+          arabic: 'شمال',
+          pronunciation: '샤말',
+          korean: '왼쪽',
         },
       ],
     },
     {
       id: 6,
-      title: '화폐',
+      title: '🍽️ 음식·카페',
       items: [
         {
-          category: '단위',
-          arabic: 'دينار',
-          pronunciation: '디나르',
-          korean: '디나르',
-          note: '1 JD ≈ 1,500원',
+          arabic: 'مي لو سمحت',
+          pronunciation: '마이 라우 사마흐트',
+          korean: '물 주세요',
         },
         {
-          category: '단위',
-          arabic: 'دينار أردني',
-          pronunciation: '디나르 우르두니',
-          korean: '요르단 디나르',
-          note: '1 JD ≈ 1,500원',
+          arabic: 'أكل',
+          pronunciation: '아클',
+          korean: '음식',
         },
         {
-          category: '단위',
-          arabic: 'JD',
-          pronunciation: 'JD',
-          korean: '요르단 디나르 (약자)',
-          note: '1 JD ≈ 1,500원',
+          arabic: 'القائمة لو سمحت',
+          pronunciation: '알 카에메 라우 사마흐트',
+          korean: '메뉴 주세요',
         },
         {
-          category: '보조 단위',
-          arabic: 'قرش',
-          pronunciation: '끄르쉬',
-          korean: '끄르쉬',
-          note: '1 디나르 = 100 끄르쉬 (1 끄르쉬 ≈ 15원)',
+          arabic: 'طيب كثير',
+          pronunciation: '타이예브 크띠르',
+          korean: '진짜 맛있어요',
         },
         {
-          category: '보조 단위',
-          arabic: 'فلس',
-          pronunciation: '필스',
-          korean: '필스',
-          note: '1 끄르쉬 = 10 필스 (1 필스 ≈ 1.5원)',
+          arabic: 'الحساب لو سمحت',
+          pronunciation: '알 히사브 라우 사마흐트',
+          korean: '계산서 주세요',
         },
         {
-          category: '환율 정보',
-          arabic: '1 JD',
-          pronunciation: '와히드 디나르',
-          korean: '1 디나르',
-          note: '≈ 1,500원 (환율 변동)',
+          arabic: 'كم',
+          pronunciation: '깜',
+          korean: '얼마',
         },
         {
-          category: '환율 정보',
-          arabic: '10 JD',
-          pronunciation: '아샤라 디나르',
-          korean: '10 디나르',
-          note: '≈ 15,000원',
-        },
-        {
-          category: '환율 정보',
-          arabic: '100 JD',
-          pronunciation: '미아 디나르',
-          korean: '100 디나르',
-          note: '≈ 150,000원',
+          arabic: 'كم سعره',
+          pronunciation: '깜 싸으루',
+          korean: '이거 얼마예요',
         },
       ],
     },
     {
       id: 7,
-      title: '음식 주문',
+      title: '🚨 도움·긴급',
       items: [
         {
-          category: '기본 표현',
-          arabic: 'قائمة الطعام',
-          pronunciation: '까이마툴 타아암',
-          korean: '메뉴',
+          arabic: 'ساعدني',
+          pronunciation: '사아드니',
+          korean: '도와주세요',
         },
         {
-          category: '기본 표현',
-          arabic: 'أريد',
-          pronunciation: '우리드',
-          korean: '~을 주세요 / ~을 원해요',
+          arabic: 'تعبان',
+          pronunciation: '타아반',
+          korean: '아파요',
         },
         {
-          category: '기본 표현',
-          arabic: 'بدون',
-          pronunciation: '비둔',
-          korean: '~없이 / ~빼고',
+          arabic: 'دكتور',
+          pronunciation: '닥투르',
+          korean: '의사',
         },
         {
-          category: '음식',
-          arabic: 'ماء',
-          pronunciation: '마아',
-          korean: '물',
+          arabic: 'مستشفى',
+          pronunciation: '무스타슈파',
+          korean: '병원',
         },
         {
-          category: '음식',
-          arabic: 'شاي',
-          pronunciation: '샤이',
-          korean: '차',
+          arabic: 'شرطة',
+          pronunciation: '쇼르타',
+          korean: '경찰',
+        },
+      ],
+    },
+    {
+      id: 8,
+      title: '🌱 호감도',
+      items: [
+        {
+          arabic: 'إن شاء الله',
+          pronunciation: '인샬라',
+          korean: '신의 뜻이면',
         },
         {
-          category: '음식',
-          arabic: 'قهوة',
-          pronunciation: '까흐와',
-          korean: '커피',
+          arabic: 'ما شاء الله',
+          pronunciation: '마샬라',
+          korean: '와 좋다',
         },
         {
-          category: '음식',
-          arabic: 'خبز',
-          pronunciation: '흐브즈',
-          korean: '빵',
+          arabic: 'لله معك',
+          pronunciation: '알라 마악',
+          korean: '신이 함께하길',
         },
         {
-          category: '음식',
-          arabic: 'كزبرة',
-          pronunciation: '쿠즈바라',
-          korean: '고수',
+          arabic: 'نحبكم',
+          pronunciation: '느헙쿰',
+          korean: '우리는 여러분을 사랑합니다',
         },
         {
-          category: '음식',
-          arabic: 'كزبرة لو سمحت',
-          pronunciation: '쿠즈바라 루 스마흐트',
-          korean: '고수 주세요',
+          arabic: 'أهلا وسهلاً',
+          pronunciation: '아홀란 와 살란',
+          korean: '환영합니다',
         },
         {
-          category: '음식',
-          arabic: 'بدون كزبرة',
-          pronunciation: '비둔 쿠즈바라',
-          korean: '고수 빼주세요',
+          arabic: 'تفضل',
+          pronunciation: '트파달',
+          korean: '여기요 / 먼저 하세요',
         },
         {
-          category: '계산',
-          arabic: 'الحساب',
-          pronunciation: '알히사브',
-          korean: '계산서',
-        },
-        {
-          category: '계산',
-          arabic: 'الحساب لو سمحت',
-          pronunciation: '알히사브 루 스마흐트',
-          korean: '계산서 주세요',
+          arabic: 'ولا يهمك',
+          pronunciation: '왈라 이힘막',
+          korean: '신경 쓰지 마요',
         },
       ],
     },
@@ -453,7 +285,7 @@ function Arabic() {
   const [selectedContent, setSelectedContent] = useState(arabicContent[0]);
 
   return (
-    <PageLayout title="아랍어" showTeamTabs={true} showSample={true}>
+    <PageLayout title="아랍어" showTeamTabs={true} showSample={false}>
       {selectedTeam === 'jordan' ? (
         <>
           {/* 탭 */}
@@ -485,7 +317,9 @@ function Arabic() {
           {selectedContent ? (
             <div className="mb-6 bg-white dark:bg-[#252525] rounded-lg shadow-sm border border-gray-200 dark:border-[#333333] overflow-hidden">
               <h3 className="text-base font-bold mb-0 px-6 py-4 text-gray-900 dark:text-white border-b border-gray-200 dark:border-[#333333]">
-                {selectedContent.title}
+                {selectedContent.title
+                  .replace(/[\u{1F300}-\u{1F9FF}]/gu, '')
+                  .trim()}
               </h3>
               <div className="overflow-x-auto">
                 <table className="w-full" style={{ wordBreak: 'keep-all' }}>
@@ -497,61 +331,31 @@ function Arabic() {
                       <th className="px-4 py-3 text-center text-xs font-semibold text-gray-700 dark:text-gray-300 border-b border-gray-200 dark:border-[#333333]">
                         발음
                       </th>
+                      <th className="px-4 py-3 text-center text-xs font-semibold text-gray-700 dark:text-gray-300 border-b border-gray-200 dark:border-[#333333]">
+                        아랍어
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
-                    {(() => {
-                      // 카테고리별로 그룹화
-                      const groupedItems = selectedContent.items.reduce(
-                        (acc, item) => {
-                          const category = item.category || '기타';
-                          if (!acc[category]) {
-                            acc[category] = [];
-                          }
-                          acc[category].push(item);
-                          return acc;
-                        },
-                        {}
-                      );
-
-                      // 카테고리별로 렌더링
-                      return Object.entries(groupedItems).map(
-                        ([category, items], categoryIndex) => (
-                          <React.Fragment key={category}>
-                            {/* 카테고리 헤더 */}
-                            <tr className="bg-gray-100 dark:bg-[#2d2d2d]">
-                              <td
-                                colSpan={2}
-                                className="px-4 py-2 text-center text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wide"
-                              >
-                                {category}
-                              </td>
-                            </tr>
-                            {/* 카테고리 항목들 */}
-                            {items.map((item, index) => (
-                              <tr
-                                key={`${category}-${index}`}
-                                className="border-b border-gray-200 dark:border-[#333333] hover:bg-gray-50 dark:hover:bg-[#2a2a2a] transition-colors"
-                              >
-                                <td className="px-4 py-3 text-center text-sm text-gray-900 dark:text-white font-medium">
-                                  <div>
-                                    {item.korean}
-                                    {item.note && (
-                                      <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                                        {item.note}
-                                      </div>
-                                    )}
-                                  </div>
-                                </td>
-                                <td className="px-4 py-3 text-center text-sm text-gray-700 dark:text-gray-300">
-                                  {item.pronunciation}
-                                </td>
-                              </tr>
-                            ))}
-                          </React.Fragment>
-                        )
-                      );
-                    })()}
+                    {selectedContent.items.map((item, index) => (
+                      <tr
+                        key={index}
+                        className="border-b border-gray-200 dark:border-[#333333] hover:bg-gray-50 dark:hover:bg-[#2a2a2a] transition-colors"
+                      >
+                        <td className="px-4 py-3 text-center text-sm text-gray-900 dark:text-white font-medium">
+                          {item.korean}
+                        </td>
+                        <td className="px-4 py-3 text-center text-sm text-gray-700 dark:text-gray-300">
+                          {item.pronunciation}
+                        </td>
+                        <td
+                          className="px-4 py-3 text-center text-sm text-gray-700 dark:text-gray-300"
+                          dir="rtl"
+                        >
+                          {item.arabic}
+                        </td>
+                      </tr>
+                    ))}
                   </tbody>
                 </table>
               </div>
