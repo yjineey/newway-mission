@@ -65,8 +65,55 @@ function Praise() {
     },
     {
       id: 6,
-      title: '나는 주님을 찬양하리라 | 뉴웨이교회',
-      youtubeId: '',
+      title: '예수 우리 왕이여 | 수원하나교회',
+      youtubeId: 'BrM-16I33Zc',
+      lyrics: [
+        {
+          arabic: 'يسوع نتوجك',
+          pronunciation: '야수우 나투위주카',
+          korean: '예수 우리 왕이여 이땅에 오셔서',
+        },
+        {
+          arabic: 'نعلن ملكك',
+          pronunciation: '누일누 말리카',
+          korean: '찬양을 받아주시옵소서',
+        },
+        {
+          arabic: 'تعال الآن في وسطنا',
+          pronunciation: '타알 알아나 피 와사트나',
+          korean: '주님을 찬양하오니',
+        },
+        {
+          arabic: 'ولتعلو وسط سبحنا',
+          pronunciation: '왈타알루 와사트 사브하나',
+          korean: '주님을 경배하오니',
+        },
+        {
+          arabic: 'تعبدك قلوبنا',
+          pronunciation: '타부두카 쿨루부나',
+          korean: '주님을 찬양하오니',
+        },
+        {
+          arabic: 'يرفعك سجودنا',
+          pronunciation: '야르파우카 수주두나',
+          korean: '주님을 경배하오니',
+        },
+        {
+          arabic: 'يلذ لك تسبيحنا',
+          pronunciation: '야즈다 라카 타스비후나',
+          korean: '주님을 찬양하오니',
+        },
+        {
+          arabic: 'فتعال وخذ مجدك',
+          pronunciation: '파타알 와후즈 마즈다카',
+          korean: '왕이신 예수여 오소서',
+        },
+      ],
+    },
+    {
+      id: 7,
+      title: '나는 주님을 찬양하리라 + 예수 우리 왕이여 | 뉴웨이교회',
+      youtubeId: 'Kon8vxVpkVM',
       lyrics: [
         {
           arabic: 'أشدو للملك إلهي',
@@ -102,6 +149,46 @@ function Praise() {
           arabic: 'سيدي',
           pronunciation: '아아 부두카',
           korean: '경배하리',
+        },
+        {
+          arabic: 'يسوع نتوجك',
+          pronunciation: '야수우 나투위주카',
+          korean: '예수 우리 왕이여 이땅에 오셔서',
+        },
+        {
+          arabic: 'نعلن ملكك',
+          pronunciation: '누일누 말리카',
+          korean: '찬양을 받아주시옵소서',
+        },
+        {
+          arabic: 'تعال الآن في وسطنا',
+          pronunciation: '타알 알아나 피 와사트나',
+          korean: '주님을 찬양하오니',
+        },
+        {
+          arabic: 'ولتعلو وسط سبحنا',
+          pronunciation: '왈타알루 와사트 사브하나',
+          korean: '주님을 경배하오니',
+        },
+        {
+          arabic: 'تعبدك قلوبنا',
+          pronunciation: '타부두카 쿨루부나',
+          korean: '주님을 찬양하오니',
+        },
+        {
+          arabic: 'يرفعك سجودنا',
+          pronunciation: '야르파우카 수주두나',
+          korean: '주님을 경배하오니',
+        },
+        {
+          arabic: 'يلذ لك تسبيحنا',
+          pronunciation: '야즈다 라카 타스비후나',
+          korean: '주님을 찬양하오니',
+        },
+        {
+          arabic: 'فتعال وخذ مجدك',
+          pronunciation: '파타알 와후즈 마즈다카',
+          korean: '왕이신 예수여 오소서',
         },
       ],
     },
@@ -400,7 +487,7 @@ function Praise() {
   );
 
   return (
-    <PageLayout title="찬양" showTeamTabs={true}>
+    <PageLayout title="찬양 | 아랍어" showTeamTabs={true}>
       {selectedTeam === 'jordan' ? (
         <>
           {/* 셀렉트 박스 */}
@@ -418,11 +505,24 @@ function Praise() {
               className="w-full px-4 py-3 bg-white dark:bg-[#252525] rounded-lg shadow-sm border border-gray-200 dark:border-[#333333] text-sm font-medium text-gray-900 dark:text-white appearance-none cursor-pointer hover:bg-gray-50 dark:hover:bg-[#2d2d2d] transition-colors"
               style={{ wordBreak: 'keep-all' }}
             >
-              {praiseList.map((praise) => (
-                <option key={praise.id} value={praise.id}>
-                  {praise.title}
-                </option>
-              ))}
+              <optgroup label="수원하나교회">
+                {praiseList
+                  .filter((praise) => praise.title.includes('수원하나교회'))
+                  .map((praise) => (
+                    <option key={praise.id} value={praise.id}>
+                      {praise.title.replace(' | 수원하나교회', '')}
+                    </option>
+                  ))}
+              </optgroup>
+              <optgroup label="뉴웨이교회">
+                {praiseList
+                  .filter((praise) => praise.title.includes('뉴웨이교회'))
+                  .map((praise) => (
+                    <option key={praise.id} value={praise.id}>
+                      {praise.title.replace(' | 뉴웨이교회', '')}
+                    </option>
+                  ))}
+              </optgroup>
             </select>
             <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
               <ChevronDown className="w-5 h-5 text-gray-500 dark:text-gray-400" />
@@ -459,19 +559,24 @@ function Praise() {
                   style={{ wordBreak: 'keep-all' }}
                 >
                   {selectedPraise.lyrics.map((lyric, index) => (
-                    <div key={index} className="space-y-2">
-                      <p className="text-gray-600 dark:text-gray-400">
-                        {lyric.korean}
-                      </p>
-                      <p className="text-gray-800 dark:text-white">
-                        {lyric.pronunciation}
-                      </p>
-                      <p
-                        className="text-gray-600 dark:text-gray-400 text-right"
-                        dir="rtl"
-                      >
-                        {lyric.arabic}
-                      </p>
+                    <div key={index}>
+                      {selectedPraise.id === 7 && index === 7 && (
+                        <div className="my-6 border-t border-gray-300 dark:border-[#444444]"></div>
+                      )}
+                      <div className="space-y-2">
+                        <p className="text-gray-600 dark:text-gray-400">
+                          {lyric.korean}
+                        </p>
+                        <p className="text-gray-800 dark:text-white">
+                          {lyric.pronunciation}
+                        </p>
+                        <p
+                          className="text-gray-600 dark:text-gray-400 text-right"
+                          dir="rtl"
+                        >
+                          {lyric.arabic}
+                        </p>
+                      </div>
                     </div>
                   ))}
                 </div>
