@@ -49,9 +49,10 @@ export const iconMap = {
 export const getIcon = (iconName) => {
   const Icon = iconMap[iconName];
   if (!Icon) {
-    console.warn(`아이콘을 찾을 수 없습니다: ${iconName}. 기본 아이콘을 사용합니다.`);
+    console.warn(
+      `아이콘을 찾을 수 없습니다: ${iconName}. 기본 아이콘을 사용합니다.`
+    );
     return iconMap.Heart; // 기본 아이콘
   }
   return Icon;
 };
-

@@ -5,6 +5,7 @@
 2개 팀(이집트, 요르단)의 선교 준비 및 정보 공유를 위한 모바일 우선 웹 애플리케이션
 
 ### 주요 기능
+
 - **팀별 콘텐츠 관리**: 이집트, 요르단 팀 분리
 - **11개 카테고리**: 기본정보(4), 공동체(4), 준비사항(3)
 - **실시간 업데이트**: Firebase 기반 동적 데이터
@@ -14,16 +15,17 @@
 - **모바일 우선**: 반응형 디자인, 하단 네비게이션
 
 ### 기술 스택
+
 - Frontend: React + Vite + Tailwind CSS
 - Backend: Firebase (Firestore, Storage, Auth)
 - Icons: Lucide React
 - Deploy: GitHub Pages
 
 ### 인증
+
 - **관리자 인증**: 비밀번호 기반 (`newway2025`)
 - **권한**: 게시글 작성/수정/삭제
 
 ---
 
 상세한 구조와 카테고리 정보는 [PROJECT_STRUCTURE.md](./PROJECT_STRUCTURE.md)를 참고하세요.
-

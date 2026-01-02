@@ -41,29 +41,35 @@
 ## 페이지 컴포넌트 (`pages/`)
 
 ### 메인
+
 - `Home.jsx`: 카테고리 그리드 (12개 카테고리, 3개 그룹)
 
 ### 기본정보
+
 - `School.jsx`: 선교스쿨
 - `Schedule.jsx`: 선교일정
 - `TrainingSchedule.jsx`: 훈련일정 (기도훈련/말씀훈련 탭)
 - `Contact.jsx`: 비상연락망
 
 ### 공동체
+
 - `Building.jsx`: 팀빌딩
 - `Records.jsx`: 회의록 리스트
 - `Praise.jsx`: 찬양 리스트
 - `PrayerRequest.jsx`: 중보기도 리스트
 
 ### 준비사항
+
 - `Preparation.jsx`: 준비물 리스트
 - `Items.jsx`: 선교물품 리스트
 - `Checklist.jsx`: 준비사항 체크리스트
 
 ### 기타
+
 - `ChurchInfo.jsx`: 교회 소개
 
 ### 게시판 CRUD (공통)
+
 - `BoardWrite.jsx`: 글쓰기 페이지 (카테고리별 공통)
 - `BoardDetail.jsx`: 상세보기 페이지 (카테고리별 공통)
 - `BoardEdit.jsx`: 편집 페이지 (카테고리별 공통)
