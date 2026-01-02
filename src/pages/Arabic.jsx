@@ -13,19 +13,20 @@ function Arabic() {
       items: [
         {
           arabic: 'مرحبا',
-          pronunciation: '마르하바',
+          pronunciation: '마르하반\n(종교적 의미 없음)',
           korean: '안녕하세요',
         },
         {
           arabic: 'السلام عليكم',
-          pronunciation: '앗살라무 알레이쿰',
-          korean: '평안이 있기를',
+          pronunciation: '앗쌀라-무 알라이꿈\n(이슬람 인사)',
+          korean: '안녕하세요(평안이 있기를)',
         },
         {
           arabic: 'وعليكم السلام',
-          pronunciation: '와 알레이쿰 앗살람',
-          korean: '평안이 있기를',
+          pronunciation: '와 알라이꾸무ㅅ 쌀람',
+          korean: '안녕하세요 (답어)',
         },
+
         {
           arabic: 'أهلاً',
           pronunciation: '아홀란',
@@ -33,8 +34,18 @@ function Arabic() {
         },
         {
           arabic: 'مع السلامة',
-          pronunciation: '마아 살라메',
+          pronunciation: '마아 쌀라-마',
           korean: '안녕히 가세요',
+        },
+        {
+          arabic: 'صباح الخير',
+          pronunciation: '싸바힐 키-르',
+          korean: '좋은 아침이에요',
+        },
+        {
+          arabic: 'صباح النور',
+          pronunciation: '싸바힐 누-르',
+          korean: '좋은 아침이에요 (답어)',
         },
       ],
     },
@@ -45,12 +56,12 @@ function Arabic() {
         {
           arabic: 'شكراً',
           pronunciation: '슈크란',
-          korean: '감사합니다',
+          korean: '감사합니다/고맙습니다',
         },
         {
           arabic: 'عفواً',
-          pronunciation: '아프완',
-          korean: '천만에요 / 실례합니다',
+          pronunciation: '아프(f)완',
+          korean: '고맙습니다 (답어)',
         },
         {
           arabic: 'لو سمحت',
@@ -59,8 +70,13 @@ function Arabic() {
         },
         {
           arabic: 'آسف',
-          pronunciation: '아세프',
-          korean: '미안합니다',
+          pronunciation: '아-쓰ㅍ',
+          korean: '미안합니다(남자)',
+        },
+        {
+          arabic: 'آسفة',
+          pronunciation: '아- 쓰파',
+          korean: '미안합니다(여자)',
         },
         {
           arabic: 'الله يخليك',
@@ -73,6 +89,11 @@ function Arabic() {
       id: 3,
       title: '😊 상태·반응',
       items: [
+        {
+          arabic: 'ايوه',
+          pronunciation: '아이와',
+          korean: '예',
+        },
         {
           arabic: 'نعم',
           pronunciation: '나암',
@@ -126,7 +147,7 @@ function Arabic() {
         },
         {
           arabic: 'أنا من كوريا',
-          pronunciation: '아나 민 코리아',
+          pronunciation: '아나-민 꾸리야',
           korean: '저는 한국에서 왔어요',
         },
       ],
@@ -284,6 +305,85 @@ function Arabic() {
 
   const [selectedContent, setSelectedContent] = useState(arabicContent[0]);
 
+  // 학습 이미지 데이터 (categoryId는 arabicContent의 id와 매핑, 테이블 순서대로 정렬)
+  const arabicImages = [
+    // 인사·기본 (categoryId: 1) - 테이블 순서대로
+    {
+      id: 1,
+      categoryId: 1,
+      image: `${import.meta.env.BASE_URL}images/arabic/assalamu-alaykum.jpg`,
+      title: '평안이 있기를',
+      korean: '안녕하세요(평안이 있기를)',
+    },
+    {
+      id: 2,
+      categoryId: 1,
+      image: `${import.meta.env.BASE_URL}images/arabic/wa-alaykum-assalam.jpg`,
+      title: '안녕하세요 (답어)',
+      korean: '안녕하세요 (답어)',
+    },
+    {
+      id: 3,
+      categoryId: 1,
+      image: `${import.meta.env.BASE_URL}images/arabic/ma-salama.jpg`,
+      title: '안녕히 가세요',
+      korean: '안녕히 가세요',
+    },
+    {
+      id: 4,
+      categoryId: 1,
+      image: `${import.meta.env.BASE_URL}images/arabic/subah-al-khair.jpg`,
+      title: '좋은 아침이에요',
+      korean: '좋은 아침이에요',
+    },
+    {
+      id: 5,
+      categoryId: 1,
+      image: `${import.meta.env.BASE_URL}images/arabic/sabah-an-noor.jpg`,
+      title: '좋은 아침이에요 (답어)',
+      korean: '좋은 아침이에요 (답어)',
+    },
+    // 예의 (categoryId: 2) - 테이블 순서대로
+
+    {
+      id: 8,
+      categoryId: 2,
+      image: `${import.meta.env.BASE_URL}images/arabic/asf.jpg`,
+      title: '미안합니다',
+      korean: '미안합니다(남자)',
+    },
+    {
+      id: 9,
+      categoryId: 2,
+      image: `${import.meta.env.BASE_URL}images/arabic/asfa.jpg`,
+      title: '미안합니다 (여자)',
+      korean: '미안합니다(여자)',
+    },
+    // 상태·반응 (categoryId: 3) - 테이블 순서대로
+    {
+      id: 10,
+      categoryId: 3,
+      image: `${import.meta.env.BASE_URL}images/arabic/aiwa.jpeg`,
+      title: '예',
+      korean: '예',
+    },
+    {
+      id: 11,
+      categoryId: 3,
+      image: `${import.meta.env.BASE_URL}images/arabic/la.jpeg`,
+      title: '아니요',
+      korean: '아니요',
+    },
+    // 기본 대화 (categoryId: 4) - 테이블 순서대로
+    {
+      id: 12,
+      categoryId: 4,
+      image: `${import.meta.env.BASE_URL}images/arabic/korea.jpeg`,
+      title: '저는 한국에서 왔어요',
+      korean: '저는 한국에서 왔어요',
+    },
+  ];
+
   return (
     <PageLayout title="아랍어" showTeamTabs={true} showSample={false}>
       {selectedTeam === 'jordan' ? (
@@ -345,7 +445,7 @@ function Arabic() {
                         <td className="px-4 py-3 text-center text-sm text-gray-900 dark:text-white font-medium">
                           {item.korean}
                         </td>
-                        <td className="px-4 py-3 text-center text-sm text-gray-700 dark:text-gray-300">
+                        <td className="px-4 py-3 text-center text-sm text-gray-700 dark:text-gray-300 whitespace-pre-line">
                           {item.pronunciation}
                         </td>
                         <td
@@ -365,6 +465,57 @@ function Arabic() {
               콘텐츠를 선택해주세요
             </div>
           )}
+
+          {/* 학습 이미지 그리드 */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {selectedContent?.items
+              .map((item) => {
+                // 테이블 항목과 매칭되는 이미지 찾기
+                const matchedImage = arabicImages.find(
+                  (img) =>
+                    img.categoryId === selectedContent.id &&
+                    img.korean === item.korean
+                );
+                return matchedImage ? { ...matchedImage, item } : null;
+              })
+              .filter((img) => img !== null)
+              .map((img) => (
+                <div
+                  key={`${img.id}-${img.item.korean}`}
+                  className="bg-white dark:bg-[#252525] rounded-lg shadow-sm border border-gray-200 dark:border-[#333333] overflow-hidden hover:shadow-md transition-shadow"
+                >
+                  <div className="aspect-video bg-gray-100 dark:bg-[#2a2a2a] relative overflow-hidden flex items-center justify-center">
+                    <img
+                      src={img.image}
+                      alt={img.title}
+                      className="w-full h-full object-contain"
+                      loading="lazy"
+                      onError={(e) => {
+                        console.error('이미지 로드 실패:', img.image);
+                        e.target.style.display = 'none';
+                        const errorDiv =
+                          e.target.parentElement?.querySelector('.image-error');
+                        if (errorDiv) {
+                          errorDiv.classList.remove('hidden');
+                          errorDiv.classList.add('flex');
+                        }
+                      }}
+                      onLoad={() => {
+                        console.log('이미지 로드 성공:', img.image);
+                      }}
+                    />
+                    <div className="hidden image-error absolute inset-0 w-full h-full items-center justify-center text-gray-400 dark:text-gray-500 text-xs bg-gray-100 dark:bg-[#2a2a2a]">
+                      이미지 없음
+                    </div>
+                  </div>
+                  <div className="px-3 py-2 text-center">
+                    <p className="text-xs text-gray-700 dark:text-gray-300 font-medium">
+                      {img.item.korean}
+                    </p>
+                  </div>
+                </div>
+              ))}
+          </div>
         </>
       ) : (
         <div className="bg-white dark:bg-[#252525] rounded-lg shadow-sm border border-gray-200 dark:border-[#333333] p-8 text-center text-gray-500 dark:text-gray-400 text-sm">
